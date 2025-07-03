@@ -58,7 +58,7 @@ export default function OpportunitiesPage() {
                         <div className="space-y-8">
                             <div className="space-y-6">
                                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                                    We provide catalytic capital and tailored enterprise support to women-led and women-owned MSMEs across Sub-Saharan Africa. Whether you're just starting out or scaling a growth-stage venture, our funds, advisory services, and network access are designed to help your business thrive.
+                                    We provide catalytic capital and tailored enterprise support to women-led and women-owned MSMEs across Sub-Saharan Africa. Whether you&apos;re just starting out or scaling a growth-stage venture, our funds, advisory services, and network access are designed to help your business thrive.
                                 </p>
 
                                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">

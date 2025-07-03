@@ -3,7 +3,7 @@
 export const storage = {
   // localStorage methods
   local: {
-    set: (key: string, value: any): void => {
+    set: (key: string, value: unknown): void => {
       try {
         localStorage.setItem(key, JSON.stringify(value));
       } catch (error) {
@@ -40,7 +40,7 @@ export const storage = {
 
   // sessionStorage methods
   session: {
-    set: (key: string, value: any): void => {
+    set: (key: string, value: unknown): void => {
       try {
         sessionStorage.setItem(key, JSON.stringify(value));
       } catch (error) {

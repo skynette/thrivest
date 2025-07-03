@@ -1,8 +1,12 @@
 // API client configuration with axios
 
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig, AxiosError } from 'axios';
 import { API_BASE_URL, API_CONFIG } from '@/constants/api';
 import type { ApiResponse } from '@/types/common';
+
+interface RetryableAxiosRequestConfig extends InternalAxiosRequestConfig {
+  _retry?: boolean;
+}
 
 class ApiClient {
   private client: AxiosInstance;
@@ -22,7 +26,7 @@ class ApiClient {
   private setupInterceptors() {
     // Request interceptor
     this.client.interceptors.request.use(
-      (config: any) => {
+      (config: InternalAxiosRequestConfig) => {
         // Add auth token if available
         const token = this.getAuthToken();
         if (token) {
@@ -30,7 +34,7 @@ class ApiClient {
         }
         return config;
       },
-      (error: any) => {
+      (error: unknown) => {
         return Promise.reject(error);
       }
     );
@@ -40,17 +44,17 @@ class ApiClient {
       (response: AxiosResponse) => {
         return response;
       },
-      async (error: any) => {
-        const originalRequest = error.config;
+      async (error: AxiosError) => {
+        const originalRequest = error.config as RetryableAxiosRequestConfig;
 
         // Handle 401 unauthorized errors
-        if (error.response?.status === 401 && !originalRequest._retry) {
+        if (error.response?.status === 401 && originalRequest && !originalRequest._retry) {
           originalRequest._retry = true;
           
           try {
             await this.refreshToken();
             const token = this.getAuthToken();
-            if (token) {
+            if (token && originalRequest.headers) {
               originalRequest.headers.Authorization = `Bearer ${token}`;
             }
             return this.client(originalRequest);
@@ -97,17 +101,17 @@ class ApiClient {
     return response.data;
   }
 
-  async post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<ApiResponse<T>> {
+  async post<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> {
     const response = await this.client.post(url, data, config);
     return response.data;
   }
 
-  async put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<ApiResponse<T>> {
+  async put<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> {
     const response = await this.client.put(url, data, config);
     return response.data;
   }
 
-  async patch<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<ApiResponse<T>> {
+  async patch<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<ApiResponse<T>> {
     const response = await this.client.patch(url, data, config);
     return response.data;
   }

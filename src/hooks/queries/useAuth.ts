@@ -1,7 +1,6 @@
 // Authentication-related React Query hooks
 
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { authService } from '@/services/api/auth';
 import { usersService } from '@/services/api/users';
 import { QUERY_KEYS, API_CONFIG } from '@/constants/api';
 import type { User } from '@/types/common';

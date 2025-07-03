@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/carousel";
 
 export const PartnersSection: React.FC = () => {
-    const [api, setApi] = useState<CarouselApi>();
+    const [, setApi] = useState<CarouselApi>();
 
     // Placeholder for partner logos - replace with actual partner data
     const partners = [

@@ -81,7 +81,7 @@ export default function AboutPage() {
                             </div>
                             <div className="flex-1 bg-white/90 p-8 rounded-lg shadow-lg">
                                 <p className="text-gray-700 leading-relaxed">
-                                    To become Africa's leading impact investment platform focused on women-led and women-owned businesses across key economic sectors, positioning ourselves as a catalyst for change in gender equality and entrepreneurship.
+                                    To become Africa&apos;s leading impact investment platform focused on women-led and women-owned businesses across key economic sectors, positioning ourselves as a catalyst for change in gender equality and entrepreneurship.
                                 </p>
                             </div>
                         </div>

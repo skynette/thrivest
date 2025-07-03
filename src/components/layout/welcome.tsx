@@ -46,7 +46,7 @@ export const WelcomeSection: React.FC = () => {
                 </p>
                 
                 <p className="text-sm md:text-base leading-relaxed text-gray-700">
-                  At ThriVest Africa, we are passionate about creating lasting impact through authentic partnerships. With integrity, innovation, and excellence at our core, we serve the underserved, invest in overlooked potential, and unlock the transformative power of women to shape Africa's future.
+                  At ThriVest Africa, we are passionate about creating lasting impact through authentic partnerships. With integrity, innovation, and excellence at our core, we serve the underserved, invest in overlooked potential, and unlock the transformative power of women to shape Africa&apos;s future.
                 </p>
               </div>
             </div>

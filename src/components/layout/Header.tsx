@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import Link from 'next/link';
 
 export const Header: React.FC = () => {
     const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
@@ -33,19 +34,19 @@ export const Header: React.FC = () => {
                                 Investing in the Potential,
                             </p>
                             <p className="text-[10px] text-gray-300 -mt-1">
-                                Ensuring Africa's Future
+                                Ensuring Africa&apos;s Future
                             </p>
                         </div>
                     </div>
 
                     {/* Navigation */}
                     <nav className="hidden xl:flex items-center space-x-1">
-                        <a
+                        <Link
                             href="/"
                             className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
                         >
                             HOME
-                        </a>
+                        </Link>
 
                         {/* About Us Dropdown */}
                         <div className="relative">
@@ -169,13 +170,13 @@ export const Header: React.FC = () => {
                 {isMobileMenuOpen && (
                     <div className="xl:hidden absolute top-full left-0 right-0 bg-[#1e3a5f] shadow-lg z-50">
                         <nav className="flex flex-col py-4">
-                            <a
+                            <Link
                                 href="/"
                                 className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 HOME
-                            </a>
+                            </Link>
 
                             {/* Mobile About Dropdown */}
                             <div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
                             <h3 className="text-2xl font-bold">ThriVest</h3>
                             <h3 className="text-2xl font-bold -mt-1">Africa</h3>
                             <p className="text-xs text-gray-300 mt-1">
-                                ...Investing in her Potentials, Powering Africa's Future
+                                ...Investing in her Potentials, Powering Africa&apos;s Future
                             </p>
                         </div>
 
