@@ -50,7 +50,7 @@ export const HeroSection: React.FC = () => {
     }, [api]);
 
     return (
-        <section className="relative h-[calc(100vh-80px)] overflow-hidden"> {/* Subtract header height */}
+        <section className="relative h-screen min-h-screen overflow-hidden"> {/* Full viewport height */}
             {/* Carousel Background */}
             <Carousel
                 setApi={setApi}
@@ -62,22 +62,23 @@ export const HeroSection: React.FC = () => {
             >
                 <CarouselContent className="h-full -ml-0">
                     {slides.map((slide, index) => (
-                        <CarouselItem key={index} className="pl-0 h-full">
-                            <div className="relative w-full h-full">
+                        <CarouselItem key={index} className="pl-0 h-full min-h-screen">
+                            <div className="relative w-full h-full min-h-screen bg-gradient-to-br from-blue-600 to-blue-800">
                                 {/* Using img tag for better debugging */}
                                 <img
                                     src={slide.src}
                                     alt={slide.alt}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full min-h-screen object-cover object-center"
+                                    style={{ 
+                                        minHeight: '100vh', 
+                                        minWidth: '100%',
+                                        height: '100vh'
+                                    }}
                                     onError={(e) => {
                                         console.error(`Failed to load image: ${slide.src}`);
                                         // Fallback to a solid color if image fails to load
                                         e.currentTarget.style.display = 'none';
                                     }}
-                                />
-                                {/* Fallback background */}
-                                <div
-                                    className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-600 to-blue-800"
                                 />
                             </div>
                         </CarouselItem>
