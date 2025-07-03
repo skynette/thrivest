@@ -90,7 +90,7 @@ export const HeroSection: React.FC = () => {
             </Carousel>
 
             {/* Light overlay for text visibility */}
-            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+            <div className="absolute inset-0 bg-black/20"></div>
 
             {/* Hero Content - Centered */}
             <div className="relative z-10 h-full flex items-center justify-center px-4">
