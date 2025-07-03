@@ -63,7 +63,7 @@ export const HeroSection: React.FC = () => {
                 <CarouselContent className="h-full -ml-0">
                     {slides.map((slide, index) => (
                         <CarouselItem key={index} className="pl-0 h-full min-h-screen">
-                            <div className="relative w-full h-full min-h-screen bg-gradient-to-br from-blue-600 to-blue-800">
+                            <div className="relative w-full h-full min-h-screen bg-[#1e3a5f]">
                                 {/* Using img tag for better debugging */}
                                 <img
                                     src={slide.src}
