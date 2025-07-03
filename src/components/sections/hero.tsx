@@ -89,8 +89,8 @@ export const HeroSection: React.FC = () => {
                 <CarouselNext className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white border-0 h-10 w-10 sm:h-12 sm:w-12" />
             </Carousel>
 
-            {/* Dark overlay for text visibility */}
-            <div className="absolute inset-0 bg-[#1e3a5f]/70 backdrop-blur-sm"></div>
+            {/* Light overlay for text visibility */}
+            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
 
             {/* Hero Content - Centered */}
             <div className="relative z-10 h-full flex items-center justify-center px-4">
