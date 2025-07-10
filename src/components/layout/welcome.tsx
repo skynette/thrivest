@@ -1,13 +1,18 @@
+import Image from 'next/image';
+
 export const WelcomeSection: React.FC = () => {
     return (
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
-          <img 
-            src="/images/welcome.jpg" 
-            alt="Welcome Background"
-            className="w-full h-full object-cover"
-          />
+          <div className="relative w-full h-full">
+            <Image 
+              src="/images/welcome.jpg" 
+              alt="Welcome Background"
+              fill
+              className="object-cover"
+            />
+          </div>
           <div className="absolute inset-0"></div>
         </div>
         

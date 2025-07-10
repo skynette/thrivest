@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function OpportunitiesPage() {
     return (
@@ -13,10 +14,12 @@ export default function OpportunitiesPage() {
             <section className="relative h-64 overflow-hidden">
                 {/* Background with application portal image */}
                 <div className="absolute inset-0">
-                    <img
+                    <Image  
                         src="/images/application portal bg.jpg"
                         alt="Application Portal Background"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        priority
                     />
                     <div className="absolute inset-0 bg-blue-600/70"></div>
                 </div>
@@ -79,10 +82,11 @@ export default function OpportunitiesPage() {
                         <div className="relative">
                             <div className="bg-[#1e3a5f] rounded-3xl p-8 lg:p-12 shadow-2xl">
                                 <div className="rounded-2xl overflow-hidden shadow-2xl">
-                                    <img
+                                    <Image
                                         src="/images/Slide 1.jpg"
                                         alt="Business opportunity showcase"
-                                        className="w-full h-auto object-cover"
+                                        fill
+                                        className="object-cover"
                                     />
                                 </div>
                             </div>

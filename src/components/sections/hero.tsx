@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import {
     Carousel,
     CarouselContent,
@@ -64,22 +65,20 @@ export const HeroSection: React.FC = () => {
                     {slides.map((slide, index) => (
                         <CarouselItem key={index} className="pl-0 h-full min-h-screen">
                             <div className="relative w-full h-full min-h-screen bg-[#1e3a5f]">
-                                {/* Using img tag for better debugging */}
-                                <img
-                                    src={slide.src}
-                                    alt={slide.alt}
-                                    className="w-full h-full min-h-screen object-cover object-center"
-                                    style={{ 
-                                        minHeight: '100vh', 
-                                        minWidth: '100%',
-                                        height: '100vh'
-                                    }}
-                                    onError={(e) => {
-                                        console.error(`Failed to load image: ${slide.src}`);
-                                        // Fallback to a solid color if image fails to load
-                                        e.currentTarget.style.display = 'none';
-                                    }}
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={slide.src}
+                                        alt={slide.alt}
+                                        fill
+                                        className="object-cover object-center"
+                                        priority={index === 0}
+                                        quality={90}
+                                        onError={(e) => {
+                                            console.error(`Failed to load image: ${slide.src}`);
+                                            // Handle error state if needed
+                                        }}
+                                    />
+                                </div>
                             </div>
                         </CarouselItem>
                     ))}

@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Eye, Target } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutPage() {
     const coreValues = [
@@ -39,10 +40,12 @@ export default function AboutPage() {
             <section className="relative h-64 overflow-hidden">
                 {/* Background with breadcrumb image */}
                 <div className="absolute inset-0">
-                    <img
+                    <Image
                         src="/images/about us/breadcrumb bg.jpg"
                         alt="About Us Background"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        priority
                     />
                     <div className="absolute inset-0 bg-black/20"></div>
                 </div>
@@ -61,10 +64,11 @@ export default function AboutPage() {
             <section className="relative py-16 overflow-hidden">
                 {/* Background with text area image */}
                 <div className="absolute inset-0">
-                    <img
+                    <Image
                         src="/images/about us/text area.jpg"
                         alt="Text Area Background"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                     />
                     <div className="absolute inset-0 bg-white/0"></div>
                 </div>
@@ -108,10 +112,11 @@ export default function AboutPage() {
             <section className="relative py-16 overflow-hidden">
                 {/* Background with core values image */}
                 <div className="absolute inset-0">
-                    <img
+                    <Image
                         src="/images/about us/corevalues.jpg"
                         alt="Core Values Background"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                     />
                     <div className="absolute inset-0 bg-white/0"></div>
                 </div>

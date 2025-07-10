@@ -9,17 +9,13 @@ export default function DashboardHeader({ }: DashboardHeaderProps) {
   return (
     <header className="bg-[#0B2653] text-white h-16 flex items-center justify-between px-6">
       <div className="flex items-center space-x-2">
-        <div className="flex flex-col">
-          <h1 className="text-xl font-bold text-white">
-            ThriVest
-          </h1>
-          <h2 className="text-xl font-bold text-white -mt-1">
-            Africa
-          </h2>
-          <p className="text-[8px] text-gray-300 -mt-1">
-            Investing in the Potential, Ensuring Africa&apos;s Future
-          </p>
-        </div>
+        <Image
+          src="/images/logo-white.png"
+          alt="ThriVest Africa"
+          width={120}
+          height={40}
+          className="h-8 w-auto"
+        />
       </div>
 
       <div className="flex items-center space-x-4">

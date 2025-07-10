@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import {
     Carousel,
     CarouselContent,
@@ -29,24 +30,33 @@ export const PartnersSection: React.FC = () => {
         <section className="relative py-16 overflow-hidden">
             {/* Background with partners image */}
             <div className="absolute inset-0">
-                <img
-                    src="/images/partners.jpg"
-                    alt="Partners Background"
-                    className="w-full h-full object-cover"
-                />
+                <div className="relative w-full h-full">
+                    <Image
+                        src="/images/partners.jpg"
+                        alt="Partners Background"
+                        fill
+                        className="object-cover"
+                    />
+                </div>
                 <div className="absolute inset-0"></div>
                 {/* Decorative flowers */}
                 <div className="absolute top-0 left-0 w-full h-full">
-                    <img
-                        src="/images/flower-decoration-left.png"
-                        alt=""
-                        className="absolute bottom-0 left-0 w-64 h-auto opacity-80"
-                    />
-                    <img
-                        src="/images/flower-decoration-right.png"
-                        alt=""
-                        className="absolute top-0 right-0 w-64 h-auto opacity-80"
-                    />
+                    <div className="absolute bottom-0 left-0 w-64 h-64 relative">
+                        <Image
+                            src="/images/flower-decoration-left.png"
+                            alt=""
+                            fill
+                            className="object-contain opacity-80"
+                        />
+                    </div>
+                    <div className="absolute top-0 right-0 w-64 h-64 relative">
+                        <Image
+                            src="/images/flower-decoration-right.png"
+                            alt=""
+                            fill
+                            className="object-contain opacity-80"
+                        />
+                    </div>
                 </div>
             </div>
 

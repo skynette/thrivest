@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import {
   Carousel,
   CarouselContent,
@@ -74,11 +75,14 @@ export const InvestmentSectorsSection: React.FC = () => {
     <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Background with investment image */}
       <div className="absolute inset-0">
-        <img
-          src="/images/investment.jpg"
-          alt="Investment Background"
-          className="w-full h-full object-cover"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/investment.jpg"
+            alt="Investment Background"
+            fill
+            className="object-cover"
+          />
+        </div>
         <div className="absolute inset-0"></div>
         {/* Flower pattern overlay */}
         <div className="absolute inset-0 opacity-20" style={{
@@ -114,11 +118,14 @@ export const InvestmentSectorsSection: React.FC = () => {
                       style={{ aspectRatio: '4/3' }}
                     >
                       {/* Sector Image */}
-                      <img
-                        src={sector.image}
-                        alt={sector.name}
-                        className="w-full h-full object-cover"
-                      />
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={sector.image}
+                          alt={sector.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                       
                       {/* Sector Label */}
                       <div className="absolute top-4 left-4 bg-blue-800 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
