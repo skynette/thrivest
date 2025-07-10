@@ -73,7 +73,7 @@ export const HeroSection: React.FC = () => {
                                         className="object-cover object-center"
                                         priority={index === 0}
                                         quality={90}
-                                        onError={(e) => {
+                                        onError={() => {
                                             console.error(`Failed to load image: ${slide.src}`);
                                             // Handle error state if needed
                                         }}

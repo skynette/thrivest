@@ -3,9 +3,7 @@
 import Image from 'next/image';
 import { User } from 'lucide-react';
 
-interface DashboardHeaderProps { }
-
-export default function DashboardHeader({ }: DashboardHeaderProps) {
+export default function DashboardHeader() {
   return (
     <header className="bg-[#0B2653] text-white h-16 flex items-center justify-between px-6">
       <div className="flex items-center space-x-2">
@@ -17,7 +15,7 @@ export default function DashboardHeader({ }: DashboardHeaderProps) {
           className="h-8 w-auto"
         />
       </div>
-
+      
       <div className="flex items-center space-x-4">
         <div className="text-right">
           <div className="text-xs">Application ID</div>
