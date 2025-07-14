@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const Footer: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -25,9 +26,14 @@ export const Footer: React.FC = () => {
                     {/* Logo and Company Info */}
                     <div className="space-y-4">
                         <div>
-                            <h3 className="text-2xl font-bold">ThriVest</h3>
-                            <h3 className="text-2xl font-bold -mt-1">Africa</h3>
-                            <p className="text-xs text-gray-300 mt-1">
+                            <Image
+                                src="/images/logo.png"
+                                alt="ThriVest Africa"
+                                width={180}
+                                height={80}
+                                className="h-16 w-auto"
+                            />
+                            <p className="text-xs text-gray-300 mt-2">
                                 ...Investing in her Potentials, Powering Africa&apos;s Future
                             </p>
                         </div>
@@ -51,8 +57,7 @@ export const Footer: React.FC = () => {
                         </div>
 
                         <div className="text-sm space-y-1 pt-4">
-                            <p>114, Adeola Odeku, Eletu Ogabi Street,</p>
-                            <p>Victoria Island, Corporate HQ, Lagos state.</p>
+                            <p>Lagos, Nigeria</p>
                         </div>
                     </div>
 

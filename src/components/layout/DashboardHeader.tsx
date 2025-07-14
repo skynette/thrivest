@@ -8,7 +8,7 @@ export default function DashboardHeader() {
     <header className="bg-[#0B2653] text-white h-16 flex items-center justify-between px-6">
       <div className="flex items-center space-x-2">
         <Image
-          src="/images/logo-white.png"
+          src="/images/logo.png"
           alt="ThriVest Africa"
           width={120}
           height={40}

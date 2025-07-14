@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const Header: React.FC = () => {
     const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
@@ -23,20 +24,15 @@ export const Header: React.FC = () => {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <div className="flex items-center">
-                        <div className="flex flex-col">
-                            <h1 className="text-2xl font-bold text-white">
-                                ThriVest
-                            </h1>
-                            <h2 className="text-2xl font-bold text-white -mt-1">
-                                Africa
-                            </h2>
-                            <p className="text-[10px] text-gray-300 -mt-1">
-                                Investing in the Potential,
-                            </p>
-                            <p className="text-[10px] text-gray-300 -mt-1">
-                                Ensuring Africa&apos;s Future
-                            </p>
-                        </div>
+                        <Link href="/">
+                            <Image
+                                src="/images/logo.png"
+                                alt="ThriVest Africa"
+                                width={150}
+                                height={60}
+                                className="h-12 w-auto"
+                            />
+                        </Link>
                     </div>
 
                     {/* Navigation */}
