@@ -421,68 +421,91 @@ export default function EligibilityCheck() {
                         <div className="space-y-3">
                             <div className="flex items-center justify-between w-full px-4 py-2 bg-white rounded border border-gray-300 text-sm">
                                 <span>Pitch deck (required)</span>
-                                <button className="text-blue-500 bg-white rounded-full p-1 border border-gray-300 hover:bg-gray-50">
-                                    <Plus className="h-4 w-4" />
-                                </button>
+                                <input 
+                                    type="file" 
+                                    id="pitchDeck"
+                                    accept=".pdf,.ppt,.pptx,.doc,.docx"
+                                    className="text-xs file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                />
                             </div>
 
                             <div className="flex items-center justify-between w-full px-4 py-2 bg-white rounded border border-gray-300 text-sm">
                                 <span>Concept note or Business Plan</span>
-                                <button className="text-blue-500 bg-white rounded-full p-1 border border-gray-300 hover:bg-gray-50">
-                                    <Plus className="h-4 w-4" />
-                                </button>
+                                <input 
+                                    type="file" 
+                                    id="businessPlan"
+                                    accept=".pdf,.doc,.docx"
+                                    className="text-xs file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                />
                             </div>
 
                             <div className="flex items-center justify-between w-full px-4 py-2 bg-white rounded border border-gray-300 text-sm">
                                 <span>Visuals or testimonials (optional but encouraged)</span>
-                                <button className="text-blue-500 bg-white rounded-full p-1 border border-gray-300 hover:bg-gray-50">
-                                    <Plus className="h-4 w-4" />
-                                </button>
+                                <input 
+                                    type="file" 
+                                    id="visuals"
+                                    accept=".pdf,.jpg,.jpeg,.png,.mp4,.mov,.doc,.docx"
+                                    className="text-xs file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                />
                             </div>
 
                             <div className="flex items-center justify-between w-full px-4 py-2 bg-white rounded border border-gray-300 text-sm">
                                 <span>Letters of support or references (optional)</span>
-                                <button className="text-blue-500 bg-white rounded-full p-1 border border-gray-300 hover:bg-gray-50">
-                                    <Plus className="h-4 w-4" />
-                                </button>
+                                <input 
+                                    type="file" 
+                                    id="references"
+                                    accept=".pdf,.doc,.docx"
+                                    className="text-xs file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                />
                             </div>
 
                             <div className="flex items-center justify-between w-full px-4 py-2 bg-white rounded border border-gray-300 text-sm">
                                 <span>Incorporation documents or progress toward legal registration</span>
-                                <button className="text-blue-500 bg-white rounded-full p-1 border border-gray-300 hover:bg-gray-50">
-                                    <Plus className="h-4 w-4" />
-                                </button>
+                                <input 
+                                    type="file" 
+                                    id="incorporation"
+                                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                                    className="text-xs file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                />
                             </div>
                         </div>
                     </div>
 
                     {/* Declaration & Agreement Section */}
                     <div className="bg-blue-50 rounded-md p-4 mt-6">
-                        <h2 className="text-sm font-semibold text-[#0B2653] mb-3">Supporting Documents</h2>
+                        <h2 className="text-sm font-semibold text-[#0B2653] mb-3">Declaration & Agreement</h2>
                         <div className="space-y-3">
                             <div className="flex items-center justify-between w-full px-4 py-2 bg-white rounded border border-gray-300 text-sm">
-                                <span>Checkbox to accept data use and privacy policy</span>
-                                <div className="bg-white rounded-full p-1 border border-gray-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                    </svg>
-                                </div>
+                                <label htmlFor="privacyPolicy" className="cursor-pointer">
+                                    I accept the data use and privacy policy
+                                </label>
+                                <input 
+                                    type="checkbox" 
+                                    id="privacyPolicy"
+                                    className="rounded border-gray-300 text-blue-500 focus:ring-blue-500" 
+                                />
                             </div>
 
                             <div className="flex items-center justify-between w-full px-4 py-2 bg-white rounded border border-gray-300 text-sm">
-                                <span>Declaration that all submitted information is accurate</span>
-                                <div className="bg-white rounded-full p-1 border border-gray-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                    </svg>
-                                </div>
+                                <label htmlFor="accurateInfo" className="cursor-pointer">
+                                    I declare that all submitted information is accurate
+                                </label>
+                                <input 
+                                    type="checkbox" 
+                                    id="accurateInfo"
+                                    className="rounded border-gray-300 text-blue-500 focus:ring-blue-500" 
+                                />
                             </div>
 
                             <div className="flex items-center justify-between w-full px-4 py-2 bg-white rounded border border-gray-300 text-sm">
-                                <span>Digital signature: upload typed name and date</span>
-                                <button className="text-blue-500 bg-white rounded-full p-1 border border-gray-300 hover:bg-gray-50">
-                                    <Plus className="h-4 w-4" />
-                                </button>
+                                <label htmlFor="digitalSignature" className="cursor-pointer">
+                                    Digital signature: I hereby sign with my typed name and date
+                                </label>
+                                <input 
+                                    type="checkbox" 
+                                    id="digitalSignature"
+                                    className="rounded border-gray-300 text-blue-500 focus:ring-blue-500" 
+                                />
                             </div>
                         </div>
                     </div>

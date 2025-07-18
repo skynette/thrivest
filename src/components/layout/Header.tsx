@@ -8,10 +8,25 @@ import Image from 'next/image';
 
 export const Header: React.FC = () => {
     const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+    const [isFundsDropdownOpen, setIsFundsDropdownOpen] = useState(false);
+    const [isImpactDropdownOpen, setIsImpactDropdownOpen] = useState(false);
+    const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const toggleAboutDropdown = () => {
         setIsAboutDropdownOpen(!isAboutDropdownOpen);
+    };
+
+    const toggleFundsDropdown = () => {
+        setIsFundsDropdownOpen(!isFundsDropdownOpen);
+    };
+
+    const toggleImpactDropdown = () => {
+        setIsImpactDropdownOpen(!isImpactDropdownOpen);
+    };
+
+    const toggleResourcesDropdown = () => {
+        setIsResourcesDropdownOpen(!isResourcesDropdownOpen);
     };
 
     const toggleMobileMenu = () => {
@@ -91,12 +106,41 @@ export const Header: React.FC = () => {
                         >
                             OUR APPROACH
                         </a>
-                        <a
-                            href="/fund"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
-                        >
-                            FUND
-                        </a>
+
+                        {/* Funds Dropdown */}
+                        <div className="relative">
+                            <button
+                                onClick={toggleFundsDropdown}
+                                onMouseEnter={() => setIsFundsDropdownOpen(true)}
+                                onMouseLeave={() => setIsFundsDropdownOpen(false)}
+                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                            >
+                                FUNDS
+                                <ChevronDown className="ml-1 h-3 w-3" />
+                            </button>
+                            {isFundsDropdownOpen && (
+                                <div
+                                    className="absolute top-full left-0 mt-0 w-48 bg-[#5ba3d0] rounded-b-md shadow-lg z-10"
+                                    onMouseEnter={() => setIsFundsDropdownOpen(true)}
+                                    onMouseLeave={() => setIsFundsDropdownOpen(false)}
+                                >
+                                    <div className="py-1">
+                                        <a
+                                            href="/funds/elevate-funds"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Elevate Funds
+                                        </a>
+                                        <a
+                                            href="/funds/ignite-funds"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Ignite Funds
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                         <a
                             href="/opportunities"
                             className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
@@ -109,24 +153,106 @@ export const Header: React.FC = () => {
                         >
                             INVESTMENTS
                         </a>
-                        <a
-                            href="/impact"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
-                        >
-                            IMPACT
-                        </a>
+
+                        {/* Impact Dropdown */}
+                        <div className="relative">
+                            <button
+                                onClick={toggleImpactDropdown}
+                                onMouseEnter={() => setIsImpactDropdownOpen(true)}
+                                onMouseLeave={() => setIsImpactDropdownOpen(false)}
+                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                            >
+                                IMPACT
+                                <ChevronDown className="ml-1 h-3 w-3" />
+                            </button>
+                            {isImpactDropdownOpen && (
+                                <div
+                                    className="absolute top-full left-0 mt-0 w-48 bg-[#5ba3d0] rounded-b-md shadow-lg z-10"
+                                    onMouseEnter={() => setIsImpactDropdownOpen(true)}
+                                    onMouseLeave={() => setIsImpactDropdownOpen(false)}
+                                >
+                                    <div className="py-1">
+                                        <a
+                                            href="/impact/our-results"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Our Results
+                                        </a>
+                                        <a
+                                            href="/impact/esg-sustainability"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            ESG and Sustainability
+                                        </a>
+                                        <a
+                                            href="/impact/sdg-alignment"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Our SDG Alignment
+                                        </a>
+                                        <a
+                                            href="/impact/case-studies"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Case studies
+                                        </a>
+                                        <a
+                                            href="/impact/impact-report"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Impact Report
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                         <a
                             href="/careers"
                             className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
                         >
                             CAREERS
                         </a>
-                        <a
-                            href="/resources"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
-                        >
-                            RESOURCES
-                        </a>
+
+                        {/* Resources Dropdown */}
+                        <div className="relative">
+                            <button
+                                onClick={toggleResourcesDropdown}
+                                onMouseEnter={() => setIsResourcesDropdownOpen(true)}
+                                onMouseLeave={() => setIsResourcesDropdownOpen(false)}
+                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                            >
+                                RESOURCES
+                                <ChevronDown className="ml-1 h-3 w-3" />
+                            </button>
+                            {isResourcesDropdownOpen && (
+                                <div
+                                    className="absolute top-full left-0 mt-0 w-48 bg-[#5ba3d0] rounded-b-md shadow-lg z-10"
+                                    onMouseEnter={() => setIsResourcesDropdownOpen(true)}
+                                    onMouseLeave={() => setIsResourcesDropdownOpen(false)}
+                                >
+                                    <div className="py-1">
+                                        <a
+                                            href="/resources/news-publication"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            News and Publication
+                                        </a>
+                                        <a
+                                            href="/resources/media"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Media
+                                        </a>
+                                        <a
+                                            href="/resources/faq"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            FAQs
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                         <a
                             href="/contact"
                             className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
@@ -137,12 +263,14 @@ export const Header: React.FC = () => {
 
                     {/* Login Button - Desktop Only */}
                     <div className="hidden xl:flex items-center">
-                        <Button
-                            className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase"
-                            variant="default"
-                        >
-                            LOGIN
-                        </Button>
+                        <Link href="/apply">
+                            <Button
+                                className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase"
+                                variant="default"
+                            >
+                                LOGIN
+                            </Button>
+                        </Link>
                     </div>
 
                     {/* Mobile menu button */}
@@ -217,13 +345,35 @@ export const Header: React.FC = () => {
                             >
                                 OUR APPROACH
                             </a>
-                            <a
-                                href="/fund"
-                                className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                FUND
-                            </a>
+
+                            {/* Mobile Funds Dropdown */}
+                            <div>
+                                <button
+                                    onClick={toggleFundsDropdown}
+                                    className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200 flex items-center justify-between w-full"
+                                >
+                                    FUNDS
+                                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isFundsDropdownOpen ? 'rotate-180' : ''}`} />
+                                </button>
+                                {isFundsDropdownOpen && (
+                                    <div className="bg-[#2a4a6f]">
+                                        <a
+                                            href="/funds/elevate-funds"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Elevate Funds
+                                        </a>
+                                        <a
+                                            href="/funds/ignite-funds"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Ignite Funds
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
                             <a
                                 href="/opportunities"
                                 className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
@@ -238,13 +388,56 @@ export const Header: React.FC = () => {
                             >
                                 INVESTMENTS
                             </a>
-                            <a
-                                href="/impact"
-                                className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                IMPACT
-                            </a>
+
+                            {/* Mobile Impact Dropdown */}
+                            <div>
+                                <button
+                                    onClick={toggleImpactDropdown}
+                                    className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200 flex items-center justify-between w-full"
+                                >
+                                    IMPACT
+                                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isImpactDropdownOpen ? 'rotate-180' : ''}`} />
+                                </button>
+                                {isImpactDropdownOpen && (
+                                    <div className="bg-[#2a4a6f]">
+                                        <a
+                                            href="/impact/our-results"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Our Results
+                                        </a>
+                                        <a
+                                            href="/impact/esg-sustainability"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            ESG and Sustainability
+                                        </a>
+                                        <a
+                                            href="/impact/sdg-alignment"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Our SDG Alignment
+                                        </a>
+                                        <a
+                                            href="/impact/case-studies"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Case studies
+                                        </a>
+                                        <a
+                                            href="/impact/impact-report"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Impact Report
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
                             <a
                                 href="/careers"
                                 className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
@@ -252,13 +445,42 @@ export const Header: React.FC = () => {
                             >
                                 CAREERS
                             </a>
-                            <a
-                                href="/resources"
-                                className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                RESOURCES
-                            </a>
+
+                            {/* Mobile Resources Dropdown */}
+                            <div>
+                                <button
+                                    onClick={toggleResourcesDropdown}
+                                    className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200 flex items-center justify-between w-full"
+                                >
+                                    RESOURCES
+                                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isResourcesDropdownOpen ? 'rotate-180' : ''}`} />
+                                </button>
+                                {isResourcesDropdownOpen && (
+                                    <div className="bg-[#2a4a6f]">
+                                        <a
+                                            href="/resources/news-publication"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            News and Publication
+                                        </a>
+                                        <a
+                                            href="/resources/media"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Media
+                                        </a>
+                                        <a
+                                            href="/resources/faq"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            FAQs
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
                             <a
                                 href="/contact"
                                 className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
@@ -269,13 +491,15 @@ export const Header: React.FC = () => {
 
                             {/* Login Button in Mobile Menu */}
                             <div className="px-6 pt-4 pb-2">
-                                <Button
-                                    className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase w-full"
-                                    variant="default"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    LOGIN
-                                </Button>
+                                <Link href="/apply">
+                                    <Button
+                                        className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase w-full"
+                                        variant="default"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        LOGIN
+                                    </Button>
+                                </Link>
                             </div>
                         </nav>
                     </div>
