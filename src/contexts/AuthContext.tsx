@@ -2,30 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authApi } from '@/lib/api';
-import type { RegisterFormData } from '@/types/common';
-
-interface User {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  phone?: string;
-  role: 'APPLICANT' | 'REVIEWER' | 'ADMIN' | 'SUPER_ADMIN';
-  isActive: boolean;
-  createdAt: string;
-  updatedAt: string;
-  profile?: {
-    id: string;
-    businessName?: string;
-    businessType?: string;
-    industry?: string;
-    location?: string;
-    website?: string;
-    linkedinUrl?: string;
-    bio?: string;
-    profilePicture?: string;
-  };
-}
+import type { RegisterFormData, User } from '@/types/common';
 
 interface AuthContextType {
   user: User | null;

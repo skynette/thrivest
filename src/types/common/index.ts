@@ -34,10 +34,11 @@ export interface User extends BaseEntity {
   name: string;
   email: string;
   avatar?: string;
-  role: 'admin' | 'user';
+  role: 'APPLICANT' | 'REVIEWER' | 'ADMIN' | 'SUPER_ADMIN' | 'admin' | 'user';
   firstName?: string;
   lastName?: string;
   phone?: string;
+  isActive?: boolean;
 }
 
 // Application types
