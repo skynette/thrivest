@@ -4,7 +4,10 @@
       "Bash(find:*)",
       "Bash(cat:*)",
       "Bash(ls:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint)",
+      "Bash(npm install:*)"
     ],
     "deny": []
   }

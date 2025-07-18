@@ -1,10 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { User } from 'lucide-react';
+import { useRegister } from '@/hooks/useAuth';
+import Link from 'next/link';
 
 export default function ApplicantPortal() {
+    const router = useRouter();
+    const registerMutation = useRegister();
+    
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -26,6 +32,8 @@ export default function ApplicantPortal() {
         confirmPassword: '',
         acceptTerms: ''
     });
+    
+    const [submitError, setSubmitError] = useState('');
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type, checked } = e.target;
@@ -90,14 +98,29 @@ export default function ApplicantPortal() {
         return isValid;
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         if (e) e.preventDefault();
+        setSubmitError('');
 
         if (validateForm()) {
-            // Handle successful form submission
-            console.log('Form submitted:', formData);
-            // Here you would typically send the data to your API
-            // and handle the registration process
+            try {
+                // Split full name into first and last name
+                const nameParts = formData.fullName.trim().split(' ');
+                const firstName = nameParts[0];
+                const lastName = nameParts.slice(1).join(' ') || firstName;
+
+                await registerMutation.mutateAsync({
+                    firstName,
+                    lastName,
+                    email: formData.email,
+                    phone: formData.phoneNumber,
+                    password: formData.password,
+                });
+
+                router.push('/dashboard');
+            } catch (error: any) {
+                setSubmitError(error.error || 'Registration failed. Please try again.');
+            }
         }
     };
 
@@ -128,10 +151,23 @@ export default function ApplicantPortal() {
                     <h2 className="text-4xl font-bold text-white text-center">
                         Applicant Portal
                     </h2>
+                    <p className="text-white text-center mt-2">
+                        Already have an account?{' '}
+                        <Link href="/login" className="text-[#00a8e8] hover:underline">
+                            Sign in here
+                        </Link>
+                    </p>
                 </div>
 
                 {/* Registration Form */}
                 <div className="space-y-4">
+                    {/* Submit Error */}
+                    {submitError && (
+                        <div className="bg-red-500/20 border border-red-500 text-white px-4 py-3 rounded-md">
+                            {submitError}
+                        </div>
+                    )}
+                    
                     {/* Full Name */}
                     <div>
                         <input
@@ -327,9 +363,10 @@ export default function ApplicantPortal() {
                         <Button
                             type="button"
                             onClick={(e) => handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>)}
-                            className="bg-[#1e3a5f] hover:bg-[#152b47] text-white font-semibold py-3 px-10 rounded-full transition-colors duration-200 text-lg shadow-lg"
+                            disabled={registerMutation.isPending}
+                            className="bg-[#1e3a5f] hover:bg-[#152b47] text-white font-semibold py-3 px-10 rounded-full transition-colors duration-200 text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            Register
+                            {registerMutation.isPending ? 'Registering...' : 'Register'}
                         </Button>
                     </div>
                 </div>

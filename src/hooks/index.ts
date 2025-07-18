@@ -1,9 +1,13 @@
 // Hooks exports
 
-// Queries
-export * from './queries/useAuth';
-export * from './queries/useUsers';
+// Auth hooks
+export * from './useAuth';
 
-// Mutations
-export * from './mutations/useAuthMutations';
-export * from './mutations/useUserMutations'; 
+// Application hooks
+export * from './useApplications';
+
+// Contact hooks
+export * from './useContact';
+
+// User management hooks
+export * from './useUsers'; 

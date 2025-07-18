@@ -2,16 +2,21 @@
 
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, User, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useAuth, useLogout } from '@/hooks/useAuth';
 
 export const Header: React.FC = () => {
+    const { user, isAuthenticated } = useAuth();
+    const logoutMutation = useLogout();
+    
     const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
     const [isFundsDropdownOpen, setIsFundsDropdownOpen] = useState(false);
     const [isImpactDropdownOpen, setIsImpactDropdownOpen] = useState(false);
     const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
     const toggleAboutDropdown = () => {
         setIsAboutDropdownOpen(!isAboutDropdownOpen);
@@ -261,16 +266,48 @@ export const Header: React.FC = () => {
                         </a>
                     </nav>
 
-                    {/* Login Button - Desktop Only */}
+                    {/* Auth Section - Desktop Only */}
                     <div className="hidden xl:flex items-center">
-                        <Link href="/apply">
-                            <Button
-                                className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase"
-                                variant="default"
-                            >
-                                LOGIN
-                            </Button>
-                        </Link>
+                        {isAuthenticated ? (
+                            <div className="relative">
+                                <button
+                                    onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
+                                    className="flex items-center text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                                >
+                                    <User className="h-4 w-4 mr-2" />
+                                    {user?.firstName}
+                                    <ChevronDown className="ml-1 h-3 w-3" />
+                                </button>
+                                {isUserDropdownOpen && (
+                                    <div className="absolute top-full right-0 mt-0 w-48 bg-[#5ba3d0] rounded-b-md shadow-lg z-10">
+                                        <div className="py-1">
+                                            <Link
+                                                href="/dashboard"
+                                                className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            >
+                                                Dashboard
+                                            </Link>
+                                            <button
+                                                onClick={() => logoutMutation.mutate()}
+                                                className="flex items-center w-full px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            >
+                                                <LogOut className="h-4 w-4 mr-2" />
+                                                Logout
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <Link href="/apply">
+                                <Button
+                                    className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase"
+                                    variant="default"
+                                >
+                                    LOGIN
+                                </Button>
+                            </Link>
+                        )}
                     </div>
 
                     {/* Mobile menu button */}
@@ -489,17 +526,41 @@ export const Header: React.FC = () => {
                                 CONTACT US
                             </a>
 
-                            {/* Login Button in Mobile Menu */}
+                            {/* Auth Section in Mobile Menu */}
                             <div className="px-6 pt-4 pb-2">
-                                <Link href="/apply">
-                                    <Button
-                                        className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase w-full"
-                                        variant="default"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                    >
-                                        LOGIN
-                                    </Button>
-                                </Link>
+                                {isAuthenticated ? (
+                                    <div className="space-y-2">
+                                        <Link href="/dashboard">
+                                            <Button
+                                                className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase w-full"
+                                                variant="default"
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                            >
+                                                DASHBOARD
+                                            </Button>
+                                        </Link>
+                                        <Button
+                                            className="bg-red-600 hover:bg-red-700 text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase w-full"
+                                            variant="default"
+                                            onClick={() => {
+                                                logoutMutation.mutate();
+                                                setIsMobileMenuOpen(false);
+                                            }}
+                                        >
+                                            LOGOUT
+                                        </Button>
+                                    </div>
+                                ) : (
+                                    <Link href="/apply">
+                                        <Button
+                                            className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase w-full"
+                                            variant="default"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            LOGIN
+                                        </Button>
+                                    </Link>
+                                )}
                             </div>
                         </nav>
                     </div>

@@ -1,0 +1,165 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  password  String
+  firstName String
+  lastName  String
+  phone     String?
+  role      UserRole @default(APPLICANT)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  applications Application[]
+  profile      UserProfile?
+
+  @@map("users")
+}
+
+model UserProfile {
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String  @unique @db.ObjectId
+  businessName   String?
+  businessType   String?
+  industry       String?
+  location       String?
+  website        String?
+  linkedinUrl    String?
+  bio            String?
+  profilePicture String?
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("user_profiles")
+}
+
+model Application {
+  id                String            @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String            @db.ObjectId
+  fundType          FundType
+  status            ApplicationStatus @default(DRAFT)
+  submittedAt       DateTime?
+  reviewedAt        DateTime?
+  reviewedBy        String?
+  reviewNotes       String?
+  
+  // Business Overview
+  businessName      String
+  businessLocation  String
+  yearFounded       String
+  legalStatus       String
+  sector            String
+  website           String?
+  
+  // Founder & Team
+  founderName       String
+  founderGender     String
+  founderRole       String
+  founderEmail      String
+  founderEducation  String
+  motivation        String
+  
+  // Business Concept
+  businessIdea      String
+  targetMarket      String
+  problem           String
+  vision            String
+  
+  // Product/Service Status
+  developmentStage  String[]
+  productDescription String?
+  demoLink          String?
+  valueProposition  String?
+  
+  // Market Insight
+  competitiveLandscape String?
+  marketStrategy       String?
+  pricingModel         String?
+  
+  // Funding Requirements
+  fundingRequested     String
+  fundUtilization      String
+  timeline             String
+  previousFunding      String?
+  
+  // Impact & ESG
+  impactDescription    String?
+  jobsAnticipated      String?
+  inclusionPlans       String?
+  
+  // Supporting Documents
+  documents         ApplicationDocument[]
+  
+  // Declaration
+  privacyAccepted      Boolean @default(false)
+  informationAccurate  Boolean @default(false)
+  digitalSignature     Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("applications")
+}
+
+model ApplicationDocument {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  applicationId String      @db.ObjectId
+  documentType  String
+  fileName      String
+  fileUrl       String
+  fileSize      Int
+  mimeType      String
+  uploadedAt    DateTime    @default(now())
+  
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  
+  @@map("application_documents")
+}
+
+model ContactSubmission {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  subject   String
+  message   String
+  responded Boolean  @default(false)
+  createdAt DateTime @default(now())
+  
+  @@map("contact_submissions")
+}
+
+enum UserRole {
+  APPLICANT
+  REVIEWER
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum FundType {
+  IGNITE
+  ELEVATE
+}
+
+enum ApplicationStatus {
+  DRAFT
+  SUBMITTED
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+  NEEDS_REVISION
+}

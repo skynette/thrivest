@@ -1,6 +1,10 @@
 'use client';
 
-import { CheckCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { CheckCircle, AlertCircle, Clock, FileText, TrendingUp, DollarSign } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
+import { useMyApplications } from '@/hooks/useApplications';
+import { format } from 'date-fns';
 
 export default function DashboardPage() {
     return (

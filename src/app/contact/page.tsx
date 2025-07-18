@@ -6,14 +6,18 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
 import { Mail, MapPin, Send } from 'lucide-react'
+import { useSubmitContact } from '@/hooks/useContact'
 
 const ContactPage = () => {
+    const submitContactMutation = useSubmitContact();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         subject: '',
         message: ''
     })
+    const [submitError, setSubmitError] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target
@@ -23,11 +27,22 @@ const ContactPage = () => {
         }))
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        // Handle form submission logic here
-        console.log('Form submitted:', formData)
-        // You can integrate with your email service here
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setSubmitError('');
+
+        try {
+            await submitContactMutation.mutateAsync(formData);
+            setIsSubmitted(true);
+            setFormData({
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
+            });
+        } catch (error: any) {
+            setSubmitError(error.error || 'Failed to send message. Please try again.');
+        }
     }
 
     return (
@@ -158,6 +173,21 @@ const ContactPage = () => {
                                     Send us a Message
                                 </h2>
                                 
+                                {/* Success Message */}
+                                {isSubmitted && (
+                                    <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-6">
+                                        <p className="font-medium">Message sent successfully!</p>
+                                        <p className="text-sm">Thank you for contacting us. We&apos;ll get back to you soon.</p>
+                                    </div>
+                                )}
+
+                                {/* Error Message */}
+                                {submitError && (
+                                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-6">
+                                        {submitError}
+                                    </div>
+                                )}
+                                
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div>
                                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -225,10 +255,11 @@ const ContactPage = () => {
 
                                     <Button 
                                         type="submit"
-                                        className="w-full bg-[#1e3a5f] hover:bg-[#0a1f42] text-white px-6 py-3 rounded-md font-semibold flex items-center justify-center space-x-2"
+                                        disabled={submitContactMutation.isPending}
+                                        className="w-full bg-[#1e3a5f] hover:bg-[#0a1f42] text-white px-6 py-3 rounded-md font-semibold flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         <Send className="h-5 w-5" />
-                                        <span>Send Message</span>
+                                        <span>{submitContactMutation.isPending ? 'Sending...' : 'Send Message'}</span>
                                     </Button>
                                 </form>
                             </div>
