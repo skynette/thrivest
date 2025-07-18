@@ -14,11 +14,12 @@ const contactSchema = Joi.object({
 });
 
 // Submit contact form
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res, next): Promise<void> => {
   try {
     const { error } = contactSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+      res.status(400).json({ error: error.details[0].message });
+    return;
     }
 
     const { name, email, subject, message } = req.body;
@@ -37,13 +38,14 @@ router.post('/', async (req, res, next) => {
       message: 'Contact form submitted successfully. We will get back to you soon.',
       id: submission.id,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Get all contact submissions (admin only)
-router.get('/', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next) => {
+router.get('/', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { page = 1, limit = 10, responded } = req.query;
     const skip = (Number(page) - 1) * Number(limit);
@@ -78,7 +80,7 @@ router.get('/', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: A
 });
 
 // Get contact submission by ID (admin only)
-router.get('/:id', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next) => {
+router.get('/:id', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
 
@@ -87,20 +89,22 @@ router.get('/:id', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req
     });
 
     if (!submission) {
-      return res.status(404).json({ error: 'Contact submission not found' });
+      res.status(404).json({ error: 'Contact submission not found' });
+    return;
     }
 
     res.json({
       success: true,
       submission,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Mark contact submission as responded (admin only)
-router.patch('/:id/respond', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next) => {
+router.patch('/:id/respond', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
     const { responded = true } = req.body;
@@ -115,6 +119,7 @@ router.patch('/:id/respond', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), 
       message: `Contact submission marked as ${responded ? 'responded' : 'not responded'}`,
       submission,
     });
+    return;
   } catch (error) {
     next(error);
   }

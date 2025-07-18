@@ -1,4 +1,14 @@
 import axios from 'axios';
+import type { 
+  RegisterFormData, 
+  LoginFormData, 
+  ApplicationFormData, 
+  ContactFormData,
+  AuthResponse,
+  ProfileResponse,
+  ApplicationsResponse,
+  Application
+} from '@/types/common';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
@@ -41,38 +51,32 @@ api.interceptors.response.use(
 
 // Auth API
 export const authApi = {
-  register: (data: {
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    phone?: string;
-  }) => api.post('/auth/register', data),
+  register: (data: RegisterFormData): Promise<AuthResponse> => api.post('/auth/register', data),
   
-  login: (data: { email: string; password: string }) => 
+  login: (data: LoginFormData): Promise<AuthResponse> => 
     api.post('/auth/login', data),
   
-  getProfile: () => api.get('/auth/me'),
+  getProfile: (): Promise<ProfileResponse> => api.get('/auth/me'),
   
-  updateProfile: (data: any) => api.put('/auth/profile', data),
+  updateProfile: (data: Partial<RegisterFormData>): Promise<ProfileResponse> => api.put('/auth/profile', data),
   
-  changePassword: (data: { currentPassword: string; newPassword: string }) => 
+  changePassword: (data: { currentPassword: string; newPassword: string }): Promise<{ success: boolean; message: string }> => 
     api.put('/auth/change-password', data),
 };
 
 // Application API
 export const applicationApi = {
-  create: (data: any) => api.post('/applications', data),
+  create: (data: ApplicationFormData): Promise<{ success: boolean; application: Application; message?: string }> => api.post('/applications', data),
   
-  getMyApplications: () => api.get('/applications/my-applications'),
+  getMyApplications: (): Promise<ApplicationsResponse> => api.get('/applications/my-applications'),
   
-  getById: (id: string) => api.get(`/applications/${id}`),
+  getById: (id: string): Promise<{ success: boolean; application: Application; message?: string }> => api.get(`/applications/${id}`),
   
-  update: (id: string, data: any) => api.put(`/applications/${id}`, data),
+  update: (id: string, data: Partial<ApplicationFormData>): Promise<{ success: boolean; application: Application; message?: string }> => api.put(`/applications/${id}`, data),
   
-  submit: (id: string) => api.post(`/applications/${id}/submit`),
+  submit: (id: string): Promise<{ success: boolean; application: Application; message?: string }> => api.post(`/applications/${id}/submit`),
   
-  uploadDocument: (id: string, file: File, documentType: string) => {
+  uploadDocument: (id: string, file: File, documentType: string): Promise<{ success: boolean; document: any; message?: string }> => {
     const formData = new FormData();
     formData.append('document', file);
     formData.append('documentType', documentType);
@@ -90,20 +94,15 @@ export const applicationApi = {
     fundType?: string;
     page?: number;
     limit?: number;
-  }) => api.get('/applications/admin/all', { params }),
+  }): Promise<{ success: boolean; applications: Application[]; pagination?: any; message?: string }> => api.get('/applications/admin/all', { params }),
   
-  updateStatus: (id: string, status: string, reviewNotes?: string) =>
+  updateStatus: (id: string, status: string, reviewNotes?: string): Promise<{ success: boolean; application: Application; message?: string }> =>
     api.patch(`/applications/${id}/status`, { status, reviewNotes }),
 };
 
 // Contact API
 export const contactApi = {
-  submit: (data: {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-  }) => api.post('/contact', data),
+  submit: (data: ContactFormData): Promise<{ success: boolean; message: string }> => api.post('/contact', data),
   
   // Admin endpoints
   getAll: (params?: {

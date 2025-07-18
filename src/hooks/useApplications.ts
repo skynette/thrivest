@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { applicationApi } from '@/lib/api';
+import type { ApplicationFormData } from '@/types/common';
 
 // Get user's applications
 export const useMyApplications = () => {
@@ -25,7 +26,7 @@ export const useCreateApplication = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data: any) => applicationApi.create(data),
+    mutationFn: (data: ApplicationFormData) => applicationApi.create(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['applications'] });
     },
@@ -37,7 +38,7 @@ export const useUpdateApplication = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ id, data }: { id: string; data: any }) => 
+    mutationFn: ({ id, data }: { id: string; data: Partial<ApplicationFormData> }) => 
       applicationApi.update(id, data),
     onSuccess: (_, { id }) => {
       queryClient.invalidateQueries({ queryKey: ['applications', id] });

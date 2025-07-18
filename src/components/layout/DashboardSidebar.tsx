@@ -27,26 +27,28 @@ export default function DashboardSidebar() {
     const pathname = usePathname();
 
     return (
-        <nav className="w-48 bg-[#0B2653] min-h-[calc(100vh-4rem)]">
-            <div className="py-6">
-                {navigationItems.map((item) => {
-                    const isActive = pathname === item.href;
-                    const Icon = item.icon;
+        <nav className="w-full md:w-48 bg-[#0B2653] min-h-[calc(100vh-4rem)]">
+            <div className="py-4 md:py-6">
+                <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible">
+                    {navigationItems.map((item) => {
+                        const isActive = pathname === item.href;
+                        const Icon = item.icon;
 
-                    return (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className={`flex items-center space-x-3 px-4 py-3 transition-colors ${isActive
-                                    ? 'bg-blue-700 text-white border-l-4 border-blue-400'
-                                    : 'text-gray-300 hover:bg-blue-800 hover:text-white'
-                                }`}
-                        >
-                            <Icon className="h-5 w-5" />
-                            <span className="text-sm">{item.name}</span>
-                        </Link>
-                    );
-                })}
+                        return (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className={`flex items-center space-x-2 md:space-x-3 px-3 md:px-4 py-2 md:py-3 transition-colors whitespace-nowrap ${isActive
+                                        ? 'bg-blue-700 text-white border-l-4 border-blue-400'
+                                        : 'text-gray-300 hover:bg-blue-800 hover:text-white'
+                                    }`}
+                            >
+                                <Icon className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
+                                <span className="text-xs md:text-sm">{item.name}</span>
+                            </Link>
+                        );
+                    })}
+                </div>
             </div>
         </nav>
     );

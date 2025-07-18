@@ -3,6 +3,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { authApi } from '@/lib/api';
 import { useAuth as useAuthContext } from '@/contexts/AuthContext';
+import type { RegisterFormData } from '@/types/common';
 
 // Use the context hook
 export const useAuth = () => {
@@ -66,7 +67,7 @@ export const useUpdateProfile = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (data: any) => {
+    mutationFn: async (data: Partial<RegisterFormData>) => {
       await updateProfile(data);
     },
     onSuccess: () => {

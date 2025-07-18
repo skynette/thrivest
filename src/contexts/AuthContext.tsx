@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authApi } from '@/lib/api';
+import type { RegisterFormData } from '@/types/common';
 
 interface User {
   id: string;
@@ -39,7 +40,7 @@ interface AuthContextType {
     phone?: string;
   }) => Promise<void>;
   logout: () => void;
-  updateProfile: (data: any) => Promise<void>;
+  updateProfile: (data: Partial<RegisterFormData>) => Promise<void>;
   refreshProfile: () => Promise<void>;
 }
 
@@ -67,7 +68,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           // Verify token is still valid by fetching fresh user data
           const response = await authApi.getProfile();
           setUser(response.user);
-        } catch (error) {
+        } catch {
           // Token is invalid, clear storage
           localStorage.removeItem('token');
           localStorage.removeItem('user');
@@ -119,7 +120,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     window.location.href = '/';
   };
 
-  const updateProfile = async (data: any) => {
+  const updateProfile = async (data: Partial<RegisterFormData>) => {
     try {
       const response = await authApi.updateProfile(data);
       setUser(response.user);

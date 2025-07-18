@@ -89,11 +89,12 @@ const applicationSchema = Joi.object({
 });
 
 // Create new application
-router.post('/', authenticate, async (req: AuthRequest, res, next) => {
+router.post('/', authenticate, async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { error } = applicationSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+      res.status(400).json({ error: error.details[0].message });
+    return;
     }
 
     const userId = req.user!.userId;
@@ -108,9 +109,10 @@ router.post('/', authenticate, async (req: AuthRequest, res, next) => {
     });
 
     if (existingApplication) {
-      return res.status(409).json({ 
+      res.status(409).json({ 
         error: 'You already have an active application. Please contact support if you need to make changes.' 
       });
+    return;
     }
 
     const application = await prisma.application.create({
@@ -125,13 +127,14 @@ router.post('/', authenticate, async (req: AuthRequest, res, next) => {
       message: 'Application created successfully',
       application,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Get user's applications
-router.get('/my-applications', authenticate, async (req: AuthRequest, res, next) => {
+router.get('/my-applications', authenticate, async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const userId = req.user!.userId;
 
@@ -147,13 +150,14 @@ router.get('/my-applications', authenticate, async (req: AuthRequest, res, next)
       success: true,
       applications,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Get application by ID
-router.get('/:id', authenticate, async (req: AuthRequest, res, next) => {
+router.get('/:id', authenticate, async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
     const userId = req.user!.userId;
@@ -177,20 +181,22 @@ router.get('/:id', authenticate, async (req: AuthRequest, res, next) => {
     });
 
     if (!application) {
-      return res.status(404).json({ error: 'Application not found' });
+      res.status(404).json({ error: 'Application not found' });
+    return;
     }
 
     res.json({
       success: true,
       application,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Update application
-router.put('/:id', authenticate, async (req: AuthRequest, res, next) => {
+router.put('/:id', authenticate, async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
     const userId = req.user!.userId;
@@ -204,19 +210,22 @@ router.put('/:id', authenticate, async (req: AuthRequest, res, next) => {
     });
 
     if (!existingApplication) {
-      return res.status(404).json({ error: 'Application not found' });
+      res.status(404).json({ error: 'Application not found' });
+    return;
     }
 
     // Only allow updates to draft applications
     if (existingApplication.status !== 'DRAFT') {
-      return res.status(400).json({ 
+      res.status(400).json({ 
         error: 'Cannot update submitted applications. Please contact support.' 
       });
+    return;
     }
 
     const { error } = applicationSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+      res.status(400).json({ error: error.details[0].message });
+    return;
     }
 
     const updatedApplication = await prisma.application.update({
@@ -229,13 +238,14 @@ router.put('/:id', authenticate, async (req: AuthRequest, res, next) => {
       message: 'Application updated successfully',
       application: updatedApplication,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Submit application
-router.post('/:id/submit', authenticate, async (req: AuthRequest, res, next) => {
+router.post('/:id/submit', authenticate, async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
     const userId = req.user!.userId;
@@ -248,11 +258,13 @@ router.post('/:id/submit', authenticate, async (req: AuthRequest, res, next) => 
     });
 
     if (!application) {
-      return res.status(404).json({ error: 'Application not found' });
+      res.status(404).json({ error: 'Application not found' });
+    return;
     }
 
     if (application.status !== 'DRAFT') {
-      return res.status(400).json({ error: 'Application has already been submitted' });
+      res.status(400).json({ error: 'Application has already been submitted' });
+    return;
     }
 
     const submittedApplication = await prisma.application.update({
@@ -268,24 +280,27 @@ router.post('/:id/submit', authenticate, async (req: AuthRequest, res, next) => 
       message: 'Application submitted successfully',
       application: submittedApplication,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Upload document
-router.post('/:id/upload', authenticate, upload.single('document'), async (req: AuthRequest, res, next) => {
+router.post('/:id/upload', authenticate, upload.single('document'), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
     const { documentType } = req.body;
     const userId = req.user!.userId;
 
     if (!req.file) {
-      return res.status(400).json({ error: 'No file uploaded' });
+      res.status(400).json({ error: 'No file uploaded' });
+    return;
     }
 
     if (!documentType) {
-      return res.status(400).json({ error: 'Document type is required' });
+      res.status(400).json({ error: 'Document type is required' });
+    return;
     }
 
     // Verify application belongs to user
@@ -297,7 +312,8 @@ router.post('/:id/upload', authenticate, upload.single('document'), async (req: 
     });
 
     if (!application) {
-      return res.status(404).json({ error: 'Application not found' });
+      res.status(404).json({ error: 'Application not found' });
+    return;
     }
 
     // Create document record
@@ -317,13 +333,14 @@ router.post('/:id/upload', authenticate, upload.single('document'), async (req: 
       message: 'Document uploaded successfully',
       document,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Admin routes for reviewing applications
-router.get('/admin/all', authenticate, authorize(['ADMIN', 'SUPER_ADMIN', 'REVIEWER']), async (req: AuthRequest, res, next) => {
+router.get('/admin/all', authenticate, authorize(['ADMIN', 'SUPER_ADMIN', 'REVIEWER']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { status, fundType, page = 1, limit = 10 } = req.query;
     const skip = (Number(page) - 1) * Number(limit);
@@ -368,14 +385,15 @@ router.get('/admin/all', authenticate, authorize(['ADMIN', 'SUPER_ADMIN', 'REVIE
 });
 
 // Update application status (admin only)
-router.patch('/:id/status', authenticate, authorize(['ADMIN', 'SUPER_ADMIN', 'REVIEWER']), async (req: AuthRequest, res, next) => {
+router.patch('/:id/status', authenticate, authorize(['ADMIN', 'SUPER_ADMIN', 'REVIEWER']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
     const { status, reviewNotes } = req.body;
 
     const validStatuses = ['UNDER_REVIEW', 'APPROVED', 'REJECTED', 'NEEDS_REVISION'];
     if (!validStatuses.includes(status)) {
-      return res.status(400).json({ error: 'Invalid status' });
+      res.status(400).json({ error: 'Invalid status' });
+    return;
     }
 
     const application = await prisma.application.update({
@@ -403,6 +421,7 @@ router.patch('/:id/status', authenticate, authorize(['ADMIN', 'SUPER_ADMIN', 'RE
       message: 'Application status updated successfully',
       application,
     });
+    return;
   } catch (error) {
     next(error);
   }

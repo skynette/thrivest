@@ -22,11 +22,12 @@ const loginSchema = Joi.object({
 });
 
 // Register
-router.post('/register', async (req, res, next) => {
+router.post('/register', async (req, res, next): Promise<void> => {
   try {
     const { error } = registerSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+      res.status(400).json({ error: error.details[0].message });
+    return;
     }
 
     const { email, password, firstName, lastName, phone } = req.body;
@@ -37,7 +38,8 @@ router.post('/register', async (req, res, next) => {
     });
 
     if (existingUser) {
-      return res.status(409).json({ error: 'User already exists with this email' });
+      res.status(409).json({ error: 'User already exists with this email' });
+    return;
     }
 
     // Hash password
@@ -76,17 +78,19 @@ router.post('/register', async (req, res, next) => {
       user,
       token,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Login
-router.post('/login', async (req, res, next) => {
+router.post('/login', async (req, res, next): Promise<void> => {
   try {
     const { error } = loginSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+      res.status(400).json({ error: error.details[0].message });
+    return;
     }
 
     const { email, password } = req.body;
@@ -100,18 +104,21 @@ router.post('/login', async (req, res, next) => {
     });
 
     if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      res.status(401).json({ error: 'Invalid credentials' });
+    return;
     }
 
     // Check password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      res.status(401).json({ error: 'Invalid credentials' });
+    return;
     }
 
     // Check if user is active
     if (!user.isActive) {
-      return res.status(401).json({ error: 'Account is deactivated' });
+      res.status(401).json({ error: 'Account is deactivated' });
+    return;
     }
 
     // Generate token
@@ -130,13 +137,14 @@ router.post('/login', async (req, res, next) => {
       user: userWithoutPassword,
       token,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Get current user
-router.get('/me', authenticate, async (req: AuthRequest, res, next) => {
+router.get('/me', authenticate, async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user!.userId },
@@ -155,20 +163,22 @@ router.get('/me', authenticate, async (req: AuthRequest, res, next) => {
     });
 
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      res.status(404).json({ error: 'User not found' });
+    return;
     }
 
     res.json({
       success: true,
       user,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Update profile
-router.put('/profile', authenticate, async (req: AuthRequest, res, next) => {
+router.put('/profile', authenticate, async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const updateSchema = Joi.object({
       firstName: Joi.string().min(2).max(50).optional(),
@@ -185,7 +195,8 @@ router.put('/profile', authenticate, async (req: AuthRequest, res, next) => {
 
     const { error } = updateSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+      res.status(400).json({ error: error.details[0].message });
+    return;
     }
 
     const { firstName, lastName, phone, ...profileData } = req.body;
@@ -222,13 +233,14 @@ router.put('/profile', authenticate, async (req: AuthRequest, res, next) => {
         profile,
       },
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Change password
-router.put('/change-password', authenticate, async (req: AuthRequest, res, next) => {
+router.put('/change-password', authenticate, async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const changePasswordSchema = Joi.object({
       currentPassword: Joi.string().required(),
@@ -237,7 +249,8 @@ router.put('/change-password', authenticate, async (req: AuthRequest, res, next)
 
     const { error } = changePasswordSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+      res.status(400).json({ error: error.details[0].message });
+    return;
     }
 
     const { currentPassword, newPassword } = req.body;
@@ -249,13 +262,15 @@ router.put('/change-password', authenticate, async (req: AuthRequest, res, next)
     });
 
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      res.status(404).json({ error: 'User not found' });
+    return;
     }
 
     // Verify current password
     const isCurrentPasswordValid = await bcrypt.compare(currentPassword, user.password);
     if (!isCurrentPasswordValid) {
-      return res.status(400).json({ error: 'Current password is incorrect' });
+      res.status(400).json({ error: 'Current password is incorrect' });
+    return;
     }
 
     // Hash new password
@@ -271,6 +286,7 @@ router.put('/change-password', authenticate, async (req: AuthRequest, res, next)
       success: true,
       message: 'Password changed successfully',
     });
+    return;
   } catch (error) {
     next(error);
   }

@@ -40,8 +40,9 @@ const ContactPage = () => {
                 subject: '',
                 message: ''
             });
-        } catch (error: any) {
-            setSubmitError(error.error || 'Failed to send message. Please try again.');
+        } catch (error: unknown) {
+            const errorMessage = error instanceof Error ? error.message : 'Failed to send message. Please try again.';
+            setSubmitError(errorMessage);
         }
     }
 

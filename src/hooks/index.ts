@@ -10,4 +10,7 @@ export * from './useApplications';
 export * from './useContact';
 
 // User management hooks
-export * from './useUsers'; 
+export * from './useUsers';
+
+// Dashboard hooks
+export * from './queries/useDashboard'; 

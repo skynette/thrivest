@@ -22,8 +22,9 @@ const LoginPage = () => {
     try {
       await loginMutation.mutateAsync(formData);
       router.push('/dashboard');
-    } catch (err: any) {
-      setError(err.error || 'Login failed. Please try again.');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Login failed. Please try again.';
+      setError(errorMessage);
     }
   };
 

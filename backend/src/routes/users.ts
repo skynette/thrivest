@@ -5,7 +5,7 @@ import { authenticate, AuthRequest, authorize } from '../middleware/auth';
 const router = express.Router();
 
 // Get all users (admin only)
-router.get('/', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next) => {
+router.get('/', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { page = 1, limit = 10, search, role } = req.query;
     const skip = (Number(page) - 1) * Number(limit);
@@ -62,7 +62,7 @@ router.get('/', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: A
 });
 
 // Get user by ID (admin only)
-router.get('/:id', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next) => {
+router.get('/:id', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
 
@@ -93,32 +93,36 @@ router.get('/:id', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req
     });
 
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      res.status(404).json({ error: 'User not found' });
+    return;
     }
 
     res.json({
       success: true,
       user,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Update user role (admin only)
-router.patch('/:id/role', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next) => {
+router.patch('/:id/role', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
     const { role } = req.body;
 
     const validRoles = ['APPLICANT', 'REVIEWER', 'ADMIN', 'SUPER_ADMIN'];
     if (!validRoles.includes(role)) {
-      return res.status(400).json({ error: 'Invalid role' });
+      res.status(400).json({ error: 'Invalid role' });
+    return;
     }
 
     // Only SUPER_ADMIN can assign SUPER_ADMIN role
     if (role === 'SUPER_ADMIN' && req.user!.role !== 'SUPER_ADMIN') {
-      return res.status(403).json({ error: 'Only super admin can assign super admin role' });
+      res.status(403).json({ error: 'Only super admin can assign super admin role' });
+    return;
     }
 
     const user = await prisma.user.update({
@@ -139,19 +143,21 @@ router.patch('/:id/role', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), asy
       message: 'User role updated successfully',
       user,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Activate/deactivate user (admin only)
-router.patch('/:id/status', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next) => {
+router.patch('/:id/status', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
     const { isActive } = req.body;
 
     if (typeof isActive !== 'boolean') {
-      return res.status(400).json({ error: 'isActive must be a boolean' });
+      res.status(400).json({ error: 'isActive must be a boolean' });
+    return;
     }
 
     const user = await prisma.user.update({
@@ -172,13 +178,14 @@ router.patch('/:id/status', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), a
       message: `User ${isActive ? 'activated' : 'deactivated'} successfully`,
       user,
     });
+    return;
   } catch (error) {
     next(error);
   }
 });
 
 // Get user statistics (admin only)
-router.get('/stats/overview', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next) => {
+router.get('/stats/overview', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const totalUsers = await prisma.user.count();
     const activeUsers = await prisma.user.count({ where: { isActive: true } });
@@ -224,6 +231,7 @@ router.get('/stats/overview', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']),
         },
       },
     });
+    return;
   } catch (error) {
     next(error);
   }

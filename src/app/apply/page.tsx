@@ -118,8 +118,9 @@ export default function ApplicantPortal() {
                 });
 
                 router.push('/dashboard');
-            } catch (error: any) {
-                setSubmitError(error.error || 'Registration failed. Please try again.');
+            } catch (error: unknown) {
+                const errorMessage = error instanceof Error ? error.message : 'Registration failed. Please try again.';
+                setSubmitError(errorMessage);
             }
         }
     };
