@@ -9,8 +9,8 @@ import type { Application, ProfileResponse } from '@/types/common';
 interface DashboardData {
   user: {
     id: string;
-    firstName: string;
-    lastName: string;
+    firstName?: string;
+    lastName?: string;
     email: string;
     phone?: string;
   };
@@ -57,7 +57,13 @@ export const useDashboardData = (): UseQueryResult<DashboardData, Error> => {
       };
 
       return {
-        user: profile?.user || {},
+        user: profile?.user || {
+          id: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: undefined,
+        },
         applications: applications?.applications || [],
         stats,
       };

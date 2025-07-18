@@ -93,6 +93,6 @@ export const useUserProfile = () => {
     queryKey: ['user'],
     queryFn: () => authApi.getProfile(),
     enabled: isAuthenticated,
-    initialData: user ? { user } : undefined,
+    initialData: user ? { success: true, user } : undefined,
   });
 };
