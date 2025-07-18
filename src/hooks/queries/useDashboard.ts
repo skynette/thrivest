@@ -3,7 +3,8 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { authApi } from '@/lib/api';
 import { useMyApplications } from '@/hooks/useApplications';
-import { QUERY_KEYS, API_CONFIG } from '@/constants/api';
+import { API_CONFIG } from '@/constants/api';
+import type { Application, ProfileResponse } from '@/types/common';
 
 interface DashboardData {
   user: {
@@ -13,7 +14,7 @@ interface DashboardData {
     email: string;
     phone?: string;
   };
-  applications: any[];
+  applications: Application[];
   stats: {
     totalApplications: number;
     pendingApplications: number;
@@ -23,7 +24,7 @@ interface DashboardData {
 }
 
 // Get user profile for dashboard
-export const useDashboardProfile = (): UseQueryResult<any, Error> => {
+export const useDashboardProfile = (): UseQueryResult<ProfileResponse, Error> => {
   return useQuery({
     queryKey: ['dashboard', 'profile'],
     queryFn: authApi.getProfile,
@@ -44,13 +45,13 @@ export const useDashboardData = (): UseQueryResult<DashboardData, Error> => {
     queryFn: async () => {
       const stats = {
         totalApplications: applications?.applications?.length || 0,
-        pendingApplications: applications?.applications?.filter((app: any) => 
+        pendingApplications: applications?.applications?.filter((app: Application) => 
           ['DRAFT', 'SUBMITTED', 'UNDER_REVIEW'].includes(app.status)
         ).length || 0,
-        approvedApplications: applications?.applications?.filter((app: any) => 
+        approvedApplications: applications?.applications?.filter((app: Application) => 
           app.status === 'APPROVED'
         ).length || 0,
-        rejectedApplications: applications?.applications?.filter((app: any) => 
+        rejectedApplications: applications?.applications?.filter((app: Application) => 
           app.status === 'REJECTED'
         ).length || 0,
       };
@@ -79,7 +80,7 @@ export const useCurrentApplication = () => {
       }
       
       // Return the most recent application
-      return applications.applications.sort((a: any, b: any) => 
+      return applications.applications.sort((a: Application, b: Application) => 
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       )[0];
     },
@@ -106,7 +107,7 @@ export const useApplicationStats = () => {
       }
 
       const apps = applications.applications;
-      const latestApp = apps.sort((a: any, b: any) => 
+      const latestApp = apps.sort((a: Application, b: Application) => 
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       )[0];
 

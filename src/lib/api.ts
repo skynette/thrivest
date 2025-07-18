@@ -7,7 +7,8 @@ import type {
   AuthResponse,
   ProfileResponse,
   ApplicationsResponse,
-  Application
+  Application,
+  ApplicationDocument
 } from '@/types/common';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
@@ -76,7 +77,7 @@ export const applicationApi = {
   
   submit: (id: string): Promise<{ success: boolean; application: Application; message?: string }> => api.post(`/applications/${id}/submit`),
   
-  uploadDocument: (id: string, file: File, documentType: string): Promise<{ success: boolean; document: any; message?: string }> => {
+  uploadDocument: (id: string, file: File, documentType: string): Promise<{ success: boolean; document: ApplicationDocument; message?: string }> => {
     const formData = new FormData();
     formData.append('document', file);
     formData.append('documentType', documentType);
@@ -94,7 +95,7 @@ export const applicationApi = {
     fundType?: string;
     page?: number;
     limit?: number;
-  }): Promise<{ success: boolean; applications: Application[]; pagination?: any; message?: string }> => api.get('/applications/admin/all', { params }),
+  }): Promise<{ success: boolean; applications: Application[]; pagination?: { page: number; limit: number; total: number; totalPages: number }; message?: string }> => api.get('/applications/admin/all', { params }),
   
   updateStatus: (id: string, status: string, reviewNotes?: string): Promise<{ success: boolean; application: Application; message?: string }> =>
     api.patch(`/applications/${id}/status`, { status, reviewNotes }),

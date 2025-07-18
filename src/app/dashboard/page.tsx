@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle, AlertCircle, Clock, FileText, TrendingUp, DollarSign, Loader2 } from 'lucide-react';
+import { CheckCircle, AlertCircle, Clock, FileText, Loader2 } from 'lucide-react';
 import { useApplicationStats } from '@/hooks/queries/useDashboard';
 import { useMyApplications } from '@/hooks/useApplications';
 import type { Application } from '@/types/common';
