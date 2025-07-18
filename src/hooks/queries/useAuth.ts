@@ -14,7 +14,7 @@ export const useCurrentUser = (): UseQueryResult<User, Error> => {
     gcTime: API_CONFIG.CACHE_TIME, // Previously cacheTime
     retry: API_CONFIG.RETRY_ATTEMPTS,
     // Only run if user is authenticated
-    enabled: !!localStorage.getItem('accessToken'),
+    enabled: typeof window !== 'undefined' && !!localStorage.getItem('accessToken'),
   });
 };
 

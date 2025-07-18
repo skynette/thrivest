@@ -72,12 +72,12 @@ class ApiClient {
 
   private getAuthToken(): string | null {
     // Get token from localStorage, cookies, or your auth state
-    return localStorage.getItem('accessToken');
+    return typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null;
   }
 
   private async refreshToken(): Promise<void> {
     // Implement token refresh logic
-    const refreshToken = localStorage.getItem('refreshToken');
+    const refreshToken = typeof window !== 'undefined' ? localStorage.getItem('refreshToken') : null;
     if (!refreshToken) {
       throw new Error('No refresh token available');
     }
@@ -88,11 +88,12 @@ class ApiClient {
 
   private handleAuthFailure(): void {
     // Clear tokens
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-    
-    // Redirect to login or trigger auth state update
-    window.location.href = '/login';
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+      // Redirect to login or trigger auth state update
+      window.location.href = '/login';
+    }
   }
 
   // HTTP methods

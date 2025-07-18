@@ -31,7 +31,7 @@ export const useDashboardProfile = (): UseQueryResult<ProfileResponse, Error> =>
     staleTime: API_CONFIG.STALE_TIME,
     gcTime: API_CONFIG.CACHE_TIME,
     retry: API_CONFIG.RETRY_ATTEMPTS,
-    enabled: !!localStorage.getItem('token'),
+    enabled: typeof window !== 'undefined' && !!localStorage.getItem('token'),
   });
 };
 

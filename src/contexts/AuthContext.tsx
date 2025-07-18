@@ -37,6 +37,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     const initializeAuth = async () => {
+      if (typeof window === 'undefined') {
+        setIsLoading(false);
+        return;
+      }
+      
       const token = localStorage.getItem('token');
       const savedUser = localStorage.getItem('user');
       
@@ -63,8 +68,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const response = await authApi.login({ email, password });
       const { user, token } = response;
       
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+      }
       setUser(user);
     } catch (error) {
       throw error;
@@ -85,8 +92,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       });
       const { user, token } = response;
       
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+      }
       setUser(user);
     } catch (error) {
       throw error;
@@ -94,17 +103,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = '/';
+    }
     setUser(null);
-    window.location.href = '/';
   };
 
   const updateProfile = async (data: Partial<RegisterFormData>) => {
     try {
       const response = await authApi.updateProfile(data);
       setUser(response.user);
-      localStorage.setItem('user', JSON.stringify(response.user));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('user', JSON.stringify(response.user));
+      }
     } catch (error) {
       throw error;
     }
@@ -114,7 +127,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const response = await authApi.getProfile();
       setUser(response.user);
-      localStorage.setItem('user', JSON.stringify(response.user));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('user', JSON.stringify(response.user));
+      }
     } catch (error) {
       throw error;
     }
