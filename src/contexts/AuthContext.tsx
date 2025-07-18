@@ -79,7 +79,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     phone?: string;
   }) => {
     try {
-      const response = await authApi.register(data);
+      const response = await authApi.register({
+        ...data,
+        confirmPassword: data.password
+      });
       const { user, token } = response;
       
       localStorage.setItem('token', token);
