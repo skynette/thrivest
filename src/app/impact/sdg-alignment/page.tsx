@@ -56,7 +56,7 @@ const SDGAlignmentPage = () => {
                     {/* Introduction */}
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                            ThriVest Africa's mission directly contributes to five core Sustainable Development Goals.
+                            ThriVest Africa&apos;s mission directly contributes to five core Sustainable Development Goals.
                         </h2>
                     </div>
 
@@ -178,7 +178,7 @@ const SDGAlignmentPage = () => {
                                         <h3 className="text-2xl font-bold">Climate Action</h3>
                                     </div>
                                     <p className="text-lg leading-relaxed">
-                                        We are committed to supporting climate-resilient growth by ensuring that the businesses we fund adopt sustainable practices. This includes helping portfolio companies transition to renewable energy sources, reduce their carbon footprint, and implement emission tracking systems. Additionally, we invest in climate-smart and clean energy ventures, accelerating Africa's transition to a low-carbon economy.
+                                        We are committed to supporting climate-resilient growth by ensuring that the businesses we fund adopt sustainable practices. This includes helping portfolio companies transition to renewable energy sources, reduce their carbon footprint, and implement emission tracking systems. Additionally, we invest in climate-smart and clean energy ventures, accelerating Africa&apos;s transition to a low-carbon economy.
                                     </p>
                                 </div>
                             </div>

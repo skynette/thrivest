@@ -56,7 +56,7 @@ const IgniteFundsPage = () => {
                                 <div>
                                     <h3 className="text-xl font-bold text-gray-900 mb-4">Tagline:</h3>
                                     <p className="text-gray-700 leading-relaxed">
-                                        Fueling bold ideas. Empowering women to lead Africa's next wave of innovation.
+                                        Fueling bold ideas. Empowering women to lead Africa&apos;s next wave of innovation.
                                     </p>
                                 </div>
 

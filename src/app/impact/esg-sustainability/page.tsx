@@ -64,7 +64,7 @@ const ESGSustainabilityPage = () => {
                                 Environmental, Social, and Governance (ESG) factors are at the heart of responsible investing. We believe that businesses that operate sustainably, inclusively, and ethically are more resilient, more innovative, and ultimately more successful.
                             </p>
                             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                                Our ESG commitment goes beyond compliance, it's about partnering with enterprises that generate long-term value not only for shareholders but for society and the planet. We prioritize investments that deliver measurable outcomes, from improving livelihoods and advancing gender equity to driving climate resilience and transparent governance.
+                                Our ESG commitment goes beyond compliance, it&apos;s about partnering with enterprises that generate long-term value not only for shareholders but for society and the planet. We prioritize investments that deliver measurable outcomes, from improving livelihoods and advancing gender equity to driving climate resilience and transparent governance.
                             </p>
                             <p className="text-lg text-gray-700 leading-relaxed">
                                 Where ESG gaps exist, we work closely with businesses to close them through structured action plans, technical assistance, and hands-on engagement.

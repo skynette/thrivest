@@ -93,7 +93,7 @@ const ElevateFundsPage = () => {
                                 <div>
                                     <h3 className="text-xl font-bold text-gray-900 mb-4">Gender Lens as a Growth Strategy</h3>
                                     <p className="text-gray-700 leading-relaxed">
-                                        We see women's leadership not as a niche, but as a strategic asset. Our investments leverage the performance and innovation advantages of gender-diverse leadership to drive superior outcomes.
+                                        We see women&apos;s leadership not as a niche, but as a strategic asset. Our investments leverage the performance and innovation advantages of gender-diverse leadership to drive superior outcomes.
                                     </p>
                                 </div>
 

@@ -28,7 +28,7 @@ const CareersPage = () => {
                                 Purpose-Driven Career. Create Impact Across Africa.
                             </h1>
                             <p className="text-lg md:text-xl leading-relaxed">
-                                ThriVest Africa is more than an investment firm, we're a movement committed to unlocking the power of women-led innovation to transform economies and communities. If you're driven by purpose, bold thinking, and the desire to shape a more inclusive and sustainable Africa, we want to hear from you.
+                                ThriVest Africa is more than an investment firm, we&apos;re a movement committed to unlocking the power of women-led innovation to transform economies and communities. If you&apos;re driven by purpose, bold thinking, and the desire to shape a more inclusive and sustainable Africa, we want to hear from you.
                             </p>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ const CareersPage = () => {
                                     Partnerships & Collaborations
                                 </h3>
                                 <p className="text-gray-700 leading-relaxed">
-                                    We actively engage with advisors, technical partners, accelerators, and sector collaborators who align with our mission. If you're interested in co-creating value and impact, we're open to hearing your ideas.
+                                    We actively engage with advisors, technical partners, accelerators, and sector collaborators who align with our mission. If you&apos;re interested in co-creating value and impact, we&apos;re open to hearing your ideas.
                                 </p>
                             </div>
                         </div>
@@ -124,7 +124,7 @@ const CareersPage = () => {
                         <div className="bg-[#1e3a5f] text-white rounded-lg p-8 md:p-12">
                             <div className="max-w-4xl">
                                 <p className="text-lg md:text-xl leading-relaxed mb-8">
-                                    We're always open to exceptional talent and mission-aligned collaborators. If you're interested in joining us or collaborating, please submit the following:
+                                    We&apos;re always open to exceptional talent and mission-aligned collaborators. If you&apos;re interested in joining us or collaborating, please submit the following:
                                 </p>
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -175,7 +175,7 @@ const CareersPage = () => {
                                 Ready to Make an Impact?
                             </h2>
                             <p className="text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-                                Join us in building a more inclusive and sustainable future for Africa. Whether you're looking for a full-time role, internship, fellowship, or partnership opportunity, we'd love to hear from you.
+                                Join us in building a more inclusive and sustainable future for Africa. Whether you&apos;re looking for a full-time role, internship, fellowship, or partnership opportunity, we&apos;d love to hear from you.
                             </p>
                             <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
                                 <a 

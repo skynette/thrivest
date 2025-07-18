@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
-import { Mail, MapPin, Phone, Send } from 'lucide-react'
+import { Mail, MapPin, Send } from 'lucide-react'
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({
@@ -54,7 +54,7 @@ const ContactPage = () => {
                                 Contact Us
                             </h1>
                             <p className="text-lg md:text-xl mt-4 max-w-2xl">
-                                Get in touch with our team. We're here to help you with your investment journey and answer any questions you may have.
+                                Get in touch with our team. We&apos;re here to help you with your investment journey and answer any questions you may have.
                             </p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ const ContactPage = () => {
                                 Get in Touch
                             </h2>
                             <p className="text-lg text-gray-600 mb-12">
-                                We'd love to hear from you. Whether you're an entrepreneur seeking funding, a potential partner, or simply interested in learning more about our mission, we're here to help.
+                                We&apos;d love to hear from you. Whether you&apos;re an entrepreneur seeking funding, a potential partner, or simply interested in learning more about our mission, we&apos;re here to help.
                             </p>
 
                             {/* Email Addresses */}
@@ -242,7 +242,7 @@ const ContactPage = () => {
                                 Ready to Start Your Journey?
                             </h2>
                             <p className="text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-                                Join the movement of women-led businesses transforming Africa's economy. Whether you're seeking investment or looking to partner with us, we're here to support your mission.
+                                Join the movement of women-led businesses transforming Africa&apos;s economy. Whether you&apos;re seeking investment or looking to partner with us, we&apos;re here to support your mission.
                             </p>
                             <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
                                 <a 

@@ -182,7 +182,7 @@ const FAQPage = () => {
                                 Still have questions?
                             </h3>
                             <p className="text-lg mb-6">
-                                We're here to help. Get in touch with our team for more information.
+                                We&apos;re here to help. Get in touch with our team for more information.
                             </p>
                             <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
                                 <Link 
