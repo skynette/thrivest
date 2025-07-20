@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useAdminApplication, useUpdateApplicationStatus } from '@/hooks/queries/useAdmin';
-import type { Application } from '@/types/common';
 import { format } from 'date-fns';
 import { 
   ArrowLeft, 
@@ -18,7 +17,6 @@ import {
   Calendar,
   DollarSign,
   Target,
-  Briefcase,
   FileText
 } from 'lucide-react';
 
@@ -36,7 +34,7 @@ export default function AdminApplicationDetailPage() {
   
   const updateStatusMutation = useUpdateApplicationStatus();
 
-  const application = applicationResponse?.application || applicationResponse?.data;
+  const application = applicationResponse?.application;
 
   // Set review notes when application loads
   useState(() => {
@@ -93,6 +91,23 @@ export default function AdminApplicationDetailPage() {
       <div className="max-w-6xl mx-auto py-6">
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
           {typeof error === 'string' ? error : 'Application not found'}
+        </div>
+        <button
+          onClick={() => router.push('/admin/applications')}
+          className="mt-4 text-[#0B2653] hover:underline flex items-center"
+        >
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Back to Applications
+        </button>
+      </div>
+    );
+  }
+
+  if (!application) {
+    return (
+      <div className="max-w-6xl mx-auto py-6">
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+          Application not found
         </div>
         <button
           onClick={() => router.push('/admin/applications')}

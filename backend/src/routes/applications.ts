@@ -5,7 +5,7 @@ import path from 'path';
 import fs from 'fs';
 import { prisma } from '../lib/prisma';
 import { authenticate, AuthRequest, authorize, requireAdmin } from '../middleware/auth';
-import { parsePaginationQuery, createPaginationResult, buildSearchFilter } from '../lib/pagination';
+import { parsePaginationQuery, createPaginationResult, buildSearchFilter, ParsedPaginationOptions } from '../lib/pagination';
 
 const router = express.Router();
 

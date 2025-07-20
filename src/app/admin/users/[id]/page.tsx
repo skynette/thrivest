@@ -1,20 +1,22 @@
 'use client';
 
+import { use } from 'react';
 import { useAdminUser } from '@/hooks/queries/useAdmin';
 import { ArrowLeft, Edit, Shield, Mail, Phone, Calendar, Activity, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { format } from 'date-fns';
 
 interface UserViewPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function UserViewPage({ params }: UserViewPageProps) {
-  const { data: userResponse, isLoading, error } = useAdminUser(params.id);
+  const resolvedParams = use(params);
+  const { data: userResponse, isLoading, error } = useAdminUser(resolvedParams.id);
 
-  const user = userResponse?.user || userResponse?.data;
+  const user = userResponse?.user;
 
   const getRoleColor = (role: string) => {
     switch (role) {
@@ -93,7 +95,7 @@ export default function UserViewPage({ params }: UserViewPageProps) {
           </div>
         </div>
         <Link
-          href={`/admin/users/${params.id}/edit`}
+          href={`/admin/users/${resolvedParams.id}/edit`}
           className="flex items-center gap-2 px-4 py-2 bg-[#0B2653] text-white rounded-md hover:bg-[#0a1f42] transition-colors"
         >
           <Edit className="h-4 w-4" />
@@ -208,7 +210,7 @@ export default function UserViewPage({ params }: UserViewPageProps) {
               
               {user.applications.length > 0 ? (
                 <div className="space-y-3">
-                  {user.applications.map((application: any) => (
+                  {user.applications.map((application) => (
                     <div key={application.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
                       <div className="flex items-center gap-3">
                         <FileText className="h-5 w-5 text-gray-400" />
@@ -217,7 +219,7 @@ export default function UserViewPage({ params }: UserViewPageProps) {
                             {application.businessName || 'Unnamed Application'}
                           </p>
                           <p className="text-xs text-gray-500">
-                            {application.fundType} • Submitted {format(new Date(application.submittedAt || application.createdAt), 'MMM dd, yyyy')}
+                            {application.fundType} • {application.submittedAt ? `Submitted ${format(new Date(application.submittedAt), 'MMM dd, yyyy')}` : 'Not submitted'}
                           </p>
                         </div>
                       </div>

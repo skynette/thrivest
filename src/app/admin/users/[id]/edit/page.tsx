@@ -1,24 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAdminUser, useUpdateUserRole, useUpdateUserStatus } from '@/hooks/queries/useAdmin';
 import { ArrowLeft, Save, User, Shield, Mail, Phone, Calendar } from 'lucide-react';
 import Link from 'next/link';
 
 interface EditUserPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function EditUserPage({ params }: EditUserPageProps) {
+  const resolvedParams = use(params);
   const router = useRouter();
-  const { data: userResponse, isLoading, error } = useAdminUser(params.id);
+  const { data: userResponse, isLoading, error } = useAdminUser(resolvedParams.id);
   const updateUserRoleMutation = useUpdateUserRole();
   const updateUserStatusMutation = useUpdateUserStatus();
 
-  const user = userResponse?.user || userResponse?.data;
+  const user = userResponse?.user;
 
   const [formData, setFormData] = useState({
     role: user?.role || 'APPLICANT',
@@ -59,7 +60,7 @@ export default function EditUserPage({ params }: EditUserPageProps) {
     }
   };
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({
       ...prev,
       [field]: value,

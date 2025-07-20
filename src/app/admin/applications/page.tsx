@@ -1,18 +1,15 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { useAdminApplications, useUpdateApplicationStatus } from '@/hooks/queries/useAdmin';
-import type { Application } from '@/types/common';
+import { useAdminApplications } from '@/hooks/queries/useAdmin';
 import { format } from 'date-fns';
 import { 
   Eye, 
   Edit, 
-  Trash2, 
   CheckCircle, 
   XCircle, 
   Clock, 
   FileText,
-  Plus,
   Download
 } from 'lucide-react';
 import SearchFilter from '@/components/admin/SearchFilter';
@@ -23,7 +20,7 @@ export default function AdminApplicationsPage() {
   // Search and filter state
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('createdAt');
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+  const [sortOrder] = useState<'asc' | 'desc'>('desc');
   const [filters, setFilters] = useState<Record<string, string>>({});
   
   // Pagination state
@@ -44,18 +41,16 @@ export default function AdminApplicationsPage() {
     limit: itemsPerPage,
   });
 
-  const updateApplicationStatusMutation = useUpdateApplicationStatus();
-
-  // Extract applications from response
-  const applications = applicationsResponse?.data || applicationsResponse?.applications || [];
-  const pagination = applicationsResponse?.pagination;
+  // Status updates handled in detail page
 
   // Client-side filtering and sorting for additional refinement
   const filteredApplications = useMemo(() => {
-    let result = [...applications];
+    // Extract applications from response
+    const applications = applicationsResponse?.applications || [];
+    const result = [...applications];
 
     // Client-side sorting
-    result.sort((a: any, b: any) => {
+    result.sort((a, b) => {
       let aValue, bValue;
       
       switch (sortBy) {
@@ -88,7 +83,9 @@ export default function AdminApplicationsPage() {
     });
 
     return result;
-  }, [applications, sortBy, sortOrder]);
+  }, [applicationsResponse, sortBy, sortOrder]);
+
+  const pagination = applicationsResponse?.pagination;
 
   const sortOptions = [
     { label: 'Created Date', value: 'createdAt' },
@@ -135,31 +132,7 @@ export default function AdminApplicationsPage() {
     },
   ];
 
-  const handleStatusUpdate = async (applicationId: string, status: string, reviewNotes?: string) => {
-    try {
-      await updateApplicationStatusMutation.mutateAsync({ 
-        id: applicationId, 
-        status, 
-        reviewNotes 
-      });
-    } catch (err) {
-      console.error('Error updating status:', err);
-      alert('Failed to update application status');
-    }
-  };
-
-  const handleDelete = async (applicationId: string) => {
-    if (window.confirm('Are you sure you want to delete this application? This action cannot be undone.')) {
-      try {
-        // Note: You'll need to implement the delete endpoint in the API
-        // await applicationApi.delete(applicationId);
-        refetch();
-      } catch (err) {
-        console.error('Error deleting application:', err);
-        alert('Failed to delete application');
-      }
-    }
-  };
+  // Status updates handled in detail page
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -342,13 +315,6 @@ export default function AdminApplicationsPage() {
                       >
                         <Edit className="h-4 w-4" />
                       </Link>
-                      <button
-                        onClick={() => handleDelete(application.id)}
-                        className="text-red-600 hover:text-red-900 p-1 rounded hover:bg-gray-100"
-                        title="Delete"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
                     </div>
                   </td>
                 </tr>

@@ -3,7 +3,7 @@ import Joi from 'joi';
 import bcrypt from 'bcryptjs';
 import { prisma } from '../lib/prisma';
 import { authenticate, AuthRequest, authorize, requireAdmin, requireSuperAdmin } from '../middleware/auth';
-import { parsePaginationQuery, createPaginationResult, buildSearchFilter } from '../lib/pagination';
+import { parsePaginationQuery, createPaginationResult, buildSearchFilter, ParsedPaginationOptions } from '../lib/pagination';
 
 const router = express.Router();
 

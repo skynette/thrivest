@@ -5,6 +5,13 @@ export interface PaginationOptions {
   sortOrder?: 'asc' | 'desc';
 }
 
+export interface ParsedPaginationOptions {
+  page: number;
+  limit: number;
+  sortBy: string;
+  sortOrder: 'asc' | 'desc';
+}
+
 export interface PaginationResult<T> {
   data: T[];
   pagination: {
@@ -17,7 +24,7 @@ export interface PaginationResult<T> {
   };
 }
 
-export const parsePaginationQuery = (query: any): PaginationOptions => {
+export const parsePaginationQuery = (query: any): ParsedPaginationOptions => {
   const page = Math.max(1, parseInt(query.page) || 1);
   const limit = Math.min(100, Math.max(1, parseInt(query.limit) || 10));
   const sortBy = query.sortBy || 'createdAt';

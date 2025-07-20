@@ -2,15 +2,12 @@
 
 import { useState, useMemo } from 'react';
 import { useAdminUsers, useUpdateUserRole, useUpdateUserStatus } from '@/hooks/queries/useAdmin';
-import type { User } from '@/types/common';
 import { format } from 'date-fns';
 import { 
   Eye, 
   Edit, 
-  Trash2, 
   UserCheck, 
   UserX, 
-  Shield,
   Users,
   Plus,
   Download,
@@ -25,7 +22,7 @@ export default function AdminUsersPage() {
   // Search and filter state
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('createdAt');
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+  const [sortOrder] = useState<'asc' | 'desc'>('desc');
   const [filters, setFilters] = useState<Record<string, string>>({});
   
   // Pagination state
@@ -48,12 +45,10 @@ export default function AdminUsersPage() {
   const updateUserRoleMutation = useUpdateUserRole();
   const updateUserStatusMutation = useUpdateUserStatus();
 
-  // Extract users from response
-  const users = usersResponse?.data || usersResponse?.users || [];
-  const pagination = usersResponse?.pagination;
-
   // Client-side filtering and sorting for additional refinement
   const filteredUsers = useMemo(() => {
+    // Extract users from response
+    const users = usersResponse?.data || [];
     let result = [...users];
 
     // Additional client-side filtering if needed
@@ -63,13 +58,13 @@ export default function AdminUsersPage() {
     }
 
     // Client-side sorting
-    result.sort((a: any, b: any) => {
-      let aValue, bValue;
+    result.sort((a, b) => {
+      let aValue: any, bValue: any; // eslint-disable-line @typescript-eslint/no-explicit-any
       
       switch (sortBy) {
         case 'name':
-          aValue = `${a.firstName} ${a.lastName}`.toLowerCase();
-          bValue = `${b.firstName} ${b.lastName}`.toLowerCase();
+          aValue = `${a.firstName || ''} ${a.lastName || ''}`.toLowerCase();
+          bValue = `${b.firstName || ''} ${b.lastName || ''}`.toLowerCase();
           break;
         case 'email':
           aValue = a.email.toLowerCase();
@@ -80,8 +75,8 @@ export default function AdminUsersPage() {
           bValue = b.role;
           break;
         case 'isActive':
-          aValue = a.isActive;
-          bValue = b.isActive;
+          aValue = a.isActive ?? false;
+          bValue = b.isActive ?? false;
           break;
         case 'createdAt':
         default:
@@ -96,7 +91,9 @@ export default function AdminUsersPage() {
     });
 
     return result;
-  }, [users, filters, sortBy, sortOrder]);
+  }, [usersResponse, filters, sortBy, sortOrder]);
+
+  const pagination = usersResponse?.pagination;
 
   const sortOptions = [
     { label: 'Created Date', value: 'createdAt' },
@@ -145,18 +142,7 @@ export default function AdminUsersPage() {
     }
   };
 
-  const handleDelete = async (userId: string) => {
-    if (window.confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
-      try {
-        // Note: You'll need to implement the delete endpoint in the API
-        // await userApi.delete(userId);
-        refetch();
-      } catch (err) {
-        console.error('Error deleting user:', err);
-        alert('Failed to delete user');
-      }
-    }
-  };
+  // Delete functionality to be implemented
 
   const getRoleColor = (role: string) => {
     switch (role) {
@@ -224,7 +210,7 @@ export default function AdminUsersPage() {
 
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-          {error}
+          {error.message || 'An error occurred'}
         </div>
       )}
 
@@ -357,14 +343,6 @@ export default function AdminUsersPage() {
                       >
                         <Edit className="h-4 w-4" />
                       </Link>
-                      <button
-                        onClick={() => handleDelete(user.id)}
-                        className="text-red-600 hover:text-red-900 p-1 rounded hover:bg-gray-100"
-                        title="Delete"
-                        disabled={user.role === 'SUPER_ADMIN'}
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
                     </div>
                   </td>
                 </tr>

@@ -8,7 +8,10 @@ import type {
   ProfileResponse,
   ApplicationsResponse,
   Application,
-  ApplicationDocument
+  ApplicationDocument,
+  UserStatsResponse,
+  UsersResponse,
+  UserResponse
 } from '@/types/common';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
@@ -127,15 +130,15 @@ export const userApi = {
     role?: string;
     page?: number;
     limit?: number;
-  }) => api.get('/users', { params }),
+  }): Promise<UsersResponse> => api.get('/users', { params }),
   
-  getById: (id: string) => api.get(`/users/${id}`),
+  getById: (id: string): Promise<UserResponse> => api.get(`/users/${id}`),
   
-  updateRole: (id: string, role: string) => 
+  updateRole: (id: string, role: string): Promise<UserResponse> => 
     api.patch(`/users/${id}/role`, { role }),
   
-  updateStatus: (id: string, isActive: boolean) =>
+  updateStatus: (id: string, isActive: boolean): Promise<UserResponse> =>
     api.patch(`/users/${id}/status`, { isActive }),
   
-  getStats: () => api.get('/users/stats/overview'),
+  getStats: (): Promise<UserStatsResponse> => api.get('/users/stats/overview'),
 };

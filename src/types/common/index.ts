@@ -41,6 +41,17 @@ export interface User extends BaseEntity {
   isActive?: boolean;
 }
 
+export interface UserWithApplications extends User {
+  profile?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  applications?: Array<{
+    id: string;
+    fundType: FundType;
+    status: ApplicationStatus;
+    submittedAt?: string;
+    businessName?: string;
+  }>;
+}
+
 // Application types
 export type ApplicationStatus = 'DRAFT' | 'SUBMITTED' | 'UNDER_REVIEW' | 'APPROVED' | 'REJECTED' | 'NEEDS_REVISION';
 export type FundType = 'IGNITE' | 'ELEVATE';
@@ -175,5 +186,46 @@ export interface AuthResponse {
 export interface ProfileResponse {
   success: boolean;
   user: User;
+  message?: string;
+}
+
+export interface UserStatsResponse {
+  success: boolean;
+  stats: {
+    overview: {
+      total: number;
+      active: number;
+      inactive: number;
+      thisMonth: number;
+      growthRate: number;
+    };
+    byRole: Array<{
+      role: string;
+      _count: {
+        role: number;
+      };
+    }>;
+    recent: User[];
+  };
+  message?: string;
+}
+
+export interface UsersResponse {
+  success: boolean;
+  data: User[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+  };
+  message?: string;
+}
+
+export interface UserResponse {
+  success: boolean;
+  user: UserWithApplications;
   message?: string;
 } 

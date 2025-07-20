@@ -3,7 +3,9 @@
 import { useMemo } from 'react';
 import { FileText, Users, CheckCircle, Clock, TrendingUp, DollarSign } from 'lucide-react';
 import { useAdminStats } from '@/hooks/queries/useAdmin';
+import Link from 'next/link';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface DashboardStats {
   totalApplications: number;
   totalUsers: number;
@@ -40,23 +42,23 @@ export default function AdminDashboard() {
       };
     }
 
-    const applications = adminData.applications?.data || adminData.applications?.applications || [];
-    const userStats = adminData.users?.stats || adminData.users;
+    const applications = adminData.applications?.applications || [];
+    const userStats = adminData.users;
     
     console.log('Processing admin data:', { applications, userStats });
 
-    const approvedCount = applications.filter((app: any) => app.status === 'APPROVED').length;
-    const pendingCount = applications.filter((app: any) => 
+    const approvedCount = applications.filter((app) => app.status === 'APPROVED').length;
+    const pendingCount = applications.filter((app) => 
       app.status === 'SUBMITTED' || app.status === 'UNDER_REVIEW'
     ).length;
 
     const dashboardStats = {
       totalApplications: applications.length,
-      totalUsers: userStats?.overview?.total || userStats?.totalUsers || 0,
+      totalUsers: userStats?.stats?.overview?.total || 0,
       approvedApplications: approvedCount,
       pendingApplications: pendingCount,
       totalFunding: '₦0',
-      monthlyGrowth: userStats?.overview?.growthRate || userStats?.monthlyGrowth || 0,
+      monthlyGrowth: userStats?.stats?.overview?.growthRate || 0,
     };
 
     // Process recent activity
@@ -65,10 +67,10 @@ export default function AdminDashboard() {
     // Add recent applications
     if (applications && applications.length > 0) {
       const recentApps = applications
-        .sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
         .slice(0, 3);
 
-      recentApps.forEach((app: any) => {
+      recentApps.forEach((app) => {
         const timeDiff = new Date().getTime() - new Date(app.createdAt).getTime();
         const daysAgo = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         const hoursAgo = Math.floor(timeDiff / (1000 * 60 * 60));
@@ -108,8 +110,8 @@ export default function AdminDashboard() {
     }
 
     // Add recent users
-    if (userStats?.recent && userStats.recent.length > 0) {
-      userStats.recent.slice(0, 3).forEach((user: any) => {
+    if (userStats?.stats?.recent && userStats.stats.recent.length > 0) {
+      userStats.stats.recent.slice(0, 3).forEach((user) => {
         if (user.role !== 'ADMIN' && user.role !== 'SUPER_ADMIN') {
           const timeDiff = new Date().getTime() - new Date(user.createdAt).getTime();
           const daysAgo = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -142,10 +144,10 @@ export default function AdminDashboard() {
     // Sort activities by creation date
     const sortedActivities = activities
       .sort((a, b) => {
-        const aUser = userStats?.recent?.find((u: any) => u.id === a.id);
-        const aApp = applications?.find((app: any) => app.id === a.id);
-        const bUser = userStats?.recent?.find((u: any) => u.id === b.id);
-        const bApp = applications?.find((app: any) => app.id === b.id);
+        const aUser = userStats?.stats?.recent?.find((u) => u.id === a.id);
+        const aApp = applications?.find((app) => app.id === a.id);
+        const bUser = userStats?.stats?.recent?.find((u) => u.id === b.id);
+        const bApp = applications?.find((app) => app.id === b.id);
         
         const aTime = aUser?.createdAt || aApp?.createdAt;
         const bTime = bUser?.createdAt || bApp?.createdAt;
@@ -204,7 +206,7 @@ export default function AdminDashboard() {
   }: { 
     title: string; 
     value: string | number; 
-    icon: any; 
+    icon: React.ComponentType<{ className?: string }>; 
     color: string; 
     trend?: number;
   }) => (
@@ -289,7 +291,7 @@ export default function AdminDashboard() {
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <a
+          <Link
             href="/admin/applications"
             className="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
           >
@@ -298,8 +300,8 @@ export default function AdminDashboard() {
               <p className="font-medium text-blue-900">Manage Applications</p>
               <p className="text-sm text-blue-600">Review and process applications</p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/admin/users"
             className="flex items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
           >
@@ -308,8 +310,8 @@ export default function AdminDashboard() {
               <p className="font-medium text-green-900">Manage Users</p>
               <p className="text-sm text-green-600">View and edit user accounts</p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/admin/analytics"
             className="flex items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors"
           >
@@ -318,8 +320,8 @@ export default function AdminDashboard() {
               <p className="font-medium text-purple-900">View Analytics</p>
               <p className="text-sm text-purple-600">System performance metrics</p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/admin/settings"
             className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
           >
@@ -328,7 +330,7 @@ export default function AdminDashboard() {
               <p className="font-medium text-gray-900">System Settings</p>
               <p className="text-sm text-gray-600">Configure system options</p>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
 

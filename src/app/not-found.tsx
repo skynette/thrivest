@@ -40,7 +40,7 @@ export default function NotFound() {
             Page Not Found
           </h1>
           <p className="text-blue-100 text-lg mb-2">
-            Oops! The page you're looking for doesn't exist.
+            Oops! The page you&apos;re looking for doesn&apos;t exist.
           </p>
           <p className="text-blue-200 text-sm">
             It might have been moved, deleted, or you entered the wrong URL.

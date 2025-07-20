@@ -29,10 +29,10 @@ export default function AdminNotFound() {
             Admin Page Not Found
           </h2>
           <p className="text-gray-600 text-lg mb-2">
-            The admin page you're looking for doesn't exist.
+            The admin page you&apos;re looking for doesn&apos;t exist.
           </p>
           <p className="text-gray-500 text-sm">
-            It might have been moved or you don't have permission to access it.
+            It might have been moved or you don&apos;t have permission to access it.
           </p>
         </div>
 
