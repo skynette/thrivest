@@ -9,8 +9,10 @@ import {
     Upload,
     Activity,
     MessageSquare,
-    Users
+    Users,
+    LogOut
 } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 const navigationItems = [
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
@@ -26,10 +28,15 @@ const navigationItems = [
 
 export default function DashboardSidebar() {
     const pathname = usePathname();
+    const { logout } = useAuth();
+
+    const handleLogout = () => {
+        logout();
+    };
 
     return (
-        <nav className="w-full md:w-48 bg-[#0B2653] md:min-h-[calc(100vh-4rem)]">
-            <div className="py-2 md:py-6">
+        <nav className="w-full md:w-48 bg-[#0B2653] md:min-h-[calc(100vh-4rem)] flex flex-col">
+            <div className="py-2 md:py-6 flex-1">
                 <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible scrollbar-hide">
                     {navigationItems.map((item) => {
                         const isActive = pathname === item.href;
@@ -51,6 +58,17 @@ export default function DashboardSidebar() {
                         );
                     })}
                 </div>
+            </div>
+            
+            {/* Logout button at bottom - only visible on desktop */}
+            <div className="hidden md:block border-t border-blue-800">
+                <button
+                    onClick={handleLogout}
+                    className="w-full flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-blue-800 hover:text-white transition-colors"
+                >
+                    <LogOut className="h-5 w-5 flex-shrink-0" />
+                    <span className="text-sm">Logout</span>
+                </button>
             </div>
         </nav>
     );

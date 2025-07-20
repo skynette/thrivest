@@ -45,3 +45,34 @@ export const authorize = (roles: string[]) => {
     next();
   };
 };
+
+// Admin-only middleware
+export const requireAdmin = (req: AuthRequest, res: Response, next: NextFunction): void => {
+  if (!req.user) {
+    res.status(401).json({ error: 'Authentication required' });
+    return;
+  }
+
+  const adminRoles = ['ADMIN', 'SUPER_ADMIN'];
+  if (!adminRoles.includes(req.user.role)) {
+    res.status(403).json({ error: 'Admin access required' });
+    return;
+  }
+
+  next();
+};
+
+// Super admin only middleware
+export const requireSuperAdmin = (req: AuthRequest, res: Response, next: NextFunction): void => {
+  if (!req.user) {
+    res.status(401).json({ error: 'Authentication required' });
+    return;
+  }
+
+  if (req.user.role !== 'SUPER_ADMIN') {
+    res.status(403).json({ error: 'Super admin access required' });
+    return;
+  }
+
+  next();
+};

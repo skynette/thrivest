@@ -1,60 +1,111 @@
 import express from 'express';
+import Joi from 'joi';
+import bcrypt from 'bcryptjs';
 import { prisma } from '../lib/prisma';
-import { authenticate, AuthRequest, authorize } from '../middleware/auth';
+import { authenticate, AuthRequest, authorize, requireAdmin, requireSuperAdmin } from '../middleware/auth';
+import { parsePaginationQuery, createPaginationResult, buildSearchFilter } from '../lib/pagination';
 
 const router = express.Router();
 
+// Validation schemas
+const createUserSchema = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().min(6).required(),
+  firstName: Joi.string().required(),
+  lastName: Joi.string().required(),
+  phone: Joi.string().optional(),
+  role: Joi.string().valid('APPLICANT', 'REVIEWER', 'ADMIN', 'SUPER_ADMIN').default('APPLICANT'),
+});
+
+const updateUserSchema = Joi.object({
+  email: Joi.string().email().optional(),
+  firstName: Joi.string().optional(),
+  lastName: Joi.string().optional(),
+  phone: Joi.string().optional(),
+  isActive: Joi.boolean().optional(),
+});
+
 // Get all users (admin only)
-router.get('/', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
+router.get('/', authenticate, requireAdmin, async (req: AuthRequest, res, next): Promise<void> => {
   try {
-    const { page = 1, limit = 10, search, role } = req.query;
-    const skip = (Number(page) - 1) * Number(limit);
+    const { 
+      search, 
+      role, 
+      isActive,
+      sortBy = 'createdAt',
+      sortOrder = 'desc',
+      startDate,
+      endDate
+    } = req.query;
 
+    const paginationOptions = parsePaginationQuery(req.query);
+    const { page, limit } = paginationOptions;
+    const skip = (page - 1) * limit;
+
+    // Build where clause
     const where: any = {};
+    
+    // Search filter
     if (search) {
-      where.OR = [
-        { email: { contains: search, mode: 'insensitive' } },
-        { firstName: { contains: search, mode: 'insensitive' } },
-        { lastName: { contains: search, mode: 'insensitive' } },
-      ];
+      const searchFilter = buildSearchFilter(search as string, [
+        'email',
+        'firstName',
+        'lastName'
+      ]);
+      Object.assign(where, searchFilter);
     }
+    
+    // Role filter
     if (role) where.role = role;
+    
+    // Active status filter
+    if (isActive !== undefined) {
+      where.isActive = isActive === 'true';
+    }
+    
+    // Date range filter
+    if (startDate || endDate) {
+      where.createdAt = {};
+      if (startDate) where.createdAt.gte = new Date(startDate as string);
+      if (endDate) where.createdAt.lte = new Date(endDate as string);
+    }
 
-    const users = await prisma.user.findMany({
-      where,
-      select: {
-        id: true,
-        email: true,
-        firstName: true,
-        lastName: true,
-        phone: true,
-        role: true,
-        isActive: true,
-        createdAt: true,
-        updatedAt: true,
-        profile: true,
-        _count: {
-          select: {
-            applications: true,
+    // Build order by
+    const orderBy: any = {};
+    orderBy[sortBy as string] = sortOrder;
+
+    const [users, total] = await Promise.all([
+      prisma.user.findMany({
+        where,
+        select: {
+          id: true,
+          email: true,
+          firstName: true,
+          lastName: true,
+          phone: true,
+          role: true,
+          isActive: true,
+          createdAt: true,
+          updatedAt: true,
+          profile: true,
+          _count: {
+            select: {
+              applications: true,
+            },
           },
         },
-      },
-      orderBy: { createdAt: 'desc' },
-      skip,
-      take: Number(limit),
-    });
+        orderBy,
+        skip,
+        take: limit,
+      }),
+      prisma.user.count({ where })
+    ]);
 
-    const total = await prisma.user.count({ where });
+    const result = createPaginationResult(users, total, paginationOptions);
 
     res.json({
       success: true,
-      users,
-      pagination: {
-        page: Number(page),
-        limit: Number(limit),
-        total,
-        pages: Math.ceil(total / Number(limit)),
-      },
+      ...result,
     });
   } catch (error) {
     next(error);
@@ -184,51 +235,254 @@ router.patch('/:id/status', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), a
   }
 });
 
-// Get user statistics (admin only)
-router.get('/stats/overview', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
+// Create new user (admin only)
+router.post('/', authenticate, requireAdmin, async (req: AuthRequest, res, next): Promise<void> => {
   try {
-    const totalUsers = await prisma.user.count();
-    const activeUsers = await prisma.user.count({ where: { isActive: true } });
-    const totalApplications = await prisma.application.count();
-    const submittedApplications = await prisma.application.count({ 
-      where: { status: { not: 'DRAFT' } } 
+    const { error } = createUserSchema.validate(req.body);
+    if (error) {
+      res.status(400).json({ error: error.details[0].message });
+      return;
+    }
+
+    const { email, password, firstName, lastName, phone, role } = req.body;
+
+    // Check if user already exists
+    const existingUser = await prisma.user.findUnique({
+      where: { email },
     });
 
-    const applicationsByStatus = await prisma.application.groupBy({
-      by: ['status'],
-      _count: {
-        status: true,
+    if (existingUser) {
+      res.status(409).json({ error: 'User already exists with this email' });
+      return;
+    }
+
+    // Only SUPER_ADMIN can create SUPER_ADMIN users
+    if (role === 'SUPER_ADMIN' && req.user!.role !== 'SUPER_ADMIN') {
+      res.status(403).json({ error: 'Only super admin can create super admin users' });
+      return;
+    }
+
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await prisma.user.create({
+      data: {
+        email,
+        password: hashedPassword,
+        firstName,
+        lastName,
+        phone,
+        role: role || 'APPLICANT',
       },
-    });
-
-    const applicationsByFundType = await prisma.application.groupBy({
-      by: ['fundType'],
-      _count: {
-        fundType: true,
-      },
-    });
-
-    const usersByRole = await prisma.user.groupBy({
-      by: ['role'],
-      _count: {
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        phone: true,
         role: true,
+        isActive: true,
+        createdAt: true,
+      },
+    });
+
+    res.status(201).json({
+      success: true,
+      message: 'User created successfully',
+      user,
+    });
+    return;
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Update user details (admin only)
+router.put('/:id', authenticate, requireAdmin, async (req: AuthRequest, res, next): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const { error } = updateUserSchema.validate(req.body);
+    
+    if (error) {
+      res.status(400).json({ error: error.details[0].message });
+      return;
+    }
+
+    const { email, firstName, lastName, phone, isActive } = req.body;
+
+    // Check if email is being changed and already exists
+    if (email) {
+      const existingUser = await prisma.user.findFirst({
+        where: {
+          email,
+          id: { not: id },
+        },
+      });
+
+      if (existingUser) {
+        res.status(409).json({ error: 'Email already exists' });
+        return;
+      }
+    }
+
+    const user = await prisma.user.update({
+      where: { id },
+      data: {
+        ...(email && { email }),
+        ...(firstName && { firstName }),
+        ...(lastName && { lastName }),
+        ...(phone !== undefined && { phone }),
+        ...(isActive !== undefined && { isActive }),
+      },
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        phone: true,
+        role: true,
+        isActive: true,
+        updatedAt: true,
       },
     });
 
     res.json({
       success: true,
+      message: 'User updated successfully',
+      user,
+    });
+    return;
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Delete user (super admin only)
+router.delete('/:id', authenticate, requireSuperAdmin, async (req: AuthRequest, res, next): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    // Check if user exists
+    const user = await prisma.user.findUnique({
+      where: { id },
+      include: {
+        applications: true,
+      },
+    });
+
+    if (!user) {
+      res.status(404).json({ error: 'User not found' });
+      return;
+    }
+
+    // Prevent deleting yourself
+    if (id === req.user!.userId) {
+      res.status(400).json({ error: 'Cannot delete your own account' });
+      return;
+    }
+
+    // Delete user profile first (if exists)
+    await prisma.userProfile.deleteMany({
+      where: { userId: id },
+    });
+
+    // Delete application documents
+    for (const application of user.applications) {
+      await prisma.applicationDocument.deleteMany({
+        where: { applicationId: application.id },
+      });
+    }
+
+    // Delete applications
+    await prisma.application.deleteMany({
+      where: { userId: id },
+    });
+
+    // Finally delete the user
+    await prisma.user.delete({
+      where: { id },
+    });
+
+    res.json({
+      success: true,
+      message: 'User and all associated data deleted successfully',
+    });
+    return;
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Get user statistics (admin only)
+router.get('/stats/overview', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
+  try {
+    const now = new Date();
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const startOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const endOfLastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+
+    const [
+      totalUsers,
+      activeUsers,
+      inactiveUsers,
+      thisMonthUsers,
+      lastMonthUsers,
+      usersByRole,
+      recentUsers
+    ] = await Promise.all([
+      prisma.user.count(),
+      prisma.user.count({ where: { isActive: true } }),
+      prisma.user.count({ where: { isActive: false } }),
+      prisma.user.count({
+        where: {
+          createdAt: { gte: startOfMonth },
+        },
+      }),
+      prisma.user.count({
+        where: {
+          createdAt: {
+            gte: startOfLastMonth,
+            lte: endOfLastMonth,
+          },
+        },
+      }),
+      prisma.user.groupBy({
+        by: ['role'],
+        _count: {
+          role: true,
+        },
+      }),
+      prisma.user.findMany({
+        select: {
+          id: true,
+          email: true,
+          firstName: true,
+          lastName: true,
+          role: true,
+          isActive: true,
+          createdAt: true,
+        },
+        orderBy: { createdAt: 'desc' },
+        take: 5,
+      }),
+    ]);
+
+    const userGrowthRate = lastMonthUsers > 0 
+      ? ((thisMonthUsers - lastMonthUsers) / lastMonthUsers) * 100 
+      : 0;
+
+    res.json({
+      success: true,
       stats: {
-        users: {
+        overview: {
           total: totalUsers,
           active: activeUsers,
-          byRole: usersByRole,
+          inactive: inactiveUsers,
+          thisMonth: thisMonthUsers,
+          growthRate: Math.round(userGrowthRate * 100) / 100,
         },
-        applications: {
-          total: totalApplications,
-          submitted: submittedApplications,
-          byStatus: applicationsByStatus,
-          byFundType: applicationsByFundType,
-        },
+        byRole: usersByRole,
+        recent: recentUsers,
       },
     });
     return;

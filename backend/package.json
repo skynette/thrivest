@@ -9,7 +9,8 @@
     "start": "node dist/server.js",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "seed:admin": "ts-node src/scripts/seedAdmin.ts"
   },
   "keywords": ["express", "typescript", "prisma", "mongodb"],
   "author": "ThriVest Africa",

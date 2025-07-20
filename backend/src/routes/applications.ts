@@ -4,7 +4,8 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import { prisma } from '../lib/prisma';
-import { authenticate, AuthRequest, authorize } from '../middleware/auth';
+import { authenticate, AuthRequest, authorize, requireAdmin } from '../middleware/auth';
+import { parsePaginationQuery, createPaginationResult, buildSearchFilter } from '../lib/pagination';
 
 const router = express.Router();
 
@@ -340,44 +341,83 @@ router.post('/:id/upload', authenticate, upload.single('document'), async (req: 
 });
 
 // Admin routes for reviewing applications
-router.get('/admin/all', authenticate, authorize(['ADMIN', 'SUPER_ADMIN', 'REVIEWER']), async (req: AuthRequest, res, next): Promise<void> => {
+router.get('/admin/all', authenticate, requireAdmin, async (req: AuthRequest, res, next): Promise<void> => {
   try {
-    const { status, fundType, page = 1, limit = 10 } = req.query;
-    const skip = (Number(page) - 1) * Number(limit);
+    const { 
+      status, 
+      fundType, 
+      sector,
+      search,
+      sortBy = 'createdAt',
+      sortOrder = 'desc',
+      startDate,
+      endDate
+    } = req.query;
 
+    const paginationOptions = parsePaginationQuery(req.query);
+    const { page, limit } = paginationOptions;
+    const skip = (page - 1) * limit;
+
+    // Build where clause
     const where: any = {};
+    
+    // Status filter
     if (status) where.status = status;
+    
+    // Fund type filter
     if (fundType) where.fundType = fundType;
+    
+    // Sector filter
+    if (sector) where.sector = { contains: sector as string, mode: 'insensitive' };
+    
+    // Search filter
+    if (search) {
+      const searchFilter = buildSearchFilter(search as string, [
+        'businessName',
+        'founderName',
+        'founderEmail',
+        'sector'
+      ]);
+      Object.assign(where, searchFilter);
+    }
+    
+    // Date range filter
+    if (startDate || endDate) {
+      where.createdAt = {};
+      if (startDate) where.createdAt.gte = new Date(startDate as string);
+      if (endDate) where.createdAt.lte = new Date(endDate as string);
+    }
 
-    const applications = await prisma.application.findMany({
-      where,
-      include: {
-        user: {
-          select: {
-            id: true,
-            email: true,
-            firstName: true,
-            lastName: true,
+    // Build order by
+    const orderBy: any = {};
+    orderBy[sortBy as string] = sortOrder;
+
+    const [applications, total] = await Promise.all([
+      prisma.application.findMany({
+        where,
+        include: {
+          user: {
+            select: {
+              id: true,
+              email: true,
+              firstName: true,
+              lastName: true,
+            },
           },
+          documents: true,
         },
-        documents: true,
-      },
-      orderBy: { createdAt: 'desc' },
-      skip,
-      take: Number(limit),
-    });
+        orderBy,
+        skip,
+        take: limit,
+      }),
+      prisma.application.count({ where })
+    ]);
 
-    const total = await prisma.application.count({ where });
+    const result = createPaginationResult(applications, total, paginationOptions);
 
     res.json({
       success: true,
-      applications,
-      pagination: {
-        page: Number(page),
-        limit: Number(limit),
-        total,
-        pages: Math.ceil(total / Number(limit)),
-      },
+      ...result,
     });
   } catch (error) {
     next(error);
@@ -422,6 +462,157 @@ router.patch('/:id/status', authenticate, authorize(['ADMIN', 'SUPER_ADMIN', 'RE
       application,
     });
     return;
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Admin: Get single application by ID
+router.get('/admin/:id', authenticate, requireAdmin, async (req: AuthRequest, res, next): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    const application = await prisma.application.findUnique({
+      where: { id },
+      include: {
+        user: {
+          select: {
+            id: true,
+            email: true,
+            firstName: true,
+            lastName: true,
+            phone: true,
+          },
+        },
+        documents: true,
+      },
+    });
+
+    if (!application) {
+      res.status(404).json({ error: 'Application not found' });
+      return;
+    }
+
+    res.json({
+      success: true,
+      application,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Admin: Update application details
+router.put('/admin/:id', authenticate, requireAdmin, async (req: AuthRequest, res, next): Promise<void> => {
+  try {
+    const { id } = req.params;
+    
+    const { error } = applicationSchema.validate(req.body);
+    if (error) {
+      res.status(400).json({ error: error.details[0].message });
+      return;
+    }
+
+    const application = await prisma.application.update({
+      where: { id },
+      data: req.body,
+      include: {
+        user: {
+          select: {
+            id: true,
+            email: true,
+            firstName: true,
+            lastName: true,
+          },
+        },
+        documents: true,
+      },
+    });
+
+    res.json({
+      success: true,
+      message: 'Application updated successfully',
+      application,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Admin: Delete application
+router.delete('/admin/:id', authenticate, requireAdmin, async (req: AuthRequest, res, next): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    // Delete associated documents first
+    await prisma.applicationDocument.deleteMany({
+      where: { applicationId: id },
+    });
+
+    // Delete the application
+    await prisma.application.delete({
+      where: { id },
+    });
+
+    res.json({
+      success: true,
+      message: 'Application deleted successfully',
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Admin: Get application statistics
+router.get('/admin/stats/overview', authenticate, requireAdmin, async (req: AuthRequest, res, next): Promise<void> => {
+  try {
+    const [
+      totalApplications,
+      submittedApplications,
+      approvedApplications,
+      rejectedApplications,
+      underReviewApplications,
+      thisMonthApplications,
+      lastMonthApplications
+    ] = await Promise.all([
+      prisma.application.count(),
+      prisma.application.count({ where: { status: { not: 'DRAFT' } } }),
+      prisma.application.count({ where: { status: 'APPROVED' } }),
+      prisma.application.count({ where: { status: 'REJECTED' } }),
+      prisma.application.count({ where: { status: 'UNDER_REVIEW' } }),
+      prisma.application.count({
+        where: {
+          createdAt: {
+            gte: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+          },
+        },
+      }),
+      prisma.application.count({
+        where: {
+          createdAt: {
+            gte: new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1),
+            lt: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+          },
+        },
+      }),
+    ]);
+
+    const growthRate = lastMonthApplications > 0 
+      ? ((thisMonthApplications - lastMonthApplications) / lastMonthApplications) * 100 
+      : 0;
+
+    res.json({
+      success: true,
+      stats: {
+        totalApplications,
+        submittedApplications,
+        approvedApplications,
+        rejectedApplications,
+        underReviewApplications,
+        thisMonthApplications,
+        growthRate: Math.round(growthRate * 100) / 100,
+      },
+    });
   } catch (error) {
     next(error);
   }
