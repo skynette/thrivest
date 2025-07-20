@@ -22,8 +22,25 @@ const LoginPage = () => {
     try {
       await loginMutation.mutateAsync(formData);
       router.push('/dashboard');
-    } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'Login failed. Please try again.';
+    } catch (err) {
+      // Handle API error response - check if it's the raw error object from API
+      let errorMessage = 'Login failed. Please try again.';
+      
+      const error = err as { error?: string; message?: string } | string;
+      
+      // If err is the direct API response object with an error field
+      if (typeof error === 'object' && error?.error) {
+        errorMessage = error.error;
+      } 
+      // If err is wrapped by React Query or has a message
+      else if (typeof error === 'object' && error?.message) {
+        errorMessage = error.message;
+      }
+      // If err is a string
+      else if (typeof error === 'string') {
+        errorMessage = error;
+      }
+      
       setError(errorMessage);
     }
   };

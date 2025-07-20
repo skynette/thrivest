@@ -74,6 +74,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       setUser(user);
     } catch (error) {
+      // Ensure we're throwing the error object with proper message
       throw error;
     }
   };
@@ -86,10 +87,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     phone?: string;
   }) => {
     try {
-      const response = await authApi.register({
-        ...data,
-        confirmPassword: data.password
-      });
+      const response = await authApi.register(data);
       const { user, token } = response;
       
       if (typeof window !== 'undefined') {
@@ -98,6 +96,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       setUser(user);
     } catch (error) {
+      // Ensure we're throwing the error object with proper message
       throw error;
     }
   };
@@ -119,6 +118,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         localStorage.setItem('user', JSON.stringify(response.user));
       }
     } catch (error) {
+      // Ensure we're throwing the error object with proper message
       throw error;
     }
   };
@@ -131,6 +131,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         localStorage.setItem('user', JSON.stringify(response.user));
       }
     } catch (error) {
+      // Ensure we're throwing the error object with proper message
       throw error;
     }
   };

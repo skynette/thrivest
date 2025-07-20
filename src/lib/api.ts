@@ -54,14 +54,14 @@ api.interceptors.response.use(
 
 // Auth API
 export const authApi = {
-  register: (data: RegisterFormData): Promise<AuthResponse> => api.post('/auth/register', data),
+  register: (data: Omit<RegisterFormData, 'confirmPassword'>): Promise<AuthResponse> => api.post('/auth/register', data),
   
   login: (data: LoginFormData): Promise<AuthResponse> => 
     api.post('/auth/login', data),
   
   getProfile: (): Promise<ProfileResponse> => api.get('/auth/me'),
   
-  updateProfile: (data: Partial<RegisterFormData>): Promise<ProfileResponse> => api.put('/auth/profile', data),
+  updateProfile: (data: Partial<Omit<RegisterFormData, 'confirmPassword'>>): Promise<ProfileResponse> => api.put('/auth/profile', data),
   
   changePassword: (data: { currentPassword: string; newPassword: string }): Promise<{ success: boolean; message: string }> => 
     api.put('/auth/change-password', data),
