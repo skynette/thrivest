@@ -180,7 +180,7 @@ export default function AdminApplicationsPage() {
       case 'REJECTED':
         return <XCircle className="h-4 w-4 text-red-600" />;
       case 'UNDER_REVIEW':
-        return <Eye className="h-4 w-4 text-yellow-600" />;
+        return <Eye className="h-4 w-4 text-sky-600" />;
       default:
         return <Clock className="h-4 w-4 text-blue-600" />;
     }
@@ -193,7 +193,7 @@ export default function AdminApplicationsPage() {
       case 'REJECTED':
         return 'bg-red-100 text-red-800';
       case 'UNDER_REVIEW':
-        return 'bg-yellow-100 text-yellow-800';
+        return 'bg-sky-100 text-sky-800';
       case 'SUBMITTED':
         return 'bg-blue-100 text-blue-800';
       case 'NEEDS_REVISION':

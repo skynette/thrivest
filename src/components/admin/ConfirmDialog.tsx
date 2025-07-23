@@ -37,9 +37,9 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
         };
       case 'warning':
         return {
-          icon: 'text-yellow-600',
-          button: 'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500',
-          iconBg: 'bg-yellow-100'
+          icon: 'text-sky-600',
+          button: 'bg-sky-600 hover:bg-sky-700 focus:ring-sky-500',
+          iconBg: 'bg-sky-100'
         };
       case 'info':
         return {

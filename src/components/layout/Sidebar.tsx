@@ -19,7 +19,7 @@ export const Sidebar: React.FC = () => {
               key={item.name}
               href={item.href}
               className={cn(
-                'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-navbar transition-colors',
                 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               )}
             >

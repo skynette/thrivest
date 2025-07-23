@@ -17,7 +17,7 @@ export default function AdminHeader() {
           height={40}
           className="h-8 w-auto"
         />
-        <div className="hidden sm:flex items-center space-x-2 bg-yellow-500 text-[#0B2653] px-3 py-1 rounded-full text-xs font-bold">
+        <div className="hidden sm:flex items-center space-x-2 bg-sky-400 text-white px-3 py-1 rounded-full text-xs font-bold">
           <Shield className="h-3 w-3" />
           <span>ADMIN</span>
         </div>
@@ -32,7 +32,7 @@ export default function AdminHeader() {
 
         {/* Admin Profile */}
         <div className="flex items-center space-x-2">
-          <div className="bg-yellow-500 rounded-full p-1.5">
+          <div className="bg-sky-400 rounded-full p-1.5">
             <User className="h-4 w-4 md:h-5 md:w-5 text-[#0B2653]" />
           </div>
           <div className="text-sm hidden sm:block">

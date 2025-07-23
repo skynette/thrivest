@@ -65,7 +65,7 @@ export default function AdminApplicationDetailPage() {
       case 'REJECTED':
         return 'bg-red-100 text-red-800 border-red-200';
       case 'UNDER_REVIEW':
-        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+        return 'bg-sky-100 text-sky-800 border-sky-200';
       case 'SUBMITTED':
         return 'bg-blue-100 text-blue-800 border-blue-200';
       case 'NEEDS_REVISION':
@@ -342,7 +342,7 @@ export default function AdminApplicationDetailPage() {
               <button
                 onClick={() => handleStatusUpdate('UNDER_REVIEW')}
                 disabled={updateStatusMutation.isPending || application.status === 'UNDER_REVIEW'}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <MessageSquare className="h-4 w-4" />
                 Mark Under Review

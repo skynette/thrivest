@@ -66,7 +66,7 @@ export const Header: React.FC = () => {
                     <nav className="hidden xl:flex items-center space-x-1">
                         <Link
                             href="/"
-                            className={'${leagueGothic.variable} text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200'}
+                            className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200"
                         >
                             HOME
                         </Link>
@@ -77,7 +77,7 @@ export const Header: React.FC = () => {
                                 onClick={toggleAboutDropdown}
                                 onMouseEnter={() => setIsAboutDropdownOpen(true)}
                                 onMouseLeave={() => setIsAboutDropdownOpen(false)}
-                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                                className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200 flex items-center"
                             >
                                 ABOUT US
                                 <ChevronDown className="ml-1 h-3 w-3" />
@@ -91,19 +91,19 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="/about/who-we-are"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Who we are
                                         </a>
                                         <a
                                             href="/about/our-team"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Our Team
                                         </a>
                                         <a
                                             href="/about/advisors"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Advisors
                                         </a>
@@ -114,7 +114,7 @@ export const Header: React.FC = () => {
 
                         <a
                             href="/approach"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                            className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200"
                         >
                             OUR APPROACH
                         </a>
@@ -125,7 +125,7 @@ export const Header: React.FC = () => {
                                 onClick={toggleFundsDropdown}
                                 onMouseEnter={() => setIsFundsDropdownOpen(true)}
                                 onMouseLeave={() => setIsFundsDropdownOpen(false)}
-                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                                className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200 flex items-center"
                             >
                                 FUNDS
                                 <ChevronDown className="ml-1 h-3 w-3" />
@@ -139,13 +139,13 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="/funds/ignite-funds"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Ignite Funds
                                         </a>
                                         <a
                                             href="/funds/elevate-funds"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Elevate Funds
                                         </a>
@@ -161,7 +161,7 @@ export const Header: React.FC = () => {
                                 onClick={toggleOpptDropdown}
                                 onMouseEnter={() => setIsOpptDropdownOpen(true)}
                                 onMouseLeave={() => setIsOpptDropdownOpen(false)}
-                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                                className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200 flex items-center"
                             >
                                 OPPORTUNITIES
                                 <ChevronDown className="ml-1 h-3 w-3" />
@@ -175,13 +175,13 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="/opportunities"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Business Support and Funding
                                         </a>
                                         <a
                                             href="#"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Become a partner
                                         </a>
@@ -195,7 +195,7 @@ export const Header: React.FC = () => {
 
                         <a
                             href="#"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                            className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200"
                         >
                             INVESTMENTS
                         </a>
@@ -206,7 +206,7 @@ export const Header: React.FC = () => {
                                 onClick={toggleImpactDropdown}
                                 onMouseEnter={() => setIsImpactDropdownOpen(true)}
                                 onMouseLeave={() => setIsImpactDropdownOpen(false)}
-                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                                className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200 flex items-center"
                             >
                                 IMPACT
                                 <ChevronDown className="ml-1 h-3 w-3" />
@@ -220,31 +220,31 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="/impact/our-results"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Our Results
                                         </a>
                                         <a
                                             href="/impact/esg-sustainability"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             ESG and Sustainability
                                         </a>
                                         <a
                                             href="/impact/sdg-alignment"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Our SDG Alignment
                                         </a>
                                         <a
                                             href="#"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Case studies
                                         </a>
                                         <a
                                             href="#"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Impact Report
                                         </a>
@@ -254,7 +254,7 @@ export const Header: React.FC = () => {
                         </div>
                         <a
                             href="/careers"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                            className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200"
                         >
                             CAREERS
                         </a>
@@ -265,7 +265,7 @@ export const Header: React.FC = () => {
                                 onClick={toggleResourcesDropdown}
                                 onMouseEnter={() => setIsResourcesDropdownOpen(true)}
                                 onMouseLeave={() => setIsResourcesDropdownOpen(false)}
-                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                                className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200 flex items-center"
                             >
                                 RESOURCES
                                 <ChevronDown className="ml-1 h-3 w-3" />
@@ -279,19 +279,19 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="#"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             News and Publication
                                         </a>
                                         <a
                                             href="#"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Media
                                         </a>
                                         <a
                                             href="/resources/faq"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             FAQs
                                         </a>
@@ -301,7 +301,7 @@ export const Header: React.FC = () => {
                         </div>
                         <a
                             href="/contact"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                            className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200"
                         >
                             CONTACT US
                         </a>
@@ -313,7 +313,7 @@ export const Header: React.FC = () => {
                             <div className="relative">
                                 <button
                                     onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
-                                    className="flex items-center text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                                    className="flex items-center font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200"
                                 >
                                     <User className="h-4 w-4 mr-2" />
                                     {user?.firstName}
@@ -324,7 +324,7 @@ export const Header: React.FC = () => {
                                         <div className="py-1">
                                             <Link
                                                 href="/dashboard"
-                                                className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                                className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                             >
                                                 Dashboard
                                             </Link>

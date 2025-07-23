@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { League_Gothic } from "next/font/google";
+import { League_Gothic, Poppins } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/components/providers/QueryProvider";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { AuthProvider } from "@/contexts/AuthContext";
 
-// Removed Poppins font configuration
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+});
 
 const leagueGothic = League_Gothic({
   variable: "--font-leagueGothic",
@@ -26,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${leagueGothic.variable} antialiased font-sans`}
+        className={`${poppins.variable} ${leagueGothic.variable} antialiased font-sans`}
       >
 
         <ErrorBoundary>

@@ -226,7 +226,7 @@ export default function UserViewPage({ params }: UserViewPageProps) {
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                         application.status === 'APPROVED' ? 'bg-green-100 text-green-800' :
                         application.status === 'REJECTED' ? 'bg-red-100 text-red-800' :
-                        application.status === 'UNDER_REVIEW' ? 'bg-yellow-100 text-yellow-800' :
+                        application.status === 'UNDER_REVIEW' ? 'bg-sky-100 text-sky-800' :
                         'bg-gray-100 text-gray-800'
                       }`}>
                         {application.status.replace('_', ' ')}
