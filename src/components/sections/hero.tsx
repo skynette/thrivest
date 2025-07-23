@@ -15,14 +15,44 @@ export const HeroSection: React.FC = () => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
 
-    // Array of slide images
+    // Array of slide images with content
     const slides = [
-        { src: '/images/slides/slide 1.jpg', alt: 'Slide 1' },
-        { src: '/images/slides/slide 2.jpg', alt: 'Slide 2' },
-        { src: '/images/slides/slide 3.jpg', alt: 'Slide 3' },
-        { src: '/images/slides/slide 4.jpg', alt: 'Slide 4' },
-        { src: '/images/slides/slide 5.jpg', alt: 'Slide 5' },
-        { src: '/images/slides/slide 6.jpg', alt: 'Slide 6' },
+        { 
+            src: '/images/slides/slide 1.jpg', 
+            alt: 'Slide 1',
+            title: 'Transforming The Landscape',
+            subtitle: 'for women-led and women-owned MSMEs across Sub-Saharan Africa'
+        },
+        { 
+            src: '/images/slides/slide 2.jpg', 
+            alt: 'Slide 2',
+            title: 'Empowering Growth',
+            subtitle: 'through strategic investments in high-impact sectors'
+        },
+        { 
+            src: '/images/slides/slide 3.jpg', 
+            alt: 'Slide 3',
+            title: 'Building Tomorrow',
+            subtitle: 'with sustainable solutions for African entrepreneurs'
+        },
+        { 
+            src: '/images/slides/slide 4.jpg', 
+            alt: 'Slide 4',
+            title: 'Driving Innovation',
+            subtitle: 'in technology, healthcare, and renewable energy'
+        },
+        { 
+            src: '/images/slides/slide 5.jpg', 
+            alt: 'Slide 5',
+            title: 'Creating Impact',
+            subtitle: 'by fostering inclusive economic opportunities'
+        },
+        { 
+            src: '/images/slides/slide 6.jpg', 
+            alt: 'Slide 6',
+            title: 'Accelerating Success',
+            subtitle: 'with tailored financial and business support services'
+        },
     ];
 
     useEffect(() => {
@@ -67,10 +97,11 @@ export const HeroSection: React.FC = () => {
                             <div className="absolute w-full h-full min-h-screen bg-[#1e3a5f]">
                                 <div className="relative w-full h-full">
                                     <Image
-                                    src={slide.src}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    alt={slide.alt}
+                                        src={slide.src}
+                                        fill
+                                        className="object-cover"
+                                        alt={slide.alt}
+                                        priority={index === 0}
                                     />
                                 </div>
                             </div>
@@ -90,15 +121,16 @@ export const HeroSection: React.FC = () => {
             <div className="relative z-10 h-full flex items-center justify-item-left px-4">
                 <div className="max-w-7xl mx-12 px-6 lg:px-12">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight">
-                        Transforming
-                        <br />
-                        The Landscape
+                        {slides[current]?.title?.split(' ').map((word, index) => (
+                            <span key={index}>
+                                {word}
+                                {index === 0 && <br />}
+                                {index > 0 && ' '}
+                            </span>
+                        ))}
                     </h1>
                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-                        for women-led and women-owned
-                        <br className="hidden sm:block" />
-                        <span className="sm:hidden"> </span>
-                        MSMEs across Sub-Saharan Africa
+                        {slides[current]?.subtitle}
                     </p>
                 </div>
             </div>
