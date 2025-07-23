@@ -13,6 +13,7 @@ export const Header: React.FC = () => {
     
     const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
     const [isFundsDropdownOpen, setIsFundsDropdownOpen] = useState(false);
+    const [isOpptDropdownOpen, setIsOpptDropdownOpen] = useState(false);
     const [isImpactDropdownOpen, setIsImpactDropdownOpen] = useState(false);
     const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,6 +27,10 @@ export const Header: React.FC = () => {
         setIsFundsDropdownOpen(!isFundsDropdownOpen);
     };
 
+    const toggleOpptDropdown = () => {
+        setIsOpptDropdownOpen(!isOpptDropdownOpen);
+    };
+
     const toggleImpactDropdown = () => {
         setIsImpactDropdownOpen(!isImpactDropdownOpen);
     };
@@ -36,7 +41,9 @@ export const Header: React.FC = () => {
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+        
     };
+    
 
     return (
         <header className="bg-[#1e3a5f] shadow-lg relative z-50">
@@ -59,7 +66,7 @@ export const Header: React.FC = () => {
                     <nav className="hidden xl:flex items-center space-x-1">
                         <Link
                             href="/"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                            className={'${leagueGothic.variable} text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200'}
                         >
                             HOME
                         </Link>
@@ -131,29 +138,63 @@ export const Header: React.FC = () => {
                                 >
                                     <div className="py-1">
                                         <a
-                                            href="/funds/elevate-funds"
-                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
-                                        >
-                                            Elevate Funds
-                                        </a>
-                                        <a
                                             href="/funds/ignite-funds"
                                             className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Ignite Funds
                                         </a>
+                                        <a
+                                            href="/funds/elevate-funds"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Elevate Funds
+                                        </a>
+                                        
                                     </div>
                                 </div>
                             )}
                         </div>
+
+                         {/* Opportunities Dropdown */}
+                        <div className="relative">
+                            <button
+                                onClick={toggleOpptDropdown}
+                                onMouseEnter={() => setIsOpptDropdownOpen(true)}
+                                onMouseLeave={() => setIsOpptDropdownOpen(false)}
+                                className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center"
+                            >
+                                OPPORTUNITIES
+                                <ChevronDown className="ml-1 h-3 w-3" />
+                            </button>
+                            {isOpptDropdownOpen && (
+                                <div
+                                    className="absolute top-full left-0 mt-0 w-48 bg-[#5ba3d0] rounded-b-md shadow-lg z-10"
+                                    onMouseEnter={() => setIsOpptDropdownOpen(true)}
+                                    onMouseLeave={() => setIsOpptDropdownOpen(false)}
+                                >
+                                    <div className="py-1">
+                                        <a
+                                            href="/opportunities"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Business Support and Funding
+                                        </a>
+                                        <a
+                                            href="#"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Become a partner
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                       
+
                         <a
-                            href="/opportunities"
-                            className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
-                        >
-                            OPPORTUNITIES
-                        </a>
-                        <a
-                            href="/investments"
+                            href="#"
                             className="text-white hover:text-gray-300 px-4 py-2 text-sm font-medium transition-colors duration-200"
                         >
                             INVESTMENTS
@@ -196,13 +237,13 @@ export const Header: React.FC = () => {
                                             Our SDG Alignment
                                         </a>
                                         <a
-                                            href="/impact/case-studies"
+                                            href="#"
                                             className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Case studies
                                         </a>
                                         <a
-                                            href="/impact/impact-report"
+                                            href="#"
                                             className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Impact Report
@@ -237,13 +278,13 @@ export const Header: React.FC = () => {
                                 >
                                     <div className="py-1">
                                         <a
-                                            href="/resources/news-publication"
+                                            href="#"
                                             className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             News and Publication
                                         </a>
                                         <a
-                                            href="/resources/media"
+                                            href="#"
                                             className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Media

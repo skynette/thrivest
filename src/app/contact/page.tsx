@@ -52,30 +52,28 @@ const ContactPage = () => {
             
             {/* Hero Section */}
             <section className="relative h-64 overflow-hidden">
+                {/* Background with breadcrumb image */}
                 <div className="absolute inset-0">
-                    <Image 
-                        src="/images/Fund/bottomimg.png" 
-                        alt="Contact Us" 
-                        fill 
+                    <Image
+                        src="/images/about us/breadcrumb bg.jpg"
+                        alt="Our Approach"
+                        fill
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-[#1e3a5f]/70"></div>
+                    <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                
+
+                {/* Breadcrumb */}
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-                        <div className="text-white">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                                Contact Us
-                            </h1>
-                            <p className="text-lg md:text-xl mt-4 max-w-2xl">
-                                Get in touch with our team. We&apos;re here to help you with your investment journey and answer any questions you may have.
-                            </p>
-                        </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                            Contact Us
+                        </h1>
                     </div>
                 </div>
             </section>
+
 
             {/* Main Content */}
             <section className="py-16 md:py-24">
@@ -269,7 +267,7 @@ const ContactPage = () => {
 
                     {/* Call to Action */}
                     <div className="mt-20">
-                        <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg p-12 text-center">
+                        <div className="bg-gradient-to-r from-[#1e3a5f] to-[#539FDA] text-white rounded-lg p-12 text-center">
                             <h2 className="text-3xl md:text-4xl font-bold mb-6">
                                 Ready to Start Your Journey?
                             </h2>

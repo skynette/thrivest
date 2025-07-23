@@ -17,12 +17,12 @@ export const HeroSection: React.FC = () => {
 
     // Array of slide images
     const slides = [
-        { src: '/images/Slide 1.jpg', alt: 'Slide 1' },
-        { src: '/images/Slide 2.jpg', alt: 'Slide 2' },
-        { src: '/images/Slide 3.jpg', alt: 'Slide 3' },
-        { src: '/images/Slide 4.jpg', alt: 'Slide 4' },
-        { src: '/images/Slide 5.jpg', alt: 'Slide 5' },
-        { src: '/images/Slide 6.jpg', alt: 'Slide 6' },
+        { src: '/images/slides/slide 1.jpg', alt: 'Slide 1' },
+        { src: '/images/slides/slide 2.jpg', alt: 'Slide 2' },
+        { src: '/images/slides/slide 3.jpg', alt: 'Slide 3' },
+        { src: '/images/slides/slide 4.jpg', alt: 'Slide 4' },
+        { src: '/images/slides/slide 5.jpg', alt: 'Slide 5' },
+        { src: '/images/slides/slide 6.jpg', alt: 'Slide 6' },
     ];
 
     useEffect(() => {
@@ -64,19 +64,13 @@ export const HeroSection: React.FC = () => {
                 <CarouselContent className="h-full -ml-0">
                     {slides.map((slide, index) => (
                         <CarouselItem key={index} className="pl-0 h-full min-h-screen">
-                            <div className="relative w-full h-full min-h-screen bg-[#1e3a5f]">
+                            <div className="absolute w-full h-full min-h-screen bg-[#1e3a5f]">
                                 <div className="relative w-full h-full">
                                     <Image
-                                        src={slide.src}
-                                        alt={slide.alt}
-                                        fill
-                                        className="object-cover object-center"
-                                        priority={index === 0}
-                                        quality={90}
-                                        onError={() => {
-                                            console.error(`Failed to load image: ${slide.src}`);
-                                            // Handle error state if needed
-                                        }}
+                                    src={slide.src}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    alt={slide.alt}
                                     />
                                 </div>
                             </div>
@@ -93,8 +87,8 @@ export const HeroSection: React.FC = () => {
             <div className="absolute inset-0 bg-black/20"></div>
 
             {/* Hero Content - Centered */}
-            <div className="relative z-10 h-full flex items-center justify-center px-4">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+            <div className="relative z-10 h-full flex items-center justify-item-left px-4">
+                <div className="max-w-7xl mx-12 px-6 lg:px-12">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight">
                         Transforming
                         <br />

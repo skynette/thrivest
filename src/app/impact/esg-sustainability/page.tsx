@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
@@ -9,43 +8,27 @@ const ESGSustainabilityPage = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             <Header />
-            
+
             {/* Hero Section */}
             <section className="relative h-64 overflow-hidden">
+                {/* Background with breadcrumb image */}
                 <div className="absolute inset-0">
-                    <Image 
-                        src="/images/Fund/bottomimg.png" 
-                        alt="Impact - ESG and Sustainability" 
-                        fill 
+                    <Image
+                        src="/images/about us/breadcrumb bg.jpg"
+                        alt="Our Approach"
+                        fill
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-blue-500/70"></div>
+                    <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                
+
+                {/* Breadcrumb */}
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-                        <div className="text-white">
-                            {/* Navigation Links */}
-                            <div className="flex items-center space-x-4 text-sm mb-4">
-                                <Link href="/impact/our-results" className="hover:text-blue-200 transition-colors">
-                                    Our Results
-                                </Link>
-                                <Link href="/impact/sdg-alignment" className="hover:text-blue-200 transition-colors">
-                                    Our SDG Alignment
-                                </Link>
-                                <Link href="/impact/case-studies" className="hover:text-blue-200 transition-colors">
-                                    Case studies
-                                </Link>
-                                <Link href="/impact/impact-report" className="hover:text-blue-200 transition-colors">
-                                    Impact Report
-                                </Link>
-                            </div>
-                            
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                                Impact | ESG and Sustainability
-                            </h1>
-                        </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                            Impact <span className="mx-4 opacity-60">|</span> ESG & Sustainability
+                        </h1>
                     </div>
                 </div>
             </section>
@@ -53,7 +36,7 @@ const ESGSustainabilityPage = () => {
             {/* Main Content */}
             <section className="py-16 md:py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    
+
                     {/* Why ESG Matters */}
                     <div className="mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
@@ -239,7 +222,7 @@ const ESGSustainabilityPage = () => {
                     </div>
 
                     {/* ESG Outcomes and Impact Tracking */}
-                    <div className="mb-16">
+                    <div >
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
                             ESG Outcomes and Impact Tracking
                         </h2>
@@ -272,9 +255,21 @@ const ESGSustainabilityPage = () => {
                             These insights inform post-investment support, and portfolio management, and are reflected in our annual impact reports.
                         </p>
                     </div>
-
+                </div>
+                </section>
                     {/* ESG Policy & Resources */}
-                    <div className="mb-16 bg-blue-50 rounded-lg p-8">
+            <section className="relative py-16 md:py-8 bg-white">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/about us/corevalues.jpg"
+                        alt="Core Values Background"
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-white/0"></div>
+                </div>
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12 bg-white p-8 opacity-85 rounded-xl">
+                    <div >
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
                             ESG Policy & Resources
                         </h2>
@@ -284,7 +279,7 @@ const ESGSustainabilityPage = () => {
                         <p className="text-lg text-gray-700 leading-relaxed mb-8">
                             Beyond our portfolio, we are equally committed to practicing what we preach. We embed ESG principles into our internal operations and institutional culture, including continuous training, clear ESG responsibilities across functions, and transparent self-reporting on our performance.
                         </p>
-                        
+
                         {/* Download Button */}
                         <div className="text-center">
                             <Button className="bg-[#1e3a5f] hover:bg-[#0a1f42] text-white px-8 py-3 rounded-md text-lg font-semibold">
@@ -292,7 +287,6 @@ const ESGSustainabilityPage = () => {
                             </Button>
                         </div>
                     </div>
-
                 </div>
             </section>
 

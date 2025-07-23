@@ -16,14 +16,14 @@ export const PartnersSection: React.FC = () => {
 
     // Placeholder for partner logos - replace with actual partner data
     const partners = [
-        { id: 1, name: "Partner 1", logo: "/images/partners/partner1.png" },
-        { id: 2, name: "Partner 2", logo: "/images/partners/partner2.png" },
-        { id: 3, name: "Partner 3", logo: "/images/partners/partner3.png" },
-        { id: 4, name: "Partner 4", logo: "/images/partners/partner4.png" },
-        { id: 5, name: "Partner 5", logo: "/images/partners/partner5.png" },
-        { id: 6, name: "Partner 6", logo: "/images/partners/partner6.png" },
-        { id: 7, name: "Partner 7", logo: "/images/partners/partner7.png" },
-        { id: 8, name: "Partner 8", logo: "/images/partners/partner8.png" },
+        { id: 1, name: "Partner 1", logo: "/images/our_partners/logo1.png" },
+        { id: 2, name: "Partner 2", logo: "/images/our_partners/logo2.png" },
+        { id: 3, name: "Partner 3", logo: "/images/our_partners/logo3.png" },
+        { id: 4, name: "Partner 4", logo: "/images/our_partners/partner4.png" },
+        { id: 5, name: "Partner 5", logo: "/images/our_partners/partner5.png" },
+        { id: 6, name: "Partner 6", logo: "/images/our_partners/partner6.png" },
+        { id: 7, name: "Partner 7", logo: "/images/our_partners/partner7.png" },
+        { id: 8, name: "Partner 8", logo: "/images/our_partners/partner8.png" },
     ];
 
     return (
@@ -40,24 +40,7 @@ export const PartnersSection: React.FC = () => {
                 </div>
                 <div className="absolute inset-0"></div>
                 {/* Decorative flowers */}
-                <div className="absolute top-0 left-0 w-full h-full">
-                    <div className="absolute bottom-0 left-0 w-64 h-64 relative">
-                        <Image
-                            src="/images/flower-decoration-left.png"
-                            alt=""
-                            fill
-                            className="object-contain opacity-80"
-                        />
-                    </div>
-                    <div className="absolute top-0 right-0 w-64 h-64 relative">
-                        <Image
-                            src="/images/flower-decoration-right.png"
-                            alt=""
-                            fill
-                            className="object-contain opacity-80"
-                        />
-                    </div>
-                </div>
+                
             </div>
 
             {/* Content */}
@@ -80,10 +63,17 @@ export const PartnersSection: React.FC = () => {
                             <CarouselItem key={partner.id} className="pl-4 md:basis-1/3 lg:basis-1/5">
                                 <div className="bg-white rounded-lg shadow-lg p-6 h-32 flex items-center justify-center">
                                     {/* Partner Logo Placeholder */}
-                                    <div className="w-full h-full flex items-center justify-center">
-                                        <span className="text-gray-400 text-sm text-center">
+                                    <div className="w-full h-full flex items-center justify-center relative">
+                                        {/* <span className="text-gray-400 text-sm text-center">
                                             {partner.name}
-                                        </span>
+                                        </span> */}
+                                        <Image 
+                                            className="object-contain md:object-cover" 
+                                            alt={partner.name} 
+                                            src={partner.logo}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        />
                                     </div>
                                 </div>
                             </CarouselItem>

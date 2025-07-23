@@ -10,17 +10,19 @@ const Page = () => {
             
             {/* Hero Section */}
             <section className="relative h-64 overflow-hidden">
+                {/* Background with breadcrumb image */}
                 <div className="absolute inset-0">
-                    <Image 
-                        src="/images/our approach/breadcrum_image.jpg" 
-                        alt="Our Approach" 
-                        fill 
+                    <Image
+                        src="/images/about us/breadcrumb bg.jpg"
+                        alt="Our Approach"
+                        fill
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-blue-600/70"></div>
+                    <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                
+
+                {/* Breadcrumb */}
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
@@ -33,7 +35,7 @@ const Page = () => {
             {/* Investment Strategy Section */}
             <section className="py-16 md:py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <div className="max-w-4xl">
+                    <div className="max-w-9xl">
                         <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                             At ThriVest Africa, our investment strategy is built to unlock the potential of women-led and women-owned MSMEs across Sub-Saharan Africa. By combining inclusive finance with sustainable impact, we support businesses that drive long-term socio-economic and environmental value.
                         </p>
@@ -42,11 +44,22 @@ const Page = () => {
             </section>
 
             {/* Investment Criteria Section */}
-            <section className="py-16 md:py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+            <section className="relative py-16 md:py-24 bg-white">
+                <div className="absolute inset-0">
+                          <div className="relative w-full h-full">
+                            <Image 
+                              src="/images/our approach/invt_crit1.jpg" 
+                              alt="Investment Criteria"
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="absolute inset-0"></div>
+                        </div>
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12 ">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                        <div className='space-y-8  col-span-2'>
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 ">
                                 Investment Criteria
                             </h2>
                             <p className="text-lg text-gray-700 mb-6">
@@ -83,14 +96,19 @@ const Page = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="relative">
-                            <Image 
-                                src="/images/our approach/invt_crit1.jpg"
-                                alt="Investment Criteria"
-                                width={600}
-                                height={400}
-                                className="rounded-lg shadow-lg object-cover"
-                            />
+                        
+                        <div className="relative ">
+                            <div >
+                                <div className="rounded-2xl overflow-hidden ">
+                                    <Image
+                                        src="/images/our approach/invt_crit2.png"
+                                        alt="Investment Criteria"
+                                        width={305}
+                                        height={607}
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -126,8 +144,17 @@ const Page = () => {
             </section>
 
             {/* Value Creation Section */}
-            <section className="py-16 md:py-24 bg-[#1e3a5f] text-white">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <section className="relative py-16 md:py-24 ">
+                <div className="absolute inset-0">
+                                    <Image
+                                        src="/images/about us/corevalues.jpg"
+                                        alt="Core Values Background"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-white/0"></div>
+                                </div>
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12 bg-white p-8 opacity-85 rounded-xl">
                     <h2 className="text-3xl md:text-4xl font-bold mb-8">
                         Value Creation
                     </h2>

@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { League_Gothic } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/components/providers/QueryProvider";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { AuthProvider } from "@/contexts/AuthContext";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+// Removed Poppins font configuration
+
+const leagueGothic = League_Gothic({
+  variable: "--font-leagueGothic",
+  weight: '400',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -24,8 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased font-sans`}
+        className={`${leagueGothic.variable} antialiased font-sans`}
       >
+
         <ErrorBoundary>
           <QueryProvider>
             <AuthProvider>

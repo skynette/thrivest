@@ -77,38 +77,27 @@ const FAQPage = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             <Header />
-            
+
             {/* Hero Section */}
             <section className="relative h-64 overflow-hidden">
+                {/* Background with breadcrumb image */}
                 <div className="absolute inset-0">
-                    <Image 
-                        src="/images/Fund/bottomimg.png" 
-                        alt="Resources - FAQs" 
-                        fill 
+                    <Image
+                        src="/images/about us/breadcrumb bg.jpg"
+                        alt="FAQ"
+                        fill
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-blue-500/70"></div>
+                    <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                
+
+                {/* Breadcrumb */}
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-                        <div className="text-white">
-                            {/* Navigation Links */}
-                            <div className="flex items-center space-x-4 text-sm mb-4">
-                                <Link href="/resources/news-publication" className="hover:text-blue-200 transition-colors">
-                                    News and Publication
-                                </Link>
-                                <Link href="/resources/media" className="hover:text-blue-200 transition-colors">
-                                    Media
-                                </Link>
-                                <span className="text-blue-200">FAQs</span>
-                            </div>
-                            
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                                Resources | FAQs
-                            </h1>
-                        </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                            Resource <span className="mx-4 opacity-60">|</span> FAQ
+                        </h1>
                     </div>
                 </div>
             </section>
@@ -116,7 +105,7 @@ const FAQPage = () => {
             {/* Main Content */}
             <section className="py-16 md:py-24">
                 <div className="max-w-4xl mx-auto px-6 lg:px-12">
-                    
+
                     {/* Introduction */}
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -144,14 +133,14 @@ const FAQPage = () => {
                                         <ChevronRight className="h-5 w-5 text-white flex-shrink-0" />
                                     )}
                                 </button>
-                                
+
                                 {openFAQ === index && (
                                     <div className="bg-white px-6 pb-6">
                                         <div className="pt-4 border-t border-gray-100">
                                             <p className="text-gray-700 leading-relaxed mb-4">
                                                 {faq.answer}
                                             </p>
-                                            
+
                                             {faq.bulletPoints && (
                                                 <ul className="space-y-2 mb-4">
                                                     {faq.bulletPoints.map((point, pointIndex) => (
@@ -162,7 +151,7 @@ const FAQPage = () => {
                                                     ))}
                                                 </ul>
                                             )}
-                                            
+
                                             {faq.additionalText && (
                                                 <p className="text-gray-700 leading-relaxed">
                                                     {faq.additionalText}
@@ -175,8 +164,23 @@ const FAQPage = () => {
                         ))}
                     </div>
 
-                    {/* Contact Section */}
-                    <div className="mt-16 text-center">
+
+                </div>
+            </section>
+            
+            {/* Contact Section */}
+            <section className="relative py-16 md:py-8 bg-white">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/about us/corevalues.jpg"
+                        alt="Core Values Background"
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-white/0"></div>
+                </div>
+                <div className="relative max-w-4xl mx-auto px-6 lg:px-12 ">
+                    <div className="text-center">
                         <div className="bg-[#1e3a5f] text-white rounded-lg p-8 md:p-12">
                             <h3 className="text-2xl md:text-3xl font-bold mb-4">
                                 Still have questions?
@@ -185,13 +189,13 @@ const FAQPage = () => {
                                 We&apos;re here to help. Get in touch with our team for more information.
                             </p>
                             <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-                                <Link 
+                                <Link
                                     href="/contact"
                                     className="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
                                 >
                                     Contact Us
                                 </Link>
-                                <Link 
+                                <Link
                                     href="/apply"
                                     className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors"
                                 >

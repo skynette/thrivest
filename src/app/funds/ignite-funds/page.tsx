@@ -10,25 +10,24 @@ const IgniteFundsPage = () => {
             
             {/* Hero Section */}
             <section className="relative h-64 overflow-hidden">
+                {/* Background with breadcrumb image */}
                 <div className="absolute inset-0">
-                    <Image 
-                        src="/images/Fund/bottomimg.png" 
-                        alt="ThriVest Ignite Fund" 
-                        fill 
+                    <Image
+                        src="/images/about us/breadcrumb bg.jpg"
+                        alt="Our Approach"
+                        fill
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-blue-600/70"></div>
+                    <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                
+
+                {/* Breadcrumb */}
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-                        <div className="text-white">
-                            <p className="text-lg md:text-xl mb-2">Fund</p>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                                ThriVest Ignite Fund
-                            </h1>
-                        </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                            Funds <span className="mx-4 opacity-60">|</span> Ignite Fund
+                        </h1>
                     </div>
                 </div>
             </section>
@@ -116,8 +115,17 @@ const IgniteFundsPage = () => {
             </section>
 
             {/* Investment Criteria Section */}
-            <section className="py-16 md:py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <section className="relative py-16 md:py-24 bg-white">
+                <div className="absolute inset-0">
+                                    <Image
+                                        src="/images/about us/corevalues.jpg"
+                                        alt="Core Values Background"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-white/0"></div>
+                                </div>
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
                     <div className="bg-[#1e3a5f] rounded-lg p-8 md:p-12 text-white">
                         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
                             INVESTMENT CRITERIA

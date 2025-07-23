@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
@@ -8,43 +7,27 @@ const SDGAlignmentPage = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             <Header />
-            
+
             {/* Hero Section */}
             <section className="relative h-64 overflow-hidden">
+                {/* Background with breadcrumb image */}
                 <div className="absolute inset-0">
-                    <Image 
-                        src="/images/Fund/bottomimg.png" 
-                        alt="Impact - Our SDG Alignment" 
-                        fill 
-                        className="object-cover"
+                    <Image
+                        src="/images/about us/breadcrumb bg.jpg"
+                        alt="Our Approach"
+                        fill
+                        className="Impact"
                         priority
                     />
-                    <div className="absolute inset-0 bg-blue-500/70"></div>
+                    <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                
+
+                {/* Breadcrumb */}
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-                        <div className="text-white">
-                            {/* Navigation Links */}
-                            <div className="flex items-center space-x-4 text-sm mb-4">
-                                <Link href="/impact/our-results" className="hover:text-blue-200 transition-colors">
-                                    Our Results
-                                </Link>
-                                <Link href="/impact/esg-sustainability" className="hover:text-blue-200 transition-colors">
-                                    ESG and Sustainability
-                                </Link>
-                                <Link href="/impact/case-studies" className="hover:text-blue-200 transition-colors">
-                                    Case studies
-                                </Link>
-                                <Link href="/impact/impact-report" className="hover:text-blue-200 transition-colors">
-                                    Impact Report
-                                </Link>
-                            </div>
-                            
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                                Impact | Our SDG Alignment
-                            </h1>
-                        </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                            Impact <span className="mx-4 opacity-60">|</span> SDG Sustainability
+                        </h1>
                     </div>
                 </div>
             </section>
@@ -52,7 +35,7 @@ const SDGAlignmentPage = () => {
             {/* Main Content */}
             <section className="py-16 md:py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    
+
                     {/* Introduction */}
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -62,7 +45,7 @@ const SDGAlignmentPage = () => {
 
                     {/* SDG Goals Grid */}
                     <div className="space-y-16">
-                        
+
                         {/* SDG 1: No Poverty */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div className="order-2 lg:order-1">
@@ -195,18 +178,29 @@ const SDGAlignmentPage = () => {
                         </div>
 
                     </div>
+                </div> </section>
+            {/* Summary Section */}
+            <section className="relative py-16 md:py-8 bg-white">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/about us/corevalues.jpg"
+                        alt="Core Values Background"
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-white/0"></div>
+                </div>
+                <div className="text-centre relative max-w-7xl mx-auto px-6 lg:px-12 p-8 opacity-85 rounded-xl">
 
-                    {/* Summary Section */}
-                    <div className="mt-20 text-center">
-                        <div className="bg-[#1e3a5f] text-white rounded-lg p-12">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                Our Commitment to the SDGs
-                            </h2>
-                            <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
-                                Through our strategic investments and comprehensive support, we are not just funding businesses—we are catalyzing systemic change that contributes to a more equitable, sustainable, and prosperous future for Sub-Saharan Africa.
-                            </p>
-                        </div>
+                    <div className="bg-[#1e3a5f] text-white rounded-lg p-12">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                            Our Commitment to the SDGs
+                        </h2>
+                        <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+                            Through our strategic investments and comprehensive support, we are not just funding businesses—we are catalyzing systemic change that contributes to a more equitable, sustainable, and prosperous future for Sub-Saharan Africa.
+                        </p>
                     </div>
+
 
                 </div>
             </section>

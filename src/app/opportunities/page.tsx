@@ -12,23 +12,23 @@ export default function OpportunitiesPage() {
 
             {/* Hero Section with Breadcrumb */}
             <section className="relative h-64 overflow-hidden">
-                {/* Background with application portal image */}
+                {/* Background with breadcrumb image */}
                 <div className="absolute inset-0">
-                    <Image  
-                        src="/images/application portal bg.jpg"
-                        alt="Application Portal Background"
+                    <Image
+                        src="/images/about us/breadcrumb bg.jpg"
+                        alt="Our Approach"
                         fill
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-blue-600/70"></div>
+                    <div className="absolute inset-0 bg-black/20"></div>
                 </div>
 
                 {/* Breadcrumb */}
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                            Opportunities <span className="mx-4 opacity-60">|</span> Business Support and Funding
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                            Opportunities
                         </h1>
                     </div>
                 </div>
@@ -39,12 +39,13 @@ export default function OpportunitiesPage() {
                 {/* Background with decorative flowers */}
                 <div className="absolute inset-0">
                     {/* Decorative flowers pattern */}
-                    <div className="absolute inset-0 opacity-20" style={{
-                        backgroundImage: 'url("/images/flower-pattern.png")',
-                        backgroundSize: '300px 300px',
-                        backgroundRepeat: 'repeat',
-                        backgroundPosition: 'center'
-                    }}></div>
+                   <Image
+                                           src="/images/about us/text area.jpg"
+                                           alt="Text Area Background"
+                                           fill
+                                           className="object-cover"
+                                       />
+                                       <div className="absolute inset-0 bg-white/0"></div>
                     
                     {/* Side flower decorations */}
                     <div className="absolute left-0 bottom-0 w-48 h-48 opacity-40">
@@ -56,9 +57,14 @@ export default function OpportunitiesPage() {
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                        
                         {/* Left Content */}
-                        <div className="space-y-8">
+                        <div className="space-y-8 col-span-2">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] mb-12">
+                        Business Support and Funding 
+                        <div className="w-24 h-1 bg-blue-500 mt-4"></div>
+                    </h2>
                             <div className="space-y-6">
                                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                                     We provide catalytic capital and tailored enterprise support to women-led and women-owned MSMEs across Sub-Saharan Africa. Whether you&apos;re just starting out or scaling a growth-stage venture, our funds, advisory services, and network access are designed to help your business thrive.
@@ -79,13 +85,14 @@ export default function OpportunitiesPage() {
                         </div>
 
                         {/* Right Content - Image */}
-                        <div className="relative">
-                            <div className="bg-[#1e3a5f] rounded-3xl p-8 lg:p-12 shadow-2xl">
+                        <div className="relative ">
+                            <div className="bg-[#1e3a5f] rounded-xl p-8 lg:p-12 shadow-2xl">
                                 <div className="rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
-                                        src="/images/Slide 1.jpg"
+                                        src="/images/opportunities/img.png"
                                         alt="Business opportunity showcase"
-                                        fill
+                                        width={305}
+                                        height={607}
                                         className="object-cover"
                                     />
                                 </div>
