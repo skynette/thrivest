@@ -104,6 +104,9 @@ export const applicationApi = {
   
   updateStatus: (id: string, status: string, reviewNotes?: string): Promise<{ success: boolean; application: Application; message?: string }> =>
     api.patch(`/applications/${id}/status`, { status, reviewNotes }),
+    
+  delete: (id: string): Promise<{ success: boolean; message?: string }> =>
+    api.delete(`/applications/${id}`),
 };
 
 // Contact API
@@ -141,4 +144,7 @@ export const userApi = {
     api.patch(`/users/${id}/status`, { isActive }),
   
   getStats: (): Promise<UserStatsResponse> => api.get('/users/stats/overview'),
+  
+  delete: (id: string): Promise<{ success: boolean; message?: string }> =>
+    api.delete(`/users/${id}`),
 };

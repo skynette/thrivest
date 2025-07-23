@@ -357,8 +357,8 @@ router.put('/:id', authenticate, requireAdmin, async (req: AuthRequest, res, nex
   }
 });
 
-// Delete user (super admin only)
-router.delete('/:id', authenticate, requireSuperAdmin, async (req: AuthRequest, res, next): Promise<void> => {
+// Delete user (admin only)
+router.delete('/:id', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
   try {
     const { id } = req.params;
 

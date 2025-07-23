@@ -618,4 +618,41 @@ router.get('/admin/stats/overview', authenticate, requireAdmin, async (req: Auth
   }
 });
 
+// Delete application (admin only)
+router.delete('/:id', authenticate, authorize(['ADMIN', 'SUPER_ADMIN']), async (req: AuthRequest, res, next): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    // Check if application exists
+    const application = await prisma.application.findUnique({
+      where: { id },
+      include: {
+        documents: true,
+      },
+    });
+
+    if (!application) {
+      res.status(404).json({ error: 'Application not found' });
+      return;
+    }
+
+    // Delete application documents first
+    await prisma.applicationDocument.deleteMany({
+      where: { applicationId: id },
+    });
+
+    // Delete the application
+    await prisma.application.delete({
+      where: { id },
+    });
+
+    res.json({
+      success: true,
+      message: 'Application deleted successfully',
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;

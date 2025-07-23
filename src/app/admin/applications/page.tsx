@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { useAdminApplications } from '@/hooks/queries/useAdmin';
+import { useAdminApplications, useDeleteApplication } from '@/hooks/queries/useAdmin';
 import { format } from 'date-fns';
 import { 
   Eye, 
@@ -10,10 +10,12 @@ import {
   XCircle, 
   Clock, 
   FileText,
-  Download
+  Download,
+  Trash2
 } from 'lucide-react';
 import SearchFilter from '@/components/admin/SearchFilter';
 import Pagination from '@/components/admin/Pagination';
+import { ConfirmDialog } from '@/components/admin/ConfirmDialog';
 import Link from 'next/link';
 
 export default function AdminApplicationsPage() {
@@ -26,6 +28,17 @@ export default function AdminApplicationsPage() {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  // Delete confirmation state
+  const [deleteDialog, setDeleteDialog] = useState<{
+    isOpen: boolean;
+    applicationId: string;
+    businessName: string;
+  }>({
+    isOpen: false,
+    applicationId: '',
+    businessName: ''
+  });
 
   // React Query hooks
   const { 
@@ -40,6 +53,32 @@ export default function AdminApplicationsPage() {
     page: currentPage,
     limit: itemsPerPage,
   });
+
+  const deleteApplicationMutation = useDeleteApplication();
+
+  const handleDeleteApplication = (applicationId: string, businessName: string) => {
+    setDeleteDialog({
+      isOpen: true,
+      applicationId,
+      businessName
+    });
+  };
+
+  const confirmDelete = async () => {
+    try {
+      await deleteApplicationMutation.mutateAsync(deleteDialog.applicationId);
+      setDeleteDialog({ isOpen: false, applicationId: '', businessName: '' });
+    } catch (err) {
+      console.error('Error deleting application:', err);
+      alert('Failed to delete application');
+    }
+  };
+
+  const closeDeleteDialog = () => {
+    if (!deleteApplicationMutation.isPending) {
+      setDeleteDialog({ isOpen: false, applicationId: '', businessName: '' });
+    }
+  };
 
   // Status updates handled in detail page
 
@@ -315,6 +354,17 @@ export default function AdminApplicationsPage() {
                       >
                         <Edit className="h-4 w-4" />
                       </Link>
+                      <button
+                        onClick={() => handleDeleteApplication(
+                          application.id, 
+                          application.businessName
+                        )}
+                        className="text-red-600 hover:text-red-900 p-1 rounded hover:bg-gray-100"
+                        title="Delete Application"
+                        disabled={deleteApplicationMutation.isPending}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -346,6 +396,18 @@ export default function AdminApplicationsPage() {
           />
         )}
       </div>
+
+      <ConfirmDialog
+        isOpen={deleteDialog.isOpen}
+        onClose={closeDeleteDialog}
+        onConfirm={confirmDelete}
+        title="Delete Application"
+        message={`Are you sure you want to delete the application for ${deleteDialog.businessName}? This action cannot be undone and will permanently remove all application data and documents.`}
+        confirmText="Delete Application"
+        cancelText="Cancel"
+        isLoading={deleteApplicationMutation.isPending}
+        type="danger"
+      />
     </div>
   );
 }

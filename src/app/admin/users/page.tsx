@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { useAdminUsers, useUpdateUserRole, useUpdateUserStatus } from '@/hooks/queries/useAdmin';
+import { useAdminUsers, useUpdateUserRole, useUpdateUserStatus, useDeleteUser } from '@/hooks/queries/useAdmin';
 import { format } from 'date-fns';
 import { 
   Eye, 
@@ -12,10 +12,12 @@ import {
   Plus,
   Download,
   Mail,
-  Phone
+  Phone,
+  Trash2
 } from 'lucide-react';
 import SearchFilter from '@/components/admin/SearchFilter';
 import Pagination from '@/components/admin/Pagination';
+import { ConfirmDialog } from '@/components/admin/ConfirmDialog';
 import Link from 'next/link';
 
 export default function AdminUsersPage() {
@@ -28,6 +30,17 @@ export default function AdminUsersPage() {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  // Delete confirmation state
+  const [deleteDialog, setDeleteDialog] = useState<{
+    isOpen: boolean;
+    userId: string;
+    userName: string;
+  }>({
+    isOpen: false,
+    userId: '',
+    userName: ''
+  });
 
   // React Query hooks
   const { 
@@ -44,6 +57,7 @@ export default function AdminUsersPage() {
 
   const updateUserRoleMutation = useUpdateUserRole();
   const updateUserStatusMutation = useUpdateUserStatus();
+  const deleteUserMutation = useDeleteUser();
 
   // Client-side filtering and sorting for additional refinement
   const filteredUsers = useMemo(() => {
@@ -142,7 +156,29 @@ export default function AdminUsersPage() {
     }
   };
 
-  // Delete functionality to be implemented
+  const handleDeleteUser = (userId: string, userName: string) => {
+    setDeleteDialog({
+      isOpen: true,
+      userId,
+      userName
+    });
+  };
+
+  const confirmDelete = async () => {
+    try {
+      await deleteUserMutation.mutateAsync(deleteDialog.userId);
+      setDeleteDialog({ isOpen: false, userId: '', userName: '' });
+    } catch (err) {
+      console.error('Error deleting user:', err);
+      alert('Failed to delete user');
+    }
+  };
+
+  const closeDeleteDialog = () => {
+    if (!deleteUserMutation.isPending) {
+      setDeleteDialog({ isOpen: false, userId: '', userName: '' });
+    }
+  };
 
   const getRoleColor = (role: string) => {
     switch (role) {
@@ -343,6 +379,19 @@ export default function AdminUsersPage() {
                       >
                         <Edit className="h-4 w-4" />
                       </Link>
+                      <button
+                        onClick={() => handleDeleteUser(
+                          user.id, 
+                          user.firstName && user.lastName 
+                            ? `${user.firstName} ${user.lastName}` 
+                            : user.name || user.email
+                        )}
+                        className="text-red-600 hover:text-red-900 p-1 rounded hover:bg-gray-100"
+                        title="Delete User"
+                        disabled={deleteUserMutation.isPending}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -374,6 +423,18 @@ export default function AdminUsersPage() {
           />
         )}
       </div>
+
+      <ConfirmDialog
+        isOpen={deleteDialog.isOpen}
+        onClose={closeDeleteDialog}
+        onConfirm={confirmDelete}
+        title="Delete User"
+        message={`Are you sure you want to delete ${deleteDialog.userName}? This action cannot be undone and will permanently remove all user data.`}
+        confirmText="Delete User"
+        cancelText="Cancel"
+        isLoading={deleteUserMutation.isPending}
+        type="danger"
+      />
     </div>
   );
 }
