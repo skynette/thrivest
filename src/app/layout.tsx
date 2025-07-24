@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { League_Gothic, Poppins } from "next/font/google";
+import { Barlow_Condensed, Poppins } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/components/providers/QueryProvider";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
@@ -11,9 +11,9 @@ const poppins = Poppins({
   subsets: ['latin'],
 });
 
-const leagueGothic = League_Gothic({
+const leagueGothic = Barlow_Condensed ({
   variable: "--font-leagueGothic",
-  weight: '400',
+  weight: '500',
   subsets: ['latin'],
 });
 

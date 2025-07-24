@@ -35,12 +35,12 @@ const FAQPage = () => {
             answer: "We focus on sectors that are critical to Africa's sustainable and inclusive transformation, including:",
             bulletPoints: [
                 "Food and Agribusiness",
-                "Healthcare",
-                "Technology and Digital Solutions",
-                "Manufacturing and Value-Addition",
-                "Hospitality and Tourism",
-                "Renewable Energy and Climate Solutions",
-                "Retail and Consumer Goods"
+                "Hospitality",
+                "Light Manufacturing",
+                "Health and Wellness",
+                "Technology",
+                "Clean Energy and Green Solutions",
+                "Retail and Consumer Goods Services",
             ],
             additionalText: "These sectors offer significant potential for job creation, innovation, and gender-inclusive economic growth."
         },
@@ -167,7 +167,7 @@ const FAQPage = () => {
 
                 </div>
             </section>
-            
+
             {/* Contact Section */}
             <section className="relative py-16 md:py-8 bg-white">
                 <div className="absolute inset-0">

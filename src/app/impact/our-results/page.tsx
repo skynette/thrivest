@@ -33,9 +33,20 @@ const ImpactResultsPage = () => {
             </section>
 
             {/* Main Content */}
-            <section className="py-16 md:py-24">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <section className="relative py-16 md:py-24">
+                <div className="absolute inset-0">
+                                                        <Image
+                                                            src="/images/about us/corevalues.jpg"
+                                                            alt="Core Values Background"
+                                                            fill
+                                                            className="object-cover"
+                                                        />
+                                                        <div className="absolute inset-0 bg-white/0"></div>
+                                                    </div>
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-1 gap-12">
+                        
                         {/* Left Column - Impact Metrics */}
                         <div className="bg-[#1e3a5f] rounded-lg p-8 md:p-12 text-white">
                             <div className="space-y-6">
@@ -92,79 +103,11 @@ const ImpactResultsPage = () => {
                         </div>
 
                         {/* Right Column - Visual/Additional Content */}
-                        <div className="bg-blue-100 rounded-lg p-8 md:p-12">
-                            <div className="h-full flex items-center justify-center">
-                                <div className="text-center">
-                                    <div className="w-32 h-32 bg-blue-200 rounded-full mx-auto mb-6 flex items-center justify-center">
-                                        <span className="text-blue-600 text-2xl font-bold">📊</span>
-                                    </div>
-                                    <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                                        Visual Impact Representation
-                                    </h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        This space can be used for charts, graphs, or visual representations of the impact metrics shown in the left column.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     </div>
                 </section>
-                    {/* Additional Impact Information */}
-                    <section className="relative py-16 md:py-24 bg-white">
-                                    <div className="absolute inset-0">
-                                                        <Image
-                                                            src="/images/about us/corevalues.jpg"
-                                                            alt="Core Values Background"
-                                                            fill
-                                                            className="object-cover"
-                                                        />
-                                                        <div className="absolute inset-0 bg-white/0"></div>
-                                                    </div>
-                    <div className="relative max-w-7xl mx-auto px-6 lg:px-12 bg-white p-8 opacity-85 rounded-xl">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                                Our Impact Journey
-                            </h2>
-                            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                                Through strategic investments and dedicated support, we continue to empower women-led MSMEs across Sub-Saharan Africa, creating sustainable economic impact and fostering inclusive growth.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                    <span className="text-white text-xl font-bold">🌱</span>
-                                </div>
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">Economic Growth</h3>
-                                <p className="text-gray-600">
-                                    Supporting businesses that drive local economic development and create sustainable employment opportunities.
-                                </p>
-                            </div>
-
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                    <span className="text-white text-xl font-bold">👥</span>
-                                </div>
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">Gender Inclusion</h3>
-                                <p className="text-gray-600">
-                                    Advancing gender equality through investments in women-led enterprises and inclusive business practices.
-                                </p>
-                            </div>
-
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                    <span className="text-white text-xl font-bold">🌍</span>
-                                </div>
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">Environmental Impact</h3>
-                                <p className="text-gray-600">
-                                    Promoting sustainable business practices and environmental responsibility across our portfolio.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-               
-            </section>
+                   
 
             <Footer />
         </div>

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
-import { Mail, MapPin, Send } from 'lucide-react'
+import { Mail, PhoneIcon, Send } from 'lucide-react'
 import { useSubmitContact } from '@/hooks/useContact'
 
 const ContactPage = () => {
@@ -105,7 +105,7 @@ const ContactPage = () => {
                                             href="mailto:invest@thrivestafrica.com" 
                                             className="text-blue-600 hover:text-blue-800 font-medium"
                                         >
-                                            invest@thrivestafrica.com
+                                            grow@thrivestafrica.com
                                         </a>
                                     </div>
                                 </div>
@@ -117,13 +117,13 @@ const ContactPage = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">General Information</h3>
+                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Whistleblowing</h3>
                                         <p className="text-gray-600 mb-2">For partnerships, media inquiries, and general questions</p>
                                         <a 
                                             href="mailto:info@thrivestafrica.com" 
                                             className="text-blue-600 hover:text-blue-800 font-medium"
                                         >
-                                            info@thrivestafrica.com
+                                            complaint@thrivestafrica.com
                                         </a>
                                     </div>
                                 </div>
@@ -141,7 +141,7 @@ const ContactPage = () => {
                                             href="mailto:jobs@thrivestafrica.com" 
                                             className="text-blue-600 hover:text-blue-800 font-medium"
                                         >
-                                            jobs@thrivestafrica.com
+                                            careers@thrivestafrica.com
                                         </a>
                                     </div>
                                 </div>
@@ -150,15 +150,14 @@ const ContactPage = () => {
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-shrink-0">
                                         <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                                            <MapPin className="h-6 w-6 text-white" />
+                                            <PhoneIcon className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Address</h3>
+                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile</h3>
+                                        <p className="text-gray-600 mb-2">Reach out to our Call Centre 24/7</p>
                                         <p className="text-gray-600">
-                                            [Office Address]<br />
-                                            [City, Country]<br />
-                                            [Postal Code]
+                                             +234 8107 356 947 
                                         </p>
                                     </div>
                                 </div>

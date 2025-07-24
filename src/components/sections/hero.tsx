@@ -26,32 +26,32 @@ export const HeroSection: React.FC = () => {
         { 
             src: '/images/slides/slide 2.jpg', 
             alt: 'Slide 2',
-            title: 'Empowering Growth',
-            subtitle: 'through strategic investments in high-impact sectors'
+            title: 'Channeling Capital',
+            subtitle: 'twhere the mainstream won’t; into women’s potential'
         },
         { 
             src: '/images/slides/slide 3.jpg', 
             alt: 'Slide 3',
-            title: 'Building Tomorrow',
-            subtitle: 'with sustainable solutions for African entrepreneurs'
+            title: 'Capital is just the beginning.',
+            subtitle: 'We build capacity and open doors Women entrepreneurs deserve more than a cheque'
         },
         { 
             src: '/images/slides/slide 4.jpg', 
             alt: 'Slide 4',
-            title: 'Driving Innovation',
-            subtitle: 'in technology, healthcare, and renewable energy'
+            title: 'Backing Businesses',
+            subtitle: 'that deliver both impact and returns'
         },
         { 
             src: '/images/slides/slide 5.jpg', 
             alt: 'Slide 5',
-            title: 'Creating Impact',
-            subtitle: 'by fostering inclusive economic opportunities'
+            title: 'More Women at the Table.',
+            subtitle: 'More women getting funded. Changing the face of capital allocation  and where it flows'
         },
         { 
             src: '/images/slides/slide 6.jpg', 
             alt: 'Slide 6',
-            title: 'Accelerating Success',
-            subtitle: 'with tailored financial and business support services'
+            title: 'Empowering Women,',
+            subtitle: 'uplifting communities, driving systems change'
         },
     ];
 

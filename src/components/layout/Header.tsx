@@ -10,7 +10,7 @@ import { useAuth, useLogout } from '@/hooks/useAuth';
 export const Header: React.FC = () => {
     const { user, isAuthenticated } = useAuth();
     const logoutMutation = useLogout();
-    
+
     const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
     const [isFundsDropdownOpen, setIsFundsDropdownOpen] = useState(false);
     const [isOpptDropdownOpen, setIsOpptDropdownOpen] = useState(false);
@@ -41,9 +41,9 @@ export const Header: React.FC = () => {
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
-        
+
     };
-    
+
 
     return (
         <header className="bg-[#1e3a5f] shadow-lg relative z-50">
@@ -91,19 +91,19 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="/about/who-we-are"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Who we are
                                         </a>
                                         <a
                                             href="/about/our-team"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className=" block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Our Team
                                         </a>
                                         <a
                                             href="/about/advisors"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className=" block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Advisors
                                         </a>
@@ -139,23 +139,23 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="/funds/ignite-funds"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Ignite Funds
                                         </a>
                                         <a
                                             href="/funds/elevate-funds"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Elevate Funds
                                         </a>
-                                        
+
                                     </div>
                                 </div>
                             )}
                         </div>
 
-                         {/* Opportunities Dropdown */}
+                        {/* Opportunities Dropdown */}
                         <div className="relative">
                             <button
                                 onClick={toggleOpptDropdown}
@@ -174,25 +174,22 @@ export const Header: React.FC = () => {
                                 >
                                     <div className="py-1">
                                         <a
-                                            href="/opportunities"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            href="/opportunities/support"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Business Support and Funding
                                         </a>
                                         <a
-                                            href="#"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            href="/opportunities/partner"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Become a partner
                                         </a>
-                                        
+
                                     </div>
                                 </div>
                             )}
                         </div>
-
-                       
-
                         <a
                             href="#"
                             className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200"
@@ -220,31 +217,31 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="/impact/our-results"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Our Results
                                         </a>
                                         <a
                                             href="/impact/esg-sustainability"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             ESG and Sustainability
                                         </a>
                                         <a
                                             href="/impact/sdg-alignment"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Our SDG Alignment
                                         </a>
                                         <a
                                             href="#"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Case studies
                                         </a>
                                         <a
                                             href="#"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className=" block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Impact Report
                                         </a>
@@ -279,19 +276,19 @@ export const Header: React.FC = () => {
                                     <div className="py-1">
                                         <a
                                             href="#"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             News and Publication
                                         </a>
                                         <a
                                             href="#"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Media
                                         </a>
                                         <a
                                             href="/resources/faq"
-                                            className="font-navbar block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             FAQs
                                         </a>
@@ -436,29 +433,51 @@ export const Header: React.FC = () => {
                                 {isFundsDropdownOpen && (
                                     <div className="bg-[#2a4a6f]">
                                         <a
-                                            href="/funds/elevate-funds"
-                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
-                                            onClick={() => setIsMobileMenuOpen(false)}
-                                        >
-                                            Elevate Funds
-                                        </a>
-                                        <a
                                             href="/funds/ignite-funds"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
                                             Ignite Funds
                                         </a>
+                                        <a
+                                            href="/funds/elevate-funds"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Elevate Funds
+                                        </a>
                                     </div>
                                 )}
                             </div>
-                            <a
-                                href="/opportunities"
-                                className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                OPPORTUNITIES
-                            </a>
+
+                            <div>
+                                <button
+                                    onClick={toggleOpptDropdown}
+                                    className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200 flex items-center justify-between w-full"
+                                >
+                                    OPPORTUNITIES
+                                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isOpptDropdownOpen ? 'rotate-180' : ''}`} />
+                                </button>
+                                {isOpptDropdownOpen && (
+                                    <div className="bg-[#2a4a6f]">
+                                        <a
+                                            href="/opportunities/support"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Business Support and Funding
+                                        </a>
+                                        <a
+                                            href="/opportunities/partner"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Become a partner
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
+                            
                             <a
                                 href="/investments"
                                 className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"

@@ -17,7 +17,7 @@ export const InvestmentSectorsSection: React.FC = () => {
   
   const sectors = [
     {
-      name: "Agric",
+      name: "Food and Agribusiness",
       image: "/images/Investment Focus Sectors/Food and Agribusiness.jpg",
       bgColor: "bg-green-500"
     },
@@ -27,12 +27,12 @@ export const InvestmentSectorsSection: React.FC = () => {
       bgColor: "bg-pink-500"
     },
     {
-      name: "Production",
+      name: "Light Manufacturing",
       image: "/images/Investment Focus Sectors/Manufacturing.jpg", 
       bgColor: "bg-blue-500"
     },
     {
-      name: "Healthcare",
+      name: "Health & Wellness",
       image: "/images/Investment Focus Sectors/Healthcare.jpg",
       bgColor: "bg-red-500"
     },
@@ -42,12 +42,12 @@ export const InvestmentSectorsSection: React.FC = () => {
       bgColor: "bg-purple-500"
     },
     {
-      name: "Renewable Energy",
+      name: "Clean Energy & Green Solutions",
       image: "/images/Investment Focus Sectors/Renewable Energy.jpg",
       bgColor: "bg-yellow-500"
     },
     {
-      name: "Retail & Consumer Goods",
+      name: "Retail and Consumer Goods Services",
       image: "/images/Investment Focus Sectors/Retail and Consumer Goods.jpg",
       bgColor: "bg-orange-500"
     }

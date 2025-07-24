@@ -72,14 +72,6 @@ const ElevateFundsPage = () => {
                                     <p className="text-gray-700 leading-relaxed mb-4">
                                         Scaling established, women-led enterprises to unlock inclusive and sustainable growth.
                                     </p>
-                                    <div className="space-y-3">
-                                        <div>
-                                            <h4 className="font-semibold text-gray-900 mb-2">Investing in Resilience and Impact</h4>
-                                            <p className="text-gray-700 leading-relaxed">
-                                                We partner with women-led MSMEs that have proven their value and are ready to scale. Our goal is to strengthen business resilience while maximizing socio-economic and environmental returns.
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -89,21 +81,29 @@ const ElevateFundsPage = () => {
                             {/* Key Features */}
                             <div className="space-y-8">
                                 <div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Gender Lens as a Growth Strategy</h3>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-4 ">1. Investing in Resilience and Impact</h3>
+                                        <p className="text-gray-700 leading-relaxed">
+                                            We partner with women-led MSMEs that have proven their value and are ready to scale. Our goal is to strengthen business resilience while maximizing socio-economic and environmental returns.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">2. Gender Lens as a Growth Strategy</h3>
                                     <p className="text-gray-700 leading-relaxed">
                                         We see women&apos;s leadership not as a niche, but as a strategic asset. Our investments leverage the performance and innovation advantages of gender-diverse leadership to drive superior outcomes.
                                     </p>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Structured Growth and Sustainable Systems</h3>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">3. Structured Growth and Sustainable Systems</h3>
                                     <p className="text-gray-700 leading-relaxed">
                                         We support institutional development through governance enhancement, operational efficiency, and ESG integration—ensuring long-term competitiveness and risk management.
                                     </p>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Long-Term Capital, Strategic Partnership</h3>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">4. Long-Term Capital, Strategic Partnership</h3>
                                     <p className="text-gray-700 leading-relaxed">
                                         We bring growth capital with a long-term outlook, working closely with founders to support expansion, prepare for exit, and unlock broader market opportunities.
                                     </p>
