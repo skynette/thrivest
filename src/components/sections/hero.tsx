@@ -20,19 +20,19 @@ export const HeroSection: React.FC = () => {
         { 
             src: '/images/slides/slide 1.jpg', 
             alt: 'Slide 1',
-            title: 'Transforming The Landscape',
+            title: 'Transforming the Landscape',
             subtitle: 'for women-led and women-owned MSMEs across Sub-Saharan Africa'
         },
         { 
             src: '/images/slides/slide 2.jpg', 
             alt: 'Slide 2',
             title: 'Channeling Capital',
-            subtitle: 'twhere the mainstream won’t; into women’s potential'
+            subtitle: 'where the mainstream won’t; into women’s potential'
         },
         { 
             src: '/images/slides/slide 3.jpg', 
             alt: 'Slide 3',
-            title: 'Capital is just the beginning.',
+            title: 'Capital is just the beginning',
             subtitle: 'We build capacity and open doors Women entrepreneurs deserve more than a cheque'
         },
         { 
@@ -44,13 +44,13 @@ export const HeroSection: React.FC = () => {
         { 
             src: '/images/slides/slide 5.jpg', 
             alt: 'Slide 5',
-            title: 'More Women at the Table.',
+            title: 'More Women at the Table',
             subtitle: 'More women getting funded. Changing the face of capital allocation  and where it flows'
         },
         { 
             src: '/images/slides/slide 6.jpg', 
             alt: 'Slide 6',
-            title: 'Empowering Women,',
+            title: 'Empowering Women',
             subtitle: 'uplifting communities, driving systems change'
         },
     ];

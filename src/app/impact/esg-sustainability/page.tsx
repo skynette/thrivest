@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 
 const ESGSustainabilityPage = () => {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-white">
             <Header />
 
             {/* Hero Section */}
@@ -39,12 +39,12 @@ const ESGSustainabilityPage = () => {
 
                     {/* Why ESG Matters */}
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-gray-900 mb-8">
                             Why ESG Matters
                         </h2>
                         <div className="prose prose-lg max-w-none">
                             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                                Environmental, Social, and Governance (ESG) factors are at the heart of responsible investing. We believe that businesses that operate sustainably, inclusively, and ethically are more resilient, more innovative, and ultimately more successful.
+                                Environmental, Social, and Governance factors are at the heart of responsible investing. We believe that businesses that operate sustainably, inclusively, and ethically are more resilient, more innovative, and ultimately more successful.
                             </p>
                             <p className="text-lg text-gray-700 leading-relaxed mb-6">
                                 Our ESG commitment goes beyond compliance, it&apos;s about partnering with enterprises that generate long-term value not only for shareholders but for society and the planet. We prioritize investments that deliver measurable outcomes, from improving livelihoods and advancing gender equity to driving climate resilience and transparent governance.
@@ -57,7 +57,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Our ESG Framework */}
                     <div className="mb-16 bg-white rounded-lg p-8 shadow-sm">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-gray-900 mb-8">
                             Our ESG Framework
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -88,7 +88,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* ESG in Due Diligence */}
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-gray-900 mb-8">
                             ESG in Due Diligence
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -115,7 +115,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Climate-Aligned Investment Strategy */}
                     <div className="mb-16 bg-blue-50 rounded-lg p-8">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-gray-900 mb-8">
                             Climate-Aligned Investment Strategy
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -146,7 +146,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Gender-Lens Investment Principles */}
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-gray-900 mb-8">
                             Gender-Lens Investment Principles
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -188,7 +188,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Governance & Ethical Standards */}
                     <div className="mb-16 bg-white rounded-lg p-8 shadow-sm">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-gray-900 mb-8">
                             Governance & Ethical Standards
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -223,7 +223,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* ESG Outcomes and Impact Tracking */}
                     <div >
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-gray-900 mb-8">
                             ESG Outcomes and Impact Tracking
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -270,11 +270,11 @@ const ESGSustainabilityPage = () => {
                 </div>
                 <div className="relative max-w-7xl mx-auto px-6 lg:px-12 bg-white p-8 opacity-85 rounded-xl">
                     <div >
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-gray-900 mb-8">
                             ESG Policy & Resources
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                            Our ESG Policy sets the guiding principles and performance expectations for our investments, while our ESMS provides the operational framework for how we identify, assess, and manage ESG risks and opportunities across the investment lifecycle. It guides decision-making from initial screening and due diligence through to post-investment monitoring and exit, ensuring that our portfolio companies align with international ESG best practices and deliver measurable impact.
+                            Our ESG Policy sets the guiding principles and performance expectations for our investments, while our ESGMS provides the operational framework for how we identify, assess, and manage ESG risks and opportunities across the investment lifecycle. It guides decision-making from initial screening and due diligence through to post-investment monitoring and exit, ensuring that our portfolio companies align with international ESG best practices and deliver measurable impact.
                         </p>
                         <p className="text-lg text-gray-700 leading-relaxed mb-8">
                             Beyond our portfolio, we are equally committed to practicing what we preach. We embed ESG principles into our internal operations and institutional culture, including continuous training, clear ESG responsibilities across functions, and transparent self-reporting on our performance.
@@ -283,7 +283,7 @@ const ESGSustainabilityPage = () => {
                         {/* Download Button */}
                         <div className="text-center">
                             <Button className="bg-[#1e3a5f] hover:bg-[#0a1f42] text-white px-8 py-3 rounded-md text-lg font-semibold">
-                                Download Our ESMS Manual
+                                Download Our ESGMS Manual
                             </Button>
                         </div>
                     </div>

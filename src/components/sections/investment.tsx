@@ -47,7 +47,7 @@ export const InvestmentSectorsSection: React.FC = () => {
       bgColor: "bg-yellow-500"
     },
     {
-      name: "Retail and Consumer Goods Services",
+      name: "Retail and Consumer Goods",
       image: "/images/Investment Focus Sectors/Retail and Consumer Goods.jpg",
       bgColor: "bg-orange-500"
     }
@@ -95,7 +95,7 @@ export const InvestmentSectorsSection: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12 text-center">
-          Investment focus sectors
+          Investment Focus Sectors
         </h2>
         
         {/* Carousel */}

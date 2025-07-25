@@ -86,8 +86,8 @@ const ImpactResultsPage = () => {
                                 </div>
 
                                 <div className="border-b border-blue-400 pb-4">
-                                    <h3 className="text-lg font-semibold mb-2">Capital Raised:</h3>
-                                    <p className="text-2xl font-bold text-blue-200">[$X]</p>
+                                    <h3 className="text-lg font-semibold mb-2">Tons of CO2 emissions avoided:</h3>
+                                    <p className="text-2xl font-bold text-blue-200">[X]</p>
                                 </div>
 
                                 <div className="border-b border-blue-400 pb-4">

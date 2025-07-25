@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -40,16 +40,16 @@ export const Footer: React.FC = () => {
 
                         {/* Social Media Links */}
                         <div className="flex space-x-3 pt-4">
-                            <a href="#" className="bg-blue-600 p-2 rounded-full hover:bg-blue-700 transition-colors">
+                            <a href="https://www.facebook.com/share/1FdukwYrio/?mibextid=wwXIfr" className="bg-blue-600 p-2 rounded-full hover:bg-blue-700 transition-colors">
                                 <Facebook className="h-5 w-5" />
                             </a>
-                            <a href="#" className="bg-gradient-to-r from-purple-500 to-pink-500 p-2 rounded-full hover:opacity-90 transition-opacity">
+                            <a href="https://www.instagram.com/thrivest_africa?igsh=MW1mNXA5cGRsNGY5Yw%3D%3D&utm_source=qr" className="bg-gradient-to-r from-purple-500 to-pink-500 p-2 rounded-full hover:opacity-90 transition-opacity">
                                 <Instagram className="h-5 w-5" />
                             </a>
-                            <a href="#" className="bg-sky-500 p-2 rounded-full hover:bg-sky-600 transition-colors">
-                                <Twitter className="h-5 w-5" />
+                            <a href="https://x.com/thrivestafrica?s=11" className="bg-black p-2 rounded-full hover:bg-gra-600 transition-colors">
+                                <p className="h-5 w-5 text-center" >X</p>
                             </a>
-                            <a href="#" className="bg-blue-700 p-2 rounded-full hover:bg-blue-800 transition-colors">
+                            <a href="https://www.linkedin.com/company/thrivest-africa/" className="bg-blue-700 p-2 rounded-full hover:bg-blue-800 transition-colors">
                                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
                                 </svg>
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
                                 Careers
                             </Link>
                             <Link href="/financial-report" className="block hover:text-sky-300 transition-colors">
-                                Financial Report
+                                Impact
                             </Link>
                             <Link href="/contact" className="block hover:text-sky-300 transition-colors">
                                 Contact Us
@@ -119,23 +119,21 @@ export const Footer: React.FC = () => {
                 <div className="mt-12 pt-8 border-t border-gray-600">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="flex items-center space-x-4 text-sm">
-                            <span>© 2025. ThriVest</span>
+                            <span>© 2025. ThriVest Africa</span>
                             <Link href="/sitemap" className="hover:text-sky-300 transition-colors">
                                 Sitemap
                             </Link>
                         </div>
 
                         <div className="flex items-center space-x-6 text-sm">
-                            <Link href="/advert" className="hover:text-sky-300 transition-colors">
-                                Advert
-                            </Link>
-                            <Link href="/privacy-policy" className="hover:text-sky-300 transition-colors">
+                           
+                            <Link href="#" className="hover:text-sky-300 transition-colors">
                                 Privacy Policy
                             </Link>
-                            <Link href="/cookie-policy" className="hover:text-sky-300 transition-colors">
+                            <Link href="#" className="hover:text-sky-300 transition-colors">
                                 Cookie Policy
                             </Link>
-                            <Link href="/ims-policy" className="hover:text-sky-300 transition-colors">
+                            <Link href="#" className="hover:text-sky-300 transition-colors">
                                 IMS Policy
                             </Link>
                         </div>

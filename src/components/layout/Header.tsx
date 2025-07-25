@@ -96,13 +96,13 @@ export const Header: React.FC = () => {
                                             Who we are
                                         </a>
                                         <a
-                                            href="/about/our-team"
+                                            href="#"
                                             className=" block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Our Team
                                         </a>
                                         <a
-                                            href="/about/advisors"
+                                            href="#"
                                             className=" block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Advisors

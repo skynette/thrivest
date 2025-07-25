@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { Mail } from 'lucide-react'
 
 const CareersPage = () => {
     return (
@@ -32,13 +33,23 @@ const CareersPage = () => {
             </section>
 
             {/* Main Content */}
-            <section className="py-16 md:py-24">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <section className="relative py-16 md:py-24">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/about us/corevalues.jpg"
+                        alt="Core Values Background"
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-white/0"></div>
+                </div>
+
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
 
                     <div className='mb-16'>
                         <div className="max-w-8xl">
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                                Purpose-Driven Career. Create Impact Across Africa.
+                            <h1 className="text-1xl md:text-2xl lg:text-2xl font-bold mb-6 text-[#1e3a5f]">
+                                Build A Purpose-Driven Career, Create Impact Across Africa
                             </h1>
                             <p className="text-lg md:text-xl leading-relaxed">
                                 ThriVest Africa is more than an investment firm, we&apos;re a movement committed to unlocking the power of women-led innovation to transform economies and communities. If you&apos;re driven by purpose, bold thinking, and the desire to shape a more inclusive and sustainable Africa, we want to hear from you.
@@ -48,7 +59,7 @@ const CareersPage = () => {
 
                     {/* Why Join Us Section */}
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-[#1e3a5f] mb-8">
                             Why Join Us?
                         </h2>
                         <div className="bg-white rounded-lg p-8 shadow-sm">
@@ -75,7 +86,7 @@ const CareersPage = () => {
 
                     {/* Opportunities Section */}
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl font-bold text-[#1e3a5f] mb-8">
                             Opportunities
                         </h2>
 
@@ -123,18 +134,18 @@ const CareersPage = () => {
                     </div>
 
                     {/* How to Apply Section */}
-                    <div className="relative ">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-                            How to Apply
-                        </h2>
+                    <div className="relative ">                
 
                         <div className="bg-[#1e3a5f] text-white rounded-lg p-8 md:p-12">
-                            <div className="max-w-4xl">
+                            <h2 className="text-1xl md:text-2xl font-bold text-white mb-8">
+                            How to Apply
+                        </h2>
+                            <div className="max-w-7xl">
                                 <p className="text-lg md:text-xl leading-relaxed mb-8">
                                     We&apos;re always open to exceptional talent and mission-aligned collaborators. If you&apos;re interested in joining us or collaborating, please submit the following:
                                 </p>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 ">
                                     <div>
                                         <h3 className="text-xl font-bold mb-4">Required Documents:</h3>
                                         <ul className="space-y-3">
@@ -153,17 +164,21 @@ const CareersPage = () => {
                                         <h3 className="text-xl font-bold mb-4">Application Details:</h3>
                                         <div className="space-y-4">
                                             <div>
-                                                <p className="font-semibold mb-2">Send your application to:</p>
+                                                <p className=" mb-2">Send your application to:</p>
+                                            <div className='flex items-center space-x-1'>
+                                                <div className="w-6 h-6 bg-[#137ecf] rounded-full flex items-center justify-center">
+                                                    <Mail className="h-3 w-3 text-white" />
+                                                </div>
                                                 <a
-                                                    href="mailto:jobs@thrivestafrica.com"
-                                                    className="text-blue-300 hover:text-blue-200 transition-colors text-lg"
+                                                    href="mailto:careers@thrivestafrica.com"
+                                                    className="text-[#137ecf] hover:text-blue-200 transition-colors text-lg"
                                                 >
-                                                    jobs@thrivestafrica.com
+                                                    careers@thrivestafrica.com
                                                 </a>
                                             </div>
-
+</div>
                                             <div>
-                                                <p className="font-semibold mb-2">Subject Line Format:</p>
+                                                <p className="mb-2">Subject Line Format:</p>
                                                 <p className="text-blue-200 bg-blue-900/50 px-4 py-2 rounded font-mono text-sm">
                                                     Application – [Role Title] – [Full-Time / Internship / Fellowship / Partnership]
                                                 </p>
@@ -176,46 +191,7 @@ const CareersPage = () => {
                     </div>
                 </div>
             </section>
-            {/* Call to Action */}
-            <section className="relative py-16 md:py-8 bg-white">
-                <div className="absolute inset-0">
-                    <Image
-                        src="/images/about us/corevalues.jpg"
-                        alt="Core Values Background"
-                        fill
-                        className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-white/0"></div>
-                </div>
-                <div className="text-centre relative max-w-7xl mx-auto px-6 lg:px-12 p-8 opacity-85 rounded-xl">
-                    <div className="text-center">
-                        <div className="bg-gradient-to-r from-[#1e3a5f] to-[#539FDA] text-white rounded-lg p-12">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                Ready to Make an Impact?
-                            </h2>
-                            <p className="text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-                                Join us in building a more inclusive and sustainable future for Africa. Whether you&apos;re looking for a full-time role, internship, fellowship, or partnership opportunity, we&apos;d love to hear from you.
-                            </p>
-                            <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-                                <a
-                                    href="mailto:jobs@thrivestafrica.com"
-                                    className="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
-                                >
-                                    Send Application
-                                </a>
-                                <a
-                                    href="/contact"
-                                    className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-                                >
-                                    Get in Touch
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
+            
             <Footer />
         </div>
     )

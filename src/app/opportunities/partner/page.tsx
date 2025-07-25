@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { Mail } from 'lucide-react'
 
 const IgniteFundsPage = () => {
     return (
@@ -60,40 +61,40 @@ const IgniteFundsPage = () => {
                             <div className="space-y-8">
                                 {/* Objective */}
                                 <div>
-                                    <p className="text-1xl md:text-2xl text-[#1e3a5f] mb-8">
+                                    <p className="text-xl md:text-xl text-[#1e3a5f] mb-8">
                                         We believe systems-level change happens through collaboration. ThriVest Africa works with a diverse network of partners who share our vision for inclusive, sustainable growth across Africa.
                                     </p>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Who We Work With</h3>
+                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-4">Who We Work With</h3>
                                     <h3 className="text-xl text-gray-700 leading-relaxed mb-4">
                                         We actively partner with:
                                     </h3>
-                                    <ul className="space-y-4 text-lg text-gray-700">
+                                    <ul className="space-y-4 text-xl text-gray-700">
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Philanthropic foundations </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Impact-aligned funders </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Development finance institutions (DFIs) </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Accelerators and incubators </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Technical assistance providers  </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Research and policy institutions </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Corporate and ecosystem enablers  </span>
                                         </li>
                                     </ul>
@@ -101,7 +102,7 @@ const IgniteFundsPage = () => {
 
                                 {/* Tagline */}
                                 <div>
-                                    <p className="text-gray-700 leading-relaxed">
+                                    <p className="text-gray-700 leading-relaxed text-xl">
                                         Our partnerships support capital deployment, enterprise development, research, ecosystem building, and more.
                                     </p>
                                 </div>
@@ -112,47 +113,52 @@ const IgniteFundsPage = () => {
                         <div className="space-y-8">
                             {/* Objective */}
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">Why Partner With Us</h3>
+                                <h3 className="text-xl font-bold text-[#1e3a5f] mb-4">Why Partner With Us</h3>
                                 <ul className="space-y-4 text-lg text-gray-700">
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Align with a bold gender-lens investment mission</span>
                                     </li>
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Co-deploy catalytic capital for women-led MSMEs </span>
                                     </li>
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Amplify impact through enterprise enablement and capacity building </span>
                                     </li>
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Shape policy, insights, and innovation for inclusive finance in Africa </span>
                                     </li>
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#137ecf] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Advance shared goals under the SDGs, especially SDG 1, 5, 8, 9, and 13 </span>
                                     </li>
                                 </ul>
                             </div>
                             {/* Tagline */}
                             <div className="space-y-4">
-                                <h3 className="text-xl font-bold text-gray-900">Let’s Collaborate</h3>
+                                <h3 className="text-xl font-bold text-[#1e3a5f]">Let’s Collaborate</h3>
                                 <p className="text-gray-700 leading-relaxed text-lg">
-                                    If you&apos;re interested in partnering, co-funding, or contributing expertise, reach out via: <br />
+                                    If you&apos;re interested in partnering, co-funding, or contributing expertise, reach out via: 
                                 </p>
-                                <div>
-                                <a
+                                <div className='flex items-center space-x-1'>
+                                        <div className="w-6 h-6 bg-[#137ecf] rounded-full flex items-center justify-center">
+                                            <Mail className="h-3 w-3 text-white" />
+                                        </div>
+                                        <a
                                     href="mailto:grow@thrivestafrica.com"
-                                    className="text-blue-700 hover:text-blue-500 transition-colors text-lg"
+                                    className="text-[#137ecf] hover:text-blue-500 transition-colors text-lg"
                                 >
-                                    grow@thrivestafrica.com
+                                     grow@thrivestafrica.com
                                 </a></div>
-                                <p className="text-blue-200 bg-blue-900 px-4 py-4 rounded font-mono text-sm">
-                                    Subject: – [Partnership Inquiry] <br/> [Your Organization Name]
+                                <div>
+                                </div>
+                                <p className="text-white bg-[#1e3a5f] px-4 py-4 rounded font-mono text-sm">
+                                    Subject: [Partnership Inquiry] - [Your Organization Name]
                                 </p>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4"> We welcome both long-term collaborations and project-based engagements</h3>
+                                <h3 className="text-xl font-bold text-[#1e3a5f] mb-4"> We welcome both long-term collaborations and project-based engagements</h3>
                             </div>
                         </div>
                     </div>

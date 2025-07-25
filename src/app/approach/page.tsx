@@ -57,15 +57,15 @@ const Page = () => {
                           <div className="absolute inset-0"></div>
                         </div>
                 <div className="relative max-w-7xl mx-auto px-6 lg:px-12 ">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                         <div className='space-y-8  col-span-2'>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 ">
+                            <h2 className="text-1xl md:text-2xl font-bold text-[#1e3a5f] ">
                                 Investment Criteria
                             </h2>
-                            <p className="text-lg text-gray-700 mb-6">
+                            <p className="text-lg text-gray-900 mb-6">
                                 We invest in businesses that meet the following:
                             </p>
-                            <ul className="space-y-4 text-gray-700">
+                            <ul className="space-y-4 text-gray-700 text-lg">
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                     <span>Women-led or women-owned or with strong gender representation in leadership or ownership</span>
@@ -117,7 +117,7 @@ const Page = () => {
             {/* Investment Process Section */}
             <section className="py-16 md:py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                    <h2 className="text-1xl md:text-2xl font-bold text-[#1e3a5f] mb-8">
                         Investment Process
                     </h2>
                     <div className="space-y-6 text-gray-700">
@@ -125,7 +125,7 @@ const Page = () => {
                             Our investment process is intentional, rigorous, and impact-driven, designed to identify and support high-potential women-led and women-owned MSMEs across Sub-Saharan Africa.
                         </p>
                         <p className="text-lg leading-relaxed">
-                            We begin by sourcing opportunities through in-depth market research, ecosystem partnerships, and trusted referrals. Promising businesses are screened based on their alignment with our investment criteria, including leadership strength, market relevance, and potential for social and environmental impact. Businesses that meet our strong process criteria are selected for due diligence, including detailed analysis of their operations, financial performance, governance structures, operational efficiency, market positioning, and ESG (Environmental, Social, and Governance) risks. We evaluate commercial viability, scalability, and the ability to deliver long-term, measurable value to both shareholders and stakeholders.
+                            We begin by sourcing opportunities through in-depth market research, ecosystem partnerships, and trusted referrals. Promising businesses are screened based on their alignment with our investment criteria, including leadership strength, market relevance, and potential for social and environmental impact. Businesses that meet our strong process criteria are selected for due diligence, including detailed analysis of their operations, financial performance, governance structures, operational efficiency, market positioning, and Environmental, Social, and Governance (ESG) risks. We evaluate commercial viability, scalability, and the ability to deliver long-term, measurable value to both shareholders and stakeholders.
                         </p>
                         <p className="text-lg leading-relaxed">
                             Throughout the investment lifecycle from sourcing to exit, we integrate globally recognized ESG standards, ensuring our portfolio companies are evaluated and held to the highest ethical and social standards.
@@ -137,7 +137,7 @@ const Page = () => {
                             Once approved, we negotiate and table investment terms to fit both business needs and fund objectives, with clearly defined exit strategies.
                         </p>
                         <p className="text-lg leading-relaxed">
-                            Post-investment, we maintain close collaboration with portfolio companies—supporting strategy execution, strengthening operational capacity, and tracking impact metrics to ensure transparency, resilience, and sustained value creation.
+                            Post-investment, we maintain close collaboration with portfolio companies, supporting strategy execution, strengthening operational capacity, and tracking impact metrics to ensure transparency, resilience, and sustained value creation.
                         </p>
                     </div>
                 </div>
@@ -155,7 +155,7 @@ const Page = () => {
                                     <div className="absolute inset-0 bg-white/0"></div>
                                 </div>
                 <div className="relative max-w-7xl mx-auto px-6 lg:px-12 bg-white p-8 opacity-85 rounded-xl">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                    <h2 className="text-1xl md:text-2xl font-bold mb-8 text-[#1e3a5f]">
                         Value Creation
                     </h2>
                     <p className="text-lg md:text-xl leading-relaxed mb-8">
@@ -172,7 +172,7 @@ const Page = () => {
                         </li>
                         <li className="flex items-start">
                             <span className="w-2 h-2 bg-sky-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            <span>Operational efficiency support: improving systems and processes for productivity</span>
+                            <span>Operational efficiency and management systems</span>
                         </li>
                         <li className="flex items-start">
                             <span className="w-2 h-2 bg-sky-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -180,7 +180,7 @@ const Page = () => {
                         </li>
                         <li className="flex items-start">
                             <span className="w-2 h-2 bg-sky-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            <span>Governance strengthening for long-term business sustainability</span>
+                            <span>Governance and institutional strengthening for long-term business sustainability</span>
                         </li>
                     </ul>
                 </div>

@@ -28,7 +28,7 @@ export default function OpportunitiesPage() {
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                            Opportunities <span className="mx-4 opacity-60">|</span> Support and Funding
+                            Opportunities <span className="mx-4 opacity-60">|</span> Business Support and Funding
                         </h1>
                     </div>
                 </div>
@@ -67,7 +67,7 @@ export default function OpportunitiesPage() {
                     </h2>
                             <div className="space-y-6">
                                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                                    We provide catalytic capital and tailored enterprise support to women-led and women-owned MSMEs across Sub-Saharan Africa. Whether you&apos;re just starting out or scaling a growth-stage venture, our funds, advisory services, and network access are designed to help your business thrive.
+                                    We provide catalytic capital and tailored enterprise support to women-led and women-owned MSMEs across Sub-Saharan Africa. Whether you&apos;re just starting out or scaling a growth-stage venture, our funds, ESG advisory services, business development & management and network access are designed to help your business thrive.
                                 </p>
 
                                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">

@@ -112,7 +112,7 @@ const ContactPage = () => {
 
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                                             <Mail className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
@@ -130,7 +130,7 @@ const ContactPage = () => {
 
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
                                             <Mail className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
@@ -149,15 +149,15 @@ const ContactPage = () => {
                                 {/* Address Section */}
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                                             <PhoneIcon className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile</h3>
-                                        <p className="text-gray-600 mb-2">Reach out to our Call Centre 24/7</p>
+                                        <p className="text-gray-600 mb-2">We’re here to support you, reach out to us on</p>
                                         <p className="text-gray-600">
-                                             +234 8107 356 947 
+                                             +234-810-735-6947 
                                         </p>
                                     </div>
                                 </div>
@@ -264,31 +264,7 @@ const ContactPage = () => {
                         </div>
                     </div>
 
-                    {/* Call to Action */}
-                    <div className="mt-20">
-                        <div className="bg-gradient-to-r from-[#1e3a5f] to-[#539FDA] text-white rounded-lg p-12 text-center">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                Ready to Start Your Journey?
-                            </h2>
-                            <p className="text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-                                Join the movement of women-led businesses transforming Africa&apos;s economy. Whether you&apos;re seeking investment or looking to partner with us, we&apos;re here to support your mission.
-                            </p>
-                            <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-                                <a 
-                                    href="/apply" 
-                                    className="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
-                                >
-                                    Apply for Funding
-                                </a>
-                                <a 
-                                    href="/opportunities" 
-                                    className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-                                >
-                                    View Opportunities
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                 </div>
             </section>

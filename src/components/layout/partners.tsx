@@ -16,14 +16,14 @@ export const PartnersSection: React.FC = () => {
 
     // Placeholder for partner logos - replace with actual partner data
     const partners = [
-        { id: 1, name: "Partner 1", logo: "/images/our_partners/logo1.png" },
-        { id: 2, name: "Partner 2", logo: "/images/our_partners/logo2.png" },
-        { id: 3, name: "Partner 3", logo: "/images/our_partners/logo3.png" },
-        { id: 4, name: "Partner 4", logo: "/images/our_partners/partner4.png" },
-        { id: 5, name: "Partner 5", logo: "/images/our_partners/partner5.png" },
-        { id: 6, name: "Partner 6", logo: "/images/our_partners/partner6.png" },
-        { id: 7, name: "Partner 7", logo: "/images/our_partners/partner7.png" },
-        { id: 8, name: "Partner 8", logo: "/images/our_partners/partner8.png" },
+        { id: 1, name: "Partner 1", logo: "/images/our_partners/logo2.png" },
+        { id: 2, name: "Partner 2", logo: "/images/our_partners/logo3.png" },
+        // { id: 3, name: "Partner 3", logo: "/images/our_partners/logo4.png" },
+        // { id: 4, name: "Partner 4", logo: "/images/our_partners/logo5.png" },
+        // { id: 5, name: "Partner 5", logo: "/images/our_partners/logo6.png" },
+        // { id: 6, name: "Partner 6", logo: "/images/our_partners/logo7.png" },
+        // { id: 7, name: "Partner 7", logo: "/images/our_partners/logo8.png" },
+        // { id: 8, name: "Partner 8", logo: "/images/our_partners/logo9.png" },
     ];
 
     return (
@@ -61,7 +61,7 @@ export const PartnersSection: React.FC = () => {
                     <CarouselContent className="-ml-4">
                         {partners.map((partner) => (
                             <CarouselItem key={partner.id} className="pl-4 md:basis-1/3 lg:basis-1/5">
-                                <div className="bg-white rounded-lg shadow-lg p-6 h-32 flex items-center justify-center">
+                                <div className="bg-white rounded-lg shadow-lg p-6 h-50 flex items-center justify-center">
                                     {/* Partner Logo Placeholder */}
                                     <div className="w-full h-full flex items-center justify-center relative">
                                         {/* <span className="text-gray-400 text-sm text-center">

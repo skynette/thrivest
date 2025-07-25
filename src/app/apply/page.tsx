@@ -327,7 +327,7 @@ export default function ApplicantPortal() {
                                 <label htmlFor="isInFocusSector" className="text-white">
                                     Are you in one of our focus sectors
                                     <span className="block mt-1 text-xs">
-                                        (e.g. food and agribusiness, healthcare, technology, manufacturing, hospitality, renewable energy, retail and consumer goods)?
+                                        (e.g. Food and Agribusiness, Hospitality, Light Manufacturing, Health and Wellness, Technology, Clean Energy and Green Solutions, Retail and Consumer Goods)?
                                     </span>
                                 </label>
                             </div>

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ChevronDown, ChevronRight } from 'lucide-react'
@@ -17,11 +16,11 @@ const FAQPage = () => {
     const faqs = [
         {
             question: "What is ThriVest Africa?",
-            answer: "ThriVest Africa is a private investment and enterprise support firm advancing gender-lens investing across Africa. We provide catalytic capital, inclusive financial solutions, and strategic business support to unlock the growth of women-led and women-owned MSMEs. Our work is rooted in driving gender equity, economic inclusion, and climate resilience."
+            answer: "ThriVest Africa is an impact investment firm advancing gender-lens investing across Africa. We provide catalytic capital, inclusive financial solutions, and strategic business support to unlock the growth of women-led and women-owned MSMEs. Our work is rooted in driving gender equity, economic inclusion, and climate resilience."
         },
         {
             question: "What types of businesses does ThriVest invest in?",
-            answer: "We back women-led, women-owned, or gender-diverse MSMEs that are:",
+            answer: "We back women-led and women-owned MSMEs that are:",
             bulletPoints: [
                 "Based in Sub-Saharan Africa with regional growth potential",
                 "Early- or growth-stage with scalable, revenue-generating models",
@@ -40,13 +39,14 @@ const FAQPage = () => {
                 "Health and Wellness",
                 "Technology",
                 "Clean Energy and Green Solutions",
-                "Retail and Consumer Goods Services",
+                "Retail and Consumer Goods",
             ],
             additionalText: "These sectors offer significant potential for job creation, innovation, and gender-inclusive economic growth."
         },
         {
             question: "What is the difference between the ThriVest Ignite and Elevate Funds?",
-            answer: "ThriVest Ignite Fund is our early-stage investment strategy targeting startups and pre-seed to Series A businesses with investment amounts typically ranging from $5K-$50K. ThriVest Elevate Fund focuses on growth-stage businesses with 3+ years of operation and proven track records, offering investments of $50K-$500K and above. Ignite supports innovation and early-stage development, while Elevate accelerates scaling and expansion of established businesses."
+            answer: ["The ThriVest Ignite Fund is designed for startups and early-stage businesses at the seed stage, typically as they begin to establish product-market fit and demonstrate early traction. It offers ticket sizes ranging from $10K–$100K and supports ventures focused on refining their models, growing their customer base, and laying the groundwork for scale.",
+                "The ThriVest Elevate Fund, on the other hand, targets growth-stage businesses that have been in operation for 3+ years, have a track record of revenue and growth, and are ready to scale. Investment sizes range from $10K–$2million+ and above, with support aimed at expansion, institutional development, and long-term sustainability."]
         },
         {
             question: "Do you only invest in women-led businesses?",
@@ -96,19 +96,28 @@ const FAQPage = () => {
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                            Resource <span className="mx-4 opacity-60">|</span> FAQ
+                            Resources <span className="mx-4 opacity-60">|</span> FAQ
                         </h1>
                     </div>
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="py-16 md:py-24">
+            <section className="relative py-16 md:py-24">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/about us/corevalues.jpg"
+                        alt="Core Values Background"
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-white/0"></div>
+                </div>
                 <div className="max-w-4xl mx-auto px-6 lg:px-12">
 
                     {/* Introduction */}
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    <div className="relative mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
                             Frequently Asked Questions (FAQs)
                         </h2>
                         <p className="text-lg text-gray-600">
@@ -117,7 +126,7 @@ const FAQPage = () => {
                     </div>
 
                     {/* FAQ Items */}
-                    <div className="space-y-4">
+                    <div className="relative space-y-4">
                         {faqs.map((faq, index) => (
                             <div key={index} className="rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                                 <button
@@ -168,45 +177,7 @@ const FAQPage = () => {
                 </div>
             </section>
 
-            {/* Contact Section */}
-            <section className="relative py-16 md:py-8 bg-white">
-                <div className="absolute inset-0">
-                    <Image
-                        src="/images/about us/corevalues.jpg"
-                        alt="Core Values Background"
-                        fill
-                        className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-white/0"></div>
-                </div>
-                <div className="relative max-w-4xl mx-auto px-6 lg:px-12 ">
-                    <div className="text-center">
-                        <div className="bg-[#1e3a5f] text-white rounded-lg p-8 md:p-12">
-                            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                                Still have questions?
-                            </h3>
-                            <p className="text-lg mb-6">
-                                We&apos;re here to help. Get in touch with our team for more information.
-                            </p>
-                            <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-                                <Link
-                                    href="/contact"
-                                    className="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
-                                >
-                                    Contact Us
-                                </Link>
-                                <Link
-                                    href="/apply"
-                                    className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-                                >
-                                    Apply Now
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
+           
 
             <Footer />
         </div>
