@@ -72,7 +72,7 @@ const Page = () => {
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#539FDA] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Small and medium-sized MSMEs with established operations</span>
+                                    <span>Micro, small, and medium-sized enterprises with established operations</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#539FDA] rounded-full mt-2 mr-3 flex-shrink-0"></span>

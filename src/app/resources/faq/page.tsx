@@ -45,8 +45,8 @@ const FAQPage = () => {
         },
         {
             question: "What is the difference between the ThriVest Ignite and Elevate Funds?",
-            answer: ["The ThriVest Ignite Fund is designed for startups and early-stage businesses at the seed stage, typically as they begin to establish product-market fit and demonstrate early traction. It offers ticket sizes ranging from $10K–$100K and supports ventures focused on refining their models, growing their customer base, and laying the groundwork for scale.",
-                "The ThriVest Elevate Fund, on the other hand, targets growth-stage businesses that have been in operation for 3+ years, have a track record of revenue and growth, and are ready to scale. Investment sizes range from $10K–$2million+ and above, with support aimed at expansion, institutional development, and long-term sustainability."]
+            answer: "The ThriVest Ignite Fund is designed for startups and early-stage businesses at the seed stage, typically as they begin to establish product-market fit and demonstrate early traction. It offers ticket sizes ranging from $10K–$100K and supports ventures focused on refining their models, growing their customer base, and laying the groundwork for scale.",
+            answer2: "The ThriVest Elevate Fund, on the other hand, targets growth-stage businesses that have been in operation for 3+ years, have a track record of revenue and growth, and are ready to scale. Investment sizes range from $10K–$2million+ and above, with support aimed at expansion, institutional development, and long-term sustainability."
         },
         {
             question: "Do you only invest in women-led businesses?",
@@ -147,7 +147,8 @@ const FAQPage = () => {
                                     <div className="bg-white px-6 pb-6">
                                         <div className="pt-4 border-t border-gray-100">
                                             <p className="text-gray-700 leading-relaxed mb-4">
-                                                {faq.answer}
+                                                {faq.answer} <br /> <br />
+                                                {faq.answer2}
                                             </p>
 
                                             {faq.bulletPoints && (

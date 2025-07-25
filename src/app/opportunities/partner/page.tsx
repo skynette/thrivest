@@ -144,7 +144,7 @@ const IgniteFundsPage = () => {
                                     If you&apos;re interested in partnering, co-funding, or contributing expertise, reach out via: 
                                 </p>
                                 <div className='flex items-center space-x-1'>
-                                        <div className="w-6 h-6 bg-[#1e3a5f] rounded-full flex items-center justify-center">
+                                        <div className="w-6 h-6 bg-[#539fda] rounded-full flex items-center justify-center">
                                             <Mail className="h-3 w-3 text-white" />
                                         </div>
                                         <a
