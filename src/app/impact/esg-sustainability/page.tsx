@@ -39,7 +39,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Why ESG Matters */}
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#10386c] mb-8">
                             Why ESG Matters
                         </h2>
                         <div className="prose prose-lg max-w-none">
@@ -57,7 +57,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Our ESG Framework */}
                     <div className="mb-16 bg-white rounded-lg p-8 shadow-sm">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#10386c] mb-8">
                             Our ESG Framework
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -65,19 +65,19 @@ const ESGSustainabilityPage = () => {
                         </p>
                         <ul className="space-y-4 text-lg text-gray-700 mb-6">
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Identify ESG risks and red flags early during due diligence</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Highlight impact potential across environmental, social, and governance areas</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Uncover opportunities for operational improvement and value creation</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Ensure portfolio alignment with international best practices and local regulations</span>
                             </li>
                         </ul>
@@ -88,7 +88,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* ESG in Due Diligence */}
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#10386c] mb-8">
                             ESG in Due Diligence
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -96,15 +96,15 @@ const ESGSustainabilityPage = () => {
                         </p>
                         <ul className="space-y-4 text-lg text-gray-700 mb-6">
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>All prospective investees undergo ESG screening to assess compliance, risks, and impact gaps using international and local benchmarks.</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>We evaluate ESG performance as an integral part of our assessment, focusing on how businesses operate sustainably, treat employees and suppliers fairly, engage meaningfully with communities, and maintain strong governance, transparency, and ethical accountability.</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>When significant ESG risks or gaps are identified, we require the development of a formal Environmental and Social Action Plan (ESAP); a targeted roadmap outlining specific actions, timelines, and responsibilities to address shortcomings and achieve compliance. In some cases, investment is deferred until the ESAP is adopted and early milestones are met.</span>
                             </li>
                         </ul>
@@ -115,7 +115,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Climate-Aligned Investment Strategy */}
                     <div className="mb-16 bg-blue-50 rounded-lg p-8">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#10386c] mb-8">
                             Climate-Aligned Investment Strategy
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -123,19 +123,19 @@ const ESGSustainabilityPage = () => {
                         </p>
                         <ul className="space-y-4 text-lg text-gray-700 mb-6">
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Prioritizing investments in businesses that adopt renewable energy, green technologies, or low-carbon operations</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Supporting emission tracking, footprint reduction, and sustainable resource use</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Encouraging sustainable production methods, adoption of renewable energy sources, energy efficiency, and waste reduction</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Channeling capital into climate-aligned sectors such as clean energy, eco-friendly manufacturing, and regenerative agriculture</span>
                             </li>
                         </ul>
@@ -146,7 +146,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Gender-Lens Investment Principles */}
                     <div className="mb-16">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#10386c] mb-8">
                             Gender-Lens Investment Principles
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -154,27 +154,27 @@ const ESGSustainabilityPage = () => {
                         </p>
                         <ul className="space-y-4 text-lg text-gray-700 mb-6">
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Invest in women-led and women-owned MSMEs</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Promote equitable opportunities across leadership, ownership, and employment</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Track key gender metrics such as:
                                     <ul className="ml-6 mt-2 space-y-2">
                                         <li className="flex items-start">
-                                            <span className="w-1.5 h-1.5 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                            <span className="w-1.5 h-1.5 bg-[#539fda] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                             <span>Representation of women in leadership and on boards</span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-1.5 h-1.5 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                            <span className="w-1.5 h-1.5 bg-[#539fda] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                             <span>Female workforce participation</span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-1.5 h-1.5 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                            <span className="w-1.5 h-1.5 bg-[#539fda] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                             <span>Existence of inclusive, gender-sensitive workplace policies</span>
                                         </li>
                                     </ul>
@@ -188,7 +188,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* Governance & Ethical Standards */}
                     <div className="mb-16 bg-white rounded-lg p-8 shadow-sm">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#10386c] mb-8">
                             Governance & Ethical Standards
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -196,23 +196,23 @@ const ESGSustainabilityPage = () => {
                         </p>
                         <ul className="space-y-4 text-lg text-gray-700 mb-6">
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Board composition and leadership diversity</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Internal controls and grievance mechanisms</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Financial transparency and regulatory compliance</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Responsible leadership, anti-corruption, and ethical conduct</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Clear decision-making structures and stakeholder accountability</span>
                             </li>
                         </ul>
@@ -223,7 +223,7 @@ const ESGSustainabilityPage = () => {
 
                     {/* ESG Outcomes and Impact Tracking */}
                     <div >
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#10386c] mb-8">
                             ESG Outcomes and Impact Tracking
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -231,23 +231,23 @@ const ESGSustainabilityPage = () => {
                         </p>
                         <ul className="space-y-4 text-lg text-gray-700 mb-6">
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Greenhouse gas (GHG) emissions and resource efficiency</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Job creation, especially for women and youth</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Inclusion and social impact outcomes</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Governance effectiveness and leadership diversity</span>
                             </li>
                             <li className="flex items-start">
-                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                 <span>Community investment, and stakeholder engagement</span>
                             </li>
                         </ul>
@@ -270,7 +270,7 @@ const ESGSustainabilityPage = () => {
                 </div>
                 <div className="relative max-w-7xl mx-auto px-6 lg:px-12 bg-white p-8 opacity-85 rounded-xl">
                     <div >
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#10386c] mb-8">
                             ESG Policy & Resources
                         </h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -282,7 +282,7 @@ const ESGSustainabilityPage = () => {
 
                         {/* Download Button */}
                         <div className="text-center">
-                            <Button className="bg-[#1e3a5f] hover:bg-[#0a1f42] text-white px-8 py-3 rounded-md text-lg font-semibold">
+                            <Button className="bg-[#10386c] hover:bg-[#539fda] text-white px-8 py-3 rounded-md text-lg font-semibold">
                                 Download Our ESGMS Manual
                             </Button>
                         </div>

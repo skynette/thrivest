@@ -83,7 +83,7 @@ const ContactPage = () => {
                         
                         {/* Contact Information */}
                         <div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                            <h2 className="text-1xl md:text-2xl font-bold text-[#10386c] mb-8">
                                 Get in Touch
                             </h2>
                             <p className="text-lg text-gray-600 mb-12">
@@ -94,16 +94,16 @@ const ContactPage = () => {
                             <div className="space-y-8">
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-[#539fda] rounded-full flex items-center justify-center">
                                             <Mail className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Investment Inquiries</h3>
+                                        <h3 className="text-xl font-semibold text-[#10386c] mb-2">Investment Inquiries</h3>
                                         <p className="text-gray-600 mb-2">For funding applications and investment-related questions</p>
                                         <a 
                                             href="mailto:invest@thrivestafrica.com" 
-                                            className="text-blue-600 hover:text-blue-800 font-medium"
+                                            className="text-[#539fda] hover:text-blue-800 font-medium"
                                         >
                                             grow@thrivestafrica.com
                                         </a>
@@ -112,16 +112,16 @@ const ContactPage = () => {
 
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-[#539fda] rounded-full flex items-center justify-center">
                                             <Mail className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Whistleblowing</h3>
+                                        <h3 className="text-xl font-semibold text-[#10386c] mb-2">Whistleblowing</h3>
                                         <p className="text-gray-600 mb-2">For partnerships, media inquiries, and general questions</p>
                                         <a 
                                             href="mailto:info@thrivestafrica.com" 
-                                            className="text-blue-600 hover:text-blue-800 font-medium"
+                                            className="text-[#539fda] hover:text-blue-800 font-medium"
                                         >
                                             complaint@thrivestafrica.com
                                         </a>
@@ -130,16 +130,16 @@ const ContactPage = () => {
 
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-[#539fda] rounded-full flex items-center justify-center">
                                             <Mail className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Career Opportunities</h3>
+                                        <h3 className="text-xl font-semibold text-[#10386c] mb-2">Career Opportunities</h3>
                                         <p className="text-gray-600 mb-2">For job applications, internships, and fellowship opportunities</p>
                                         <a 
                                             href="mailto:jobs@thrivestafrica.com" 
-                                            className="text-blue-600 hover:text-blue-800 font-medium"
+                                            className="text-[#539fda] hover:text-blue-800 font-medium"
                                         >
                                             careers@thrivestafrica.com
                                         </a>
@@ -149,14 +149,14 @@ const ContactPage = () => {
                                 {/* Address Section */}
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-[#539fda] rounded-full flex items-center justify-center">
                                             <PhoneIcon className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile</h3>
+                                        <h3 className="text-xl font-semibold text-[#10386c] mb-2">Mobile</h3>
                                         <p className="text-gray-600 mb-2">We’re here to support you, reach out to us on</p>
-                                        <p className="text-gray-600">
+                                        <p className="text-[#539fda]">
                                              +234-810-735-6947 
                                         </p>
                                     </div>
@@ -167,7 +167,7 @@ const ContactPage = () => {
                         {/* Contact Form */}
                         <div>
                             <div className="bg-white rounded-lg shadow-lg p-8">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                                <h2 className="text-2xl font-bold text-[#10386c] mb-6">
                                     Send us a Message
                                 </h2>
                                 

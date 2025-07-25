@@ -84,7 +84,7 @@ const FAQPage = () => {
                 <div className="absolute inset-0">
                     <Image
                         src="/images/about us/breadcrumb bg.jpg"
-                        alt="FAQ"
+                        alt="FAQs"
                         fill
                         className="object-cover"
                         priority
@@ -96,7 +96,7 @@ const FAQPage = () => {
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                            Resources <span className="mx-4 opacity-60">|</span> FAQ
+                            Resources <span className="mx-4 opacity-60">|</span> FAQs
                         </h1>
                     </div>
                 </div>

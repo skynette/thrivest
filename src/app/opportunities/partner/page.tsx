@@ -70,31 +70,31 @@ const IgniteFundsPage = () => {
                                     </h3>
                                     <ul className="space-y-4 text-xl text-gray-700">
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Philanthropic foundations </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Impact-aligned funders </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Development finance institutions (DFIs) </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Accelerators and incubators </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Technical assistance providers  </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Research and policy institutions </span>
                                         </li>
                                         <li className="flex items-start">
-                                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                             <span>Corporate and ecosystem enablers  </span>
                                         </li>
                                     </ul>
@@ -116,23 +116,23 @@ const IgniteFundsPage = () => {
                                 <h3 className="text-xl font-bold text-[#1e3a5f] mb-4">Why Partner With Us</h3>
                                 <ul className="space-y-4 text-lg text-gray-700">
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Align with a bold gender-lens investment mission</span>
                                     </li>
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Co-deploy catalytic capital for women-led MSMEs </span>
                                     </li>
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Amplify impact through enterprise enablement and capacity building </span>
                                     </li>
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Shape policy, insights, and innovation for inclusive finance in Africa </span>
                                     </li>
                                     <li className="flex items-start">
-                                        <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 bg-[#539fda] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                         <span>Advance shared goals under the SDGs, especially SDG 1, 5, 8, 9, and 13 </span>
                                     </li>
                                 </ul>
@@ -149,7 +149,7 @@ const IgniteFundsPage = () => {
                                         </div>
                                         <a
                                     href="mailto:grow@thrivestafrica.com"
-                                    className="text-[#137ecf] hover:text-blue-500 transition-colors text-lg"
+                                    className="text-[#539fda] hover:text-blue-500 transition-colors text-lg"
                                 >
                                      grow@thrivestafrica.com
                                 </a></div>

@@ -60,8 +60,8 @@ export const PartnersSection: React.FC = () => {
                 >
                     <CarouselContent className="-ml-4">
                         {partners.map((partner) => (
-                            <CarouselItem key={partner.id} className="pl-4 md:basis-1/3 lg:basis-1/5">
-                                <div className="bg-white rounded-lg shadow-lg p-6 h-50 flex items-center justify-center">
+                            <CarouselItem key={partner.id} className="pl-4 md:basis-1/3 lg:basis-1/5 ">
+                                <div className="bg-white rounded-lg shadow-lg p-6 h-55 flex items-center justify-center">
                                     {/* Partner Logo Placeholder */}
                                     <div className="w-full h-full flex items-center justify-center relative">
                                         {/* <span className="text-gray-400 text-sm text-center">

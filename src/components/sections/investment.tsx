@@ -128,7 +128,7 @@ export const InvestmentSectorsSection: React.FC = () => {
                       </div>
                       
                       {/* Sector Label */}
-                      <div className="absolute top-4 left-4 bg-blue-800 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                      <div className="absolute top-4 left-4 bg-[#10386c] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                         {sector.name}
                       </div>
                     </div>

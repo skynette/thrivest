@@ -216,7 +216,7 @@ export const Header: React.FC = () => {
                                 >
                                     <div className="py-1">
                                         <a
-                                            href="/impact/our-results"
+                                            href="#"
                                             className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
                                             Our Results
@@ -498,7 +498,7 @@ export const Header: React.FC = () => {
                                 {isImpactDropdownOpen && (
                                     <div className="bg-[#2a4a6f]">
                                         <a
-                                            href="/impact/our-results"
+                                            href="#"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >

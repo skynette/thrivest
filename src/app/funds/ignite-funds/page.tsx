@@ -91,28 +91,28 @@ const IgniteFundsPage = () => {
                             {/* Key Features */}
                             <div className="space-y-8">
                                 <div>
-                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-4">• Catalyzing Innovation through Inclusion</h3>
+                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-4"> <span className='text-[#539fda]'>•&nbsp; &nbsp;</span>Catalyzing Innovation through Inclusion</h3>
                                     <p className="text-gray-700 leading-relaxed">
                                         We invest in early-stage, women-led startups solving vital world problems with innovative, inclusive, and locally relevant solutions. Our focus is on unlocking untapped entrepreneurial potential across underserved markets.
                                     </p>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-4">• Early Capital, Deep Commitment</h3>
+                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-4"><span className='text-[#539fda]'>•&nbsp; &nbsp;</span> Early Capital, Deep Commitment</h3>
                                     <p className="text-gray-700 leading-relaxed">
                                         We take calculated early-stage risks and remain actively engaged throughout the startup journey, offering patient capital, operational support, and strategic insight to accelerate growth.
                                     </p>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-4">• Beyond Capital: Building Strong Foundations</h3>
+                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-4"><span className='text-[#539fda]'>•&nbsp; &nbsp;</span> Beyond Capital: Building Strong Foundations</h3>
                                     <p className="text-gray-700 leading-relaxed">
                                         Our work extends beyond funding. We equip founders with access to networks, mentorship, technical assistance, and investor readiness, laying the groundwork for scalable and sustainable growth.
                                     </p>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-xl font-bold text-[#1e3a5f] ">• Rooted Locally, Scalable Globally</h3>
+                                    <h3 className="text-xl font-bold text-[#1e3a5f] "><span className='text-[#539fda]'>•&nbsp; &nbsp;</span> Rooted Locally, Scalable Globally</h3>
                                     <p className="text-gray-700 leading-relaxed">
                                         We support ventures that are grounded in African realities but built with the vision and capability to scale regionally and compete globally.
                                     </p>
