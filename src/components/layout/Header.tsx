@@ -396,14 +396,14 @@ export const Header: React.FC = () => {
                                             Who we are
                                         </a>
                                         <a
-                                            href="/about/our-team"
+                                            href="#"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
                                             Our Team
                                         </a>
                                         <a
-                                            href="/about/advisors"
+                                            href="#"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
