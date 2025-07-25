@@ -59,7 +59,7 @@ const Page = () => {
                 <div className="relative max-w-7xl mx-auto px-6 lg:px-12 ">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                         <div className='space-y-8  col-span-2'>
-                            <h2 className="text-1xl md:text-2xl font-bold text-[#1e3a5f] ">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] ">
                                 Investment Criteria
                             </h2>
                             <p className="text-lg text-gray-900 mb-6">
@@ -67,31 +67,31 @@ const Page = () => {
                             </p>
                             <ul className="space-y-4 text-gray-700 text-lg">
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                     <span>Women-led or women-owned or with strong gender representation in leadership or ownership</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                     <span>Small and medium-sized MSMEs with established operations</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                     <span>Aligned with ThriVest focus sectors and addressing real market needs</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                     <span>Registered and active in Sub-Saharan Africa with potential for regional impact</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                     <span>Revenue generating or viable, with clear paths to profitability and sustainability</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                     <span>Committed to strong governance, transparency, and ethical practices</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                     <span>Able to deliver measurable impact, including job creation, gender inclusion, environmental sustainability, and social community development</span>
                                 </li>
                             </ul>
@@ -117,7 +117,7 @@ const Page = () => {
             {/* Investment Process Section */}
             <section className="py-16 md:py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <h2 className="text-1xl md:text-2xl font-bold text-[#1e3a5f] mb-8">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] mb-8">
                         Investment Process
                     </h2>
                     <div className="space-y-6 text-gray-700">
@@ -155,7 +155,7 @@ const Page = () => {
                                     <div className="absolute inset-0 bg-white/0"></div>
                                 </div>
                 <div className="relative max-w-7xl mx-auto px-6 lg:px-12 bg-white p-8 opacity-85 rounded-xl">
-                    <h2 className="text-1xl md:text-2xl font-bold mb-8 text-[#1e3a5f]">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#1e3a5f]">
                         Value Creation
                     </h2>
                     <p className="text-lg md:text-xl leading-relaxed mb-8">
@@ -163,23 +163,23 @@ const Page = () => {
                     </p>
                     <ul className="space-y-4 text-lg">
                         <li className="flex items-start">
-                            <span className="w-2 h-2 bg-sky-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                             <span>Tailored technical assistance, mentorship, and coaching</span>
                         </li>
                         <li className="flex items-start">
-                            <span className="w-2 h-2 bg-sky-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                             <span>Access to markets, industry networks, and strategic partnerships</span>
                         </li>
                         <li className="flex items-start">
-                            <span className="w-2 h-2 bg-sky-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                             <span>Operational efficiency and management systems</span>
                         </li>
                         <li className="flex items-start">
-                            <span className="w-2 h-2 bg-sky-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                             <span>ESG integration and gender-inclusive practices</span>
                         </li>
                         <li className="flex items-start">
-                            <span className="w-2 h-2 bg-sky-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                             <span>Governance and institutional strengthening for long-term business sustainability</span>
                         </li>
                     </ul>

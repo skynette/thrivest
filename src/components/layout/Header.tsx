@@ -479,7 +479,7 @@ export const Header: React.FC = () => {
                             </div>
                             
                             <a
-                                href="/investments"
+                                href="#"
                                 className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
@@ -519,14 +519,14 @@ export const Header: React.FC = () => {
                                             Our SDG Alignment
                                         </a>
                                         <a
-                                            href="/impact/case-studies"
+                                            href="#"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
                                             Case studies
                                         </a>
                                         <a
-                                            href="/impact/impact-report"
+                                            href="#"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
@@ -555,14 +555,14 @@ export const Header: React.FC = () => {
                                 {isResourcesDropdownOpen && (
                                     <div className="bg-[#2a4a6f]">
                                         <a
-                                            href="/resources/news-publication"
+                                            href="#"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
                                             News and Publication
                                         </a>
                                         <a
-                                            href="/resources/media"
+                                            href="#"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >

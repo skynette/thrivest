@@ -59,25 +59,25 @@ const CareersPage = () => {
 
                     {/* Why Join Us Section */}
                     <div className="mb-16">
-                        <h2 className="text-1xl md:text-2xl font-bold text-[#1e3a5f] mb-8">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] mb-8">
                             Why Join Us?
                         </h2>
                         <div className="bg-white rounded-lg p-8 shadow-sm">
                             <ul className="space-y-4 text-lg text-gray-700">
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                     <span>Work on high-impact initiatives that drive gender equity and economic empowerment</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                     <span>Collaborate with visionary entrepreneurs, investors, and changemakers</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                     <span>Grow in a dynamic, values-driven culture built on impact, innovation, integrity, and inclusion</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                    <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                     <span>Help reshape the future of MSME financing and climate-aligned investment in Africa</span>
                                 </li>
                             </ul>
@@ -86,7 +86,7 @@ const CareersPage = () => {
 
                     {/* Opportunities Section */}
                     <div className="mb-16">
-                        <h2 className="text-1xl md:text-2xl font-bold text-[#1e3a5f] mb-8">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] mb-8">
                             Opportunities
                         </h2>
 
@@ -137,7 +137,7 @@ const CareersPage = () => {
                     <div className="relative ">                
 
                         <div className="bg-[#1e3a5f] text-white rounded-lg p-8 md:p-12">
-                            <h2 className="text-1xl md:text-2xl font-bold text-white mb-8">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">
                             How to Apply
                         </h2>
                             <div className="max-w-7xl">
@@ -150,11 +150,11 @@ const CareersPage = () => {
                                         <h3 className="text-xl font-bold mb-4">Required Documents:</h3>
                                         <ul className="space-y-3">
                                             <li className="flex items-start">
-                                                <span className="w-2 h-2 bg-blue-300 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                                 <span>Your CV (PDF)</span>
                                             </li>
                                             <li className="flex items-start">
-                                                <span className="w-2 h-2 bg-blue-300 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                                                <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-3 mr-4 flex-shrink-0"></span>
                                                 <span>A cover letter (PDF) outlining your interest, relevant experience, and alignment with our mission</span>
                                             </li>
                                         </ul>

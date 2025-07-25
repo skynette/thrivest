@@ -18,8 +18,8 @@ const leagueGothic = Barlow_Condensed ({
 });
 
 export const metadata: Metadata = {
-  title: "Thrivest - Modern Next.js Application",
-  description: "A scalable Next.js 13 project with TypeScript, Tailwind CSS, and shadcn/ui",
+  title: "Thrivest",
+  description: "",
 };
 
 export default function RootLayout({

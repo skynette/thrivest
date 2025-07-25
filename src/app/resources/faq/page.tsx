@@ -154,7 +154,7 @@ const FAQPage = () => {
                                                 <ul className="space-y-2 mb-4">
                                                     {faq.bulletPoints.map((point, pointIndex) => (
                                                         <li key={pointIndex} className="flex items-start">
-                                                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                            <span className="w-2 h-2 bg-[#1e3a5f] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                                             <span className="text-gray-700">{point}</span>
                                                         </li>
                                                     ))}
