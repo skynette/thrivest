@@ -18,7 +18,7 @@ const leagueGothic = Barlow_Condensed ({
 });
 
 export const metadata: Metadata = {
-  title: "Thrivest",
+  title: "ThriVest Africa",
   description: "",
 };
 
