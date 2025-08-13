@@ -6,37 +6,6 @@ import { Button } from '@/components/ui/button';
 import { User } from 'lucide-react';
 import { useRegister } from '@/hooks/useAuth';
 import Link from 'next/link';
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Apply for Investment - ThriVest Africa Application Portal",
-  description: "Apply for strategic investment and funding opportunities with ThriVest Africa. Join our network of women-led businesses across Africa and access growth capital, business support, and mentorship.",
-  keywords: [
-    "ThriVest Africa apply",
-    "business funding application",
-    "women entrepreneurs funding",
-    "African business investment",
-    "startup funding Africa",
-    "venture capital application",
-    "business growth funding"
-  ],
-  openGraph: {
-    title: "Apply for Investment - ThriVest Africa",
-    description: "Apply for strategic investment and funding opportunities. Join our network of women-led businesses across Africa.",
-    url: "https://thrivestafrica.com/apply",
-    images: [
-      {
-        url: "/images/apply/og-apply.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ThriVest Africa Application Portal"
-      }
-    ]
-  },
-  alternates: {
-    canonical: "https://thrivestafrica.com/apply",
-  }
-};
 
 export default function ApplicantPortal() {
     const router = useRouter();
