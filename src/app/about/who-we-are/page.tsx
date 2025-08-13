@@ -2,6 +2,37 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Eye, Target } from "lucide-react";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About ThriVest Africa - Empowering Women-Led Businesses Across Africa",
+  description: "Learn about ThriVest Africa's mission to empower African women-led businesses through strategic investment, sustainable growth, and inclusive financial services. Discover our vision, mission, and core values.",
+  keywords: [
+    "ThriVest Africa about",
+    "women-led businesses Africa",
+    "gender equality investment",
+    "African women entrepreneurs",
+    "impact investment platform",
+    "sustainable development goals",
+    "women empowerment finance"
+  ],
+  openGraph: {
+    title: "About ThriVest Africa - Empowering Women-Led Businesses",
+    description: "Africa's leading impact investment platform focused on women-led and women-owned businesses across key economic sectors.",
+    url: "https://thrivestafrica.com/about/who-we-are",
+    images: [
+      {
+        url: "/images/about/og-about.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ThriVest Africa - About Us"
+      }
+    ]
+  },
+  alternates: {
+    canonical: "https://thrivestafrica.com/about/who-we-are",
+  }
+};
 
 export default function AboutPage() {
     const coreValues = [

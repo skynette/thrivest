@@ -18,26 +18,52 @@ const leagueGothic = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "ThriVest Africa",
-  description: "ThriVest Africa - Empowering African businesses through strategic investment and sustainable growth opportunities.",
-  keywords: "ThriVest Africa, investment, African businesses, venture capital, private equity, sustainable growth, business funding",
-  authors: [{ name: "ThriVest Africa" }],
+  title: {
+    default: "ThriVest Africa - Empowering African Businesses Through Strategic Investment",
+    template: "%s | ThriVest Africa"
+  },
+  description: "ThriVest Africa is a leading investment firm empowering African businesses through strategic investment, sustainable growth opportunities, and comprehensive business support across key sectors.",
+  keywords: [
+    "ThriVest Africa",
+    "African investment",
+    "venture capital Africa",
+    "private equity Nigeria", 
+    "business funding Africa",
+    "sustainable investment",
+    "African startups",
+    "growth capital",
+    "impact investing Africa",
+    "business development Nigeria"
+  ],
+  authors: [{ name: "ThriVest Africa", url: "https://thrivestafrica.com" }],
   creator: "ThriVest Africa",
   publisher: "ThriVest Africa",
   metadataBase: new URL("https://thrivestafrica.com"),
+  alternates: {
+    canonical: "https://thrivestafrica.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://thrivestafrica.com",
-    title: "ThriVest Africa",
-    description: "ThriVest Africa - Empowering African businesses through strategic investment and sustainable growth opportunities.",
+    title: "ThriVest Africa - Empowering African Businesses Through Strategic Investment",
+    description: "Leading investment firm empowering African businesses through strategic investment, sustainable growth opportunities, and comprehensive business support.",
     siteName: "ThriVest Africa",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ThriVest Africa - Empowering African Businesses"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "ThriVest Africa",
-    description: "ThriVest Africa - Empowering African businesses through strategic investment and sustainable growth opportunities.",
+    title: "ThriVest Africa - Empowering African Businesses",
+    description: "Leading investment firm empowering African businesses through strategic investment and sustainable growth opportunities.",
     creator: "@ThriVestAfrica",
+    images: ["/images/twitter-card.jpg"]
   },
   robots: {
     index: true,
@@ -51,9 +77,17 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" }
+    ],
     shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  verification: {
+    google: "google-site-verification-code-here",
   },
 };
 
