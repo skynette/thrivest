@@ -101,6 +101,10 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
+        <meta name="application-name" content="ThriVest Africa" />
+        <meta name="apple-mobile-web-app-title" content="ThriVest Africa" />
+        <meta property="og:site_name" content="ThriVest Africa" />
+        <meta name="twitter:site" content="@ThriVestAfrica" />
         <link rel="canonical" href="https://thrivestafrica.com" />
       </head>
       <body
