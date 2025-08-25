@@ -14,7 +14,8 @@
       "Bash(npx shadcn:*)",
       "Bash(npm update:*)",
       "Bash(npm run dev:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }

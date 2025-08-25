@@ -105,6 +105,11 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="ThriVest Africa" />
         <meta property="og:site_name" content="ThriVest Africa" />
         <meta name="twitter:site" content="@ThriVestAfrica" />
+        <meta name="brand" content="ThriVest Africa" />
+        <meta name="organization-name" content="ThriVest Africa" />
+        <meta name="company-name" content="ThriVest Africa" />
+        <meta property="og:brand" content="ThriVest Africa" />
+        <meta name="google-site-verification" content="google-site-verification-code-here" />
         <link rel="canonical" href="https://thrivestafrica.com" />
       </head>
       <body

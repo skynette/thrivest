@@ -4,14 +4,35 @@ import { PartnersSection } from "@/components/layout/partners";
 import { WelcomeSection } from "@/components/layout/welcome";
 import { HeroSection } from "@/components/sections/hero";
 import { InvestmentSectorsSection } from "@/components/sections/investment";
+import { BrandSchema } from "@/components/SEO/BrandSchema";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ThriVest Africa - Empowering African Businesses Through Strategic Investment",
+  description: "ThriVest Africa is a leading investment firm empowering African businesses through strategic investment, sustainable growth opportunities, and comprehensive business support across key sectors.",
+  alternates: {
+    canonical: "https://thrivestafrica.com",
+  },
+  openGraph: {
+    title: "ThriVest Africa - Empowering African Businesses Through Strategic Investment",
+    description: "Leading investment firm empowering African businesses through strategic investment, sustainable growth opportunities, and comprehensive business support.",
+    url: "https://thrivestafrica.com",
+    siteName: "ThriVest Africa",
+    type: "website",
+  },
+};
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'ThriVest Africa',
+  alternateName: ['Thrivest Africa', 'ThriVest'],
+  legalName: 'ThriVest Africa Limited',
   url: 'https://thrivestafrica.com',
   logo: 'https://thrivestafrica.com/images/logo.png',
-  description: 'ThriVest Africa - Empowering African businesses through strategic investment and sustainable growth opportunities.',
+  description: 'ThriVest Africa - Leading investment firm empowering African businesses through strategic investment and sustainable growth opportunities.',
+  slogan: 'Empowering African Businesses Through Strategic Investment',
+  foundingLocation: 'Lagos, Nigeria',
   sameAs: [
     'https://twitter.com/ThriVestAfrica',
     'https://linkedin.com/company/thrivest-africa',
@@ -20,12 +41,26 @@ const jsonLd = {
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'NG',
-    addressRegion: 'Lagos'
+    addressRegion: 'Lagos',
+    addressLocality: 'Lagos'
   },
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
-    url: 'https://thrivestafrica.com/contact'
+    url: 'https://thrivestafrica.com/contact',
+    availableLanguage: 'English'
+  },
+  knowsAbout: [
+    'Venture Capital',
+    'Private Equity',
+    'Impact Investing',
+    'African Markets',
+    'Business Development',
+    'Sustainable Investment'
+  ],
+  areaServed: {
+    '@type': 'Place',
+    name: 'Africa'
   }
 }
 
@@ -36,6 +71,7 @@ export default function Home() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
+            <BrandSchema />
             {/* Navigation */}
             <Header />
 
