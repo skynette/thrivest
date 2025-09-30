@@ -135,7 +135,7 @@ const CareersPage = () => {
                                     Partnerships & Collaborations
                                 </h3>
                                 <p className="text-gray-700 leading-relaxed">
-                                    We actively engage with advisors, technical partners, accelerators, and sector collaborators who align with our mission. If you&apos;re interested in co-creating value and impact, we&apos;re open to hearing your ideas.
+                                    We actively engage with Investment committtee, technical partners, accelerators, and sector collaborators who align with our mission. If you&apos;re interested in co-creating value and impact, we&apos;re open to hearing your ideas.
                                 </p>
                             </div>
                         </div>

@@ -105,7 +105,7 @@ export const Header: React.FC = () => {
                                             href="#"
                                             className=" block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
-                                            Advisors
+                                            Investment committtee
                                         </a>
                                     </div>
                                 </div>
@@ -407,7 +407,7 @@ export const Header: React.FC = () => {
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
-                                            Advisors
+                                            Investment committtee
                                         </a>
                                     </div>
                                 )}
