@@ -102,10 +102,10 @@ export const Header: React.FC = () => {
                                             Our Team
                                         </a>
                                         <a
-                                            href="#"
+                                            href="/approach#investment-committee"
                                             className=" block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
                                         >
-                                            Investment committtee
+                                            Investment Committee
                                         </a>
                                     </div>
                                 </div>
@@ -403,11 +403,11 @@ export const Header: React.FC = () => {
                                             Our Team
                                         </a>
                                         <a
-                                            href="#"
+                                            href="/approach#investment-committee"
                                             className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
-                                            Investment committtee
+                                            Investment Committee
                                         </a>
                                     </div>
                                 )}
