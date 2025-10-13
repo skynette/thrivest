@@ -15,7 +15,8 @@
       "Bash(npm update:*)",
       "Bash(npm run dev:*)",
       "Bash(cp:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": []
   }
