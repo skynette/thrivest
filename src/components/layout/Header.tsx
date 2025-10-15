@@ -11,12 +11,17 @@ export const Header: React.FC = () => {
     const { user, isAuthenticated } = useAuth();
     const logoutMutation = useLogout();
 
+    const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
     const [isFundsDropdownOpen, setIsFundsDropdownOpen] = useState(false);
     const [isOpptDropdownOpen, setIsOpptDropdownOpen] = useState(false);
     const [isImpactDropdownOpen, setIsImpactDropdownOpen] = useState(false);
     const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+
+    const toggleAboutDropdown = () => {
+        setIsAboutDropdownOpen(!isAboutDropdownOpen);
+    };
 
     const toggleFundsDropdown = () => {
         setIsFundsDropdownOpen(!isFundsDropdownOpen);
@@ -66,12 +71,46 @@ export const Header: React.FC = () => {
                             HOME
                         </Link>
 
-                        <Link
-                            href="/about"
-                            className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200"
-                        >
-                            ABOUT US
-                        </Link>
+                        {/* About Dropdown */}
+                        <div className="relative">
+                            <button
+                                onClick={toggleAboutDropdown}
+                                onMouseEnter={() => setIsAboutDropdownOpen(true)}
+                                onMouseLeave={() => setIsAboutDropdownOpen(false)}
+                                className="font-navbar text-white hover:text-gray-300 px-4 py-2 text-sm transition-colors duration-200 flex items-center"
+                            >
+                                ABOUT US
+                                <ChevronDown className="ml-1 h-3 w-3" />
+                            </button>
+                            {isAboutDropdownOpen && (
+                                <div
+                                    className="absolute top-full left-0 mt-0 w-48 bg-[#5ba3d0] rounded-b-md shadow-lg z-10"
+                                    onMouseEnter={() => setIsAboutDropdownOpen(true)}
+                                    onMouseLeave={() => setIsAboutDropdownOpen(false)}
+                                >
+                                    <div className="py-1">
+                                        <a
+                                            href="/about/who-we-are"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Who We Are
+                                        </a>
+                                        <a
+                                            href="/about/our-team"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Our Team
+                                        </a>
+                                        <a
+                                            href="/about/advisors"
+                                            className="block px-4 py-2 text-sm text-white hover:bg-[#4a92bf]"
+                                        >
+                                            Advisors
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
 
                         <a
                             href="/approach"
@@ -338,13 +377,41 @@ export const Header: React.FC = () => {
                                 HOME
                             </Link>
 
-                            <Link
-                                href="/about"
-                                className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                ABOUT US
-                            </Link>
+                            {/* Mobile About Dropdown */}
+                            <div>
+                                <button
+                                    onClick={toggleAboutDropdown}
+                                    className="text-white hover:bg-[#2a4a6f] px-6 py-3 text-sm font-medium transition-colors duration-200 flex items-center justify-between w-full"
+                                >
+                                    ABOUT US
+                                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isAboutDropdownOpen ? 'rotate-180' : ''}`} />
+                                </button>
+                                {isAboutDropdownOpen && (
+                                    <div className="bg-[#2a4a6f]">
+                                        <a
+                                            href="/about/who-we-are"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Who We Are
+                                        </a>
+                                        <a
+                                            href="/about/our-team"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Our Team
+                                        </a>
+                                        <a
+                                            href="/about/advisors"
+                                            className="block px-10 py-3 text-sm text-white hover:bg-[#35567f]"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            Advisors
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
 
                             <a
                                 href="/approach"
