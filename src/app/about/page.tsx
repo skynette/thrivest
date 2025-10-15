@@ -159,26 +159,23 @@ export default function AboutPage() {
                     <div className="w-24 h-1 bg-blue-500 mb-12"></div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Mrs. Tai Adetokunbo OSHISANYA */}
+                        {/* Tai Adetokunbo OSHISANYA */}
                         <a href="/about/investment-committee/tai-oshisanya" className="group">
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                                 <div className="relative w-full h-64">
                                     <Image
                                         src="/images/Tai Oshisanya.jpg"
-                                        alt="Mrs. Tai Adetokunbo OSHISANYA"
+                                        alt="Tai Adetokunbo OSHISANYA"
                                         fill
                                         className="object-cover"
                                     />
                                 </div>
                                 <div className="p-6 text-center">
                                     <h3 className="text-xl font-bold text-[#1e3a5f] mb-2 group-hover:text-[#539FDA] transition-colors">
-                                        Mrs. Tai Adetokunbo OSHISANYA
+                                        Tai Adetokunbo OSHISANYA
                                     </h3>
                                     <p className="text-gray-600 text-sm mb-3">
                                         Fellow, Institute of Chartered Accountants of Nigeria (ICAN)
-                                    </p>
-                                    <p className="text-gray-700 text-sm line-clamp-3">
-                                        Former Executive Director, Finance & Control, and Chief Financial Officer of TotalEnergies EP Nigeria
                                     </p>
                                 </div>
                             </div>
@@ -201,9 +198,6 @@ export default function AboutPage() {
                                     </h3>
                                     <p className="text-gray-600 text-sm mb-3">
                                         MBA, FCA
-                                    </p>
-                                    <p className="text-gray-700 text-sm line-clamp-3">
-                                        Seasoned financial expert, policy strategist, and former Director at the Central Bank of Nigeria (CBN)
                                     </p>
                                 </div>
                             </div>

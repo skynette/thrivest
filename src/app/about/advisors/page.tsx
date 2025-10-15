@@ -46,20 +46,20 @@ const Page = () => {
                     <div className="w-24 h-1 bg-blue-500 mb-12"></div>
 
                     <div className="space-y-12">
-                        {/* Mrs. Tai Adetokunbo OSHISANYA */}
+                        {/* Tai Adetokunbo OSHISANYA */}
                         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                                 <div className="lg:col-span-1 p-6 flex flex-col items-center justify-start bg-gray-50">
                                     <div className="relative w-48 h-48 mb-4 rounded-full overflow-hidden">
                                         <Image
                                             src="/images/Tai Oshisanya.jpg"
-                                            alt="Mrs. Tai Adetokunbo OSHISANYA"
+                                            alt="Tai Adetokunbo OSHISANYA"
                                             fill
                                             className="object-cover"
                                         />
                                     </div>
                                     <h3 className="text-xl font-bold text-[#1e3a5f] text-center mb-2">
-                                        Mrs. Tai Adetokunbo OSHISANYA
+                                        Tai Adetokunbo OSHISANYA
                                     </h3>
                                     <p className="text-gray-600 text-center text-sm">
                                         Fellow, Institute of Chartered Accountants of Nigeria (ICAN)
