@@ -337,7 +337,7 @@ export const Header: React.FC = () => {
                                 )}
                             </div>
                         ) : (
-                            <Link href="/apply">
+                            <Link href="/login">
                                 <Button
                                     className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase"
                                     variant="default"
@@ -611,7 +611,7 @@ export const Header: React.FC = () => {
                                         </Button>
                                     </div>
                                 ) : (
-                                    <Link href="/apply">
+                                    <Link href="/login">
                                         <Button
                                             className="bg-[#00a8e8] hover:bg-[#0090c8] text-white px-8 py-2 rounded-full text-sm font-semibold transition-colors duration-200 uppercase w-full"
                                             variant="default"
