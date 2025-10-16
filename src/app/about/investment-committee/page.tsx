@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Metadata } from 'next'
+import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   robots: {
@@ -47,48 +48,62 @@ const Page = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* Tai Adetokunbo OSHISANYA */}
-                        <a href="/about/investment-committee/tai-oshisanya" className="group">
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                                <div className="relative w-full h-64">
+                        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <a href="/about/investment-committee/tai-oshisanya" className="block group/image">
+                                <div className="relative w-full h-64 bg-gray-100 cursor-pointer overflow-hidden">
                                     <Image
                                         src="/images/Tai Oshisanya.jpg"
                                         alt="Tai Adetokunbo OSHISANYA"
                                         fill
-                                        className="object-cover"
+                                        className="object-contain transition-transform duration-300 group-hover/image:scale-105"
                                     />
+                                    {/* Floating overlay */}
+                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <div className="flex items-center gap-2 text-white font-semibold">
+                                            <span>View Profile</span>
+                                            <ArrowRight className="w-5 h-5" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="p-6 text-center">
-                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-2 group-hover:text-[#539FDA] transition-colors">
-                                        Tai Adetokunbo OSHISANYA
-                                    </h3>
-                                    <p className="text-gray-600 text-sm mb-3">
-                                        Fellow, Institute of Chartered Accountants of Nigeria (ICAN)
-                                    </p>
-                                </div>
+                            </a>
+                            <div className="p-6 text-center">
+                                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">
+                                    Tai Adetokunbo OSHISANYA
+                                </h3>
+                                <p className="text-gray-600 text-sm mb-3">
+                                    Fellow, Institute of Chartered Accountants of Nigeria (ICAN)
+                                </p>
                             </div>
-                        </a>
+                        </div>
 
                         {/* James Fatimiro */}
-                        <a href="/about/investment-committee/james-fatimiro" className="group">
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                                <div className="relative w-full h-64">
+                        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <a href="/about/investment-committee/james-fatimiro" className="block group/image">
+                                <div className="relative w-full h-64 bg-gray-100 cursor-pointer overflow-hidden">
                                     <Image
                                         src="/images/James Fatimiro.jpg"
                                         alt="James Fatimiro"
                                         fill
-                                        className="object-cover"
+                                        className="object-contain transition-transform duration-300 group-hover/image:scale-105"
                                     />
+                                    {/* Floating overlay */}
+                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <div className="flex items-center gap-2 text-white font-semibold">
+                                            <span>View Profile</span>
+                                            <ArrowRight className="w-5 h-5" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="p-6 text-center">
-                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-2 group-hover:text-[#539FDA] transition-colors">
-                                        James Fatimiro
-                                    </h3>
-                                    <p className="text-gray-600 text-sm mb-3">
-                                        MBA, FCA
-                                    </p>
-                                </div>
+                            </a>
+                            <div className="p-6 text-center">
+                                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">
+                                    James Fatimiro
+                                </h3>
+                                <p className="text-gray-600 text-sm mb-3">
+                                    MBA, FCA
+                                </p>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </section>

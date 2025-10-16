@@ -84,9 +84,6 @@ const Page = () => {
                                 <p className="leading-relaxed">
                                     Since retirement, Tai sits as Independent Non-Executive Director on the Boards of FirstBank Guinea (a subsidiary of First Bank of Nigeria Plc), The CreditVille Group Ltd. (a fintech organisation), and Gloryland Trust International (an elderly recreational NGO). She serves on ICAN Committees in various capacities, and as an executive committee member of the ICAN Lagos & District Society, where she now serves as Assistant General Secretary, having served 2 years as Technical Secretary. She is a member of GAIA Africa and an Associate member of WIMBIZ, mentoring younger women, learning from their dynamism and thriving from a symbiotic relationship between smarter vs. more experience/exposure.
                                 </p>
-                                <p className="leading-relaxed">
-                                    She is married with children and grandchildren.
-                                </p>
                             </div>
                         </div>
                     </div>
