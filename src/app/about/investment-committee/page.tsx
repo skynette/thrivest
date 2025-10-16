@@ -47,19 +47,19 @@ const Page = () => {
                     <div className="w-24 h-1 bg-blue-500 mb-12"></div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Tai Adetokunbo OSHISANYA */}
+                        {/* Tai Adetokunbo Oshisanya */}
                         <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                             <a href="/about/investment-committee/tai-oshisanya" className="block group/image">
                                 <div className="relative w-full h-64 bg-gray-100 cursor-pointer overflow-hidden">
                                     <Image
                                         src="/images/Tai Oshisanya.jpg"
-                                        alt="Tai Adetokunbo OSHISANYA"
+                                        alt="Tai Adetokunbo Oshisanya"
                                         fill
                                         className="object-contain transition-transform duration-300 group-hover/image:scale-105"
                                     />
-                                    {/* Floating overlay */}
-                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                        <div className="flex items-center gap-2 text-white font-semibold">
+                                    {/* View Profile Link */}
+                                    <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center">
+                                        <div className="flex items-center gap-2 text-white font-semibold bg-black/70 px-4 py-2 rounded-full">
                                             <span>View Profile</span>
                                             <ArrowRight className="w-5 h-5" />
                                         </div>
@@ -67,12 +67,9 @@ const Page = () => {
                                 </div>
                             </a>
                             <div className="p-6 text-center">
-                                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">
-                                    Tai Adetokunbo OSHISANYA
+                                <h3 className="text-xl font-bold text-[#1e3a5f]">
+                                    Tai Adetokunbo Oshisanya
                                 </h3>
-                                <p className="text-gray-600 text-sm mb-3">
-                                    Fellow, Institute of Chartered Accountants of Nigeria (ICAN)
-                                </p>
                             </div>
                         </div>
 
@@ -86,9 +83,9 @@ const Page = () => {
                                         fill
                                         className="object-contain transition-transform duration-300 group-hover/image:scale-105"
                                     />
-                                    {/* Floating overlay */}
-                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                        <div className="flex items-center gap-2 text-white font-semibold">
+                                    {/* View Profile Link */}
+                                    <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center">
+                                        <div className="flex items-center gap-2 text-white font-semibold bg-black/70 px-4 py-2 rounded-full">
                                             <span>View Profile</span>
                                             <ArrowRight className="w-5 h-5" />
                                         </div>
@@ -96,12 +93,9 @@ const Page = () => {
                                 </div>
                             </a>
                             <div className="p-6 text-center">
-                                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">
+                                <h3 className="text-xl font-bold text-[#1e3a5f]">
                                     James Fatimiro
                                 </h3>
-                                <p className="text-gray-600 text-sm mb-3">
-                                    MBA, FCA
-                                </p>
                             </div>
                         </div>
                     </div>

@@ -41,7 +41,7 @@ const Page = () => {
                             Back to Committee
                         </Link>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                            Tai Adetokunbo OSHISANYA
+                            Tai Adetokunbo Oshisanya
                         </h1>
                     </div>
                 </div>
@@ -56,13 +56,13 @@ const Page = () => {
                                 <div className="relative w-48 h-48 mb-4 rounded-full overflow-hidden">
                                     <Image
                                         src="/images/Tai Oshisanya.jpg"
-                                        alt="Tai Adetokunbo OSHISANYA"
+                                        alt="Tai Adetokunbo Oshisanya"
                                         fill
                                         className="object-cover"
                                     />
                                 </div>
                                 <h3 className="text-xl font-bold text-[#1e3a5f] text-center mb-2">
-                                    Tai Adetokunbo OSHISANYA
+                                    Tai Adetokunbo Oshisanya
                                 </h3>
                                 <p className="text-gray-600 text-center text-sm">
                                     Fellow, Institute of Chartered Accountants of Nigeria (ICAN)
