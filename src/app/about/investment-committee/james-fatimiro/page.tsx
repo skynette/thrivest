@@ -34,14 +34,14 @@ const Page = () => {
                 <div className="relative z-10 h-full flex items-center">
                     <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
                         <Link
-                            href="/about"
+                            href="/about/investment-committee"
                             className="inline-flex items-center text-white hover:text-gray-200 mb-4 transition-colors"
                         >
                             <ChevronLeft className="w-5 h-5 mr-1" />
-                            Back to About Us
+                            Back to Committee
                         </Link>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                            Investment Committee
+                            James Fatimiro
                         </h1>
                     </div>
                 </div>
