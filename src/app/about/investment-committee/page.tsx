@@ -6,10 +6,10 @@ import { Metadata } from 'next'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: true,
-  },
+    robots: {
+        index: false,
+        follow: true,
+    },
 };
 
 const Page = () => {
@@ -42,41 +42,47 @@ const Page = () => {
             </section>
 
             {/* Investment Committee Section */}
-            <section className="py-16 md:py-24 bg-white">
+
+
+            <section className="relative py-16 md:py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12">
                     <div className="w-24 h-1 bg-blue-500 mb-12"></div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+                        <div className="absolute inset-0">
+                            <Image
+                                src="/images/about us/corevalues.jpg"
+                                alt="Core Values Background"
+                                fill
+                                className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-white/0"></div>
+                        </div>
                         {/* Tai Adetokunbo Oshisanya */}
-                        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <div className="rounded-4xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                             <a href="/about/investment-committee/tai-oshisanya" className="block group/image">
-                                <div className="relative w-full h-64 bg-gray-100 cursor-pointer overflow-hidden">
+                                <div className="relative w-full h-107 cursor-pointer overflow-hidden">
                                     <Image
                                         src="/images/Tai Oshisanya.jpg"
                                         alt="Tai Adetokunbo Oshisanya"
                                         fill
-                                        className="object-contain transition-transform duration-300 group-hover/image:scale-105"
-                                    />
+                                        className="object-contain transition-transform duration-300 group-hover/image:scale-105" />
                                     {/* View Profile Link */}
-                                    <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center">
-                                        <div className="flex items-center gap-2 text-white font-semibold bg-black/70 px-4 py-2 rounded-full">
+                                    <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center justify-center">
+                                        <h3 className="md:text-sm lg:text-xl text-xl font-bold text-white lg:text-white md:text-[#1e3a5f]">Tai Adetokunbo Oshisanya</h3>
+                                        <div className="lg:text-white md:text-[#1e3a5f] flex items-center gap-2 text-white text-xl md:text-sm lg:text-xl rounded-full">
                                             <span>View Profile</span>
                                             <ArrowRight className="w-5 h-5" />
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <div className="p-6 text-center">
-                                <h3 className="text-xl font-bold text-[#1e3a5f]">
-                                    Tai Adetokunbo Oshisanya
-                                </h3>
-                            </div>
                         </div>
 
                         {/* James Fatimiro */}
-                        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <div className="rounded-4xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                             <a href="/about/investment-committee/james-fatimiro" className="block group/image">
-                                <div className="relative w-full h-64 bg-gray-100 cursor-pointer overflow-hidden">
+                                <div className="relative w-full h-107 cursor-pointer overflow-hidden">
                                     <Image
                                         src="/images/James Fatimiro.jpg"
                                         alt="James Fatimiro"
@@ -84,19 +90,15 @@ const Page = () => {
                                         className="object-contain transition-transform duration-300 group-hover/image:scale-105"
                                     />
                                     {/* View Profile Link */}
-                                    <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center">
-                                        <div className="flex items-center gap-2 text-white font-semibold bg-black/70 px-4 py-2 rounded-full">
-                                            <span>View Profile</span>
+                                    <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center justify-center">
+                                        <h3 className="lg:text-xl md:text-sm text-xl font-bold text-white lg:text-white md:text-[#1e3a5f]">James Fatimiro</h3>
+                                        <div className="lg:text-white md:text-[#1e3a5f] flex items-center gap-2 text-white text-xl md:text-sm lg:text-xl rounded-full">
+                                            <span> View Profile</span>
                                             <ArrowRight className="w-5 h-5" />
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <div className="p-6 text-center">
-                                <h3 className="text-xl font-bold text-[#1e3a5f]">
-                                    James Fatimiro
-                                </h3>
-                            </div>
                         </div>
                     </div>
                 </div>

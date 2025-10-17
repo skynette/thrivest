@@ -46,7 +46,7 @@ const Page = () => {
                     <div className="w-24 h-1 bg-blue-500 mb-12"></div>
 
                     <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12">
-                        Our team is composed of experienced professionals dedicated to empowering women-led businesses across Africa.
+                        
                     </p>
 
                     {/* Team members will be added here */}

@@ -7,10 +7,10 @@ import { Metadata } from 'next'
 import { ChevronLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: true,
-  },
+    robots: {
+        index: false,
+        follow: true,
+    },
 };
 
 const Page = () => {
@@ -48,12 +48,21 @@ const Page = () => {
             </section>
 
             {/* Member Details Section */}
-            <section className="py-16 md:py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <div className="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+            <section className="relative py-16 md:py-24 bg-white">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/about us/corevalues.jpg"
+                        alt="Core Values Background"
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-white/0"></div>
+                </div>
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                             <div className="lg:col-span-1 p-6 flex flex-col items-center justify-start bg-gray-100">
-                                <div className="relative w-48 h-48 mb-4 rounded-full overflow-hidden">
+                                <div className="relative w-80 h-100 mb-4 rounded-3xl overflow-hidden">
                                     <Image
                                         src="/images/Tai Oshisanya.jpg"
                                         alt="Tai Adetokunbo Oshisanya"
@@ -64,9 +73,6 @@ const Page = () => {
                                 <h3 className="text-xl font-bold text-[#1e3a5f] text-center mb-2">
                                     Tai Adetokunbo Oshisanya
                                 </h3>
-                                <p className="text-gray-600 text-center text-sm">
-                                    Fellow, Institute of Chartered Accountants of Nigeria (ICAN)
-                                </p>
                             </div>
                             <div className="lg:col-span-2 p-6 space-y-4 text-gray-700">
                                 <p className="leading-relaxed">

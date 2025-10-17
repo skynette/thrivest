@@ -7,10 +7,10 @@ import { Metadata } from 'next'
 import { ChevronLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: true,
-  },
+    robots: {
+        index: false,
+        follow: true,
+    },
 };
 
 const Page = () => {
@@ -48,12 +48,21 @@ const Page = () => {
             </section>
 
             {/* Member Details Section */}
-            <section className="py-16 md:py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <div className="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+            <section className="relative py-16 md:py-24 bg-white">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/about us/corevalues.jpg"
+                        alt="Core Values Background"
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-white/0"></div>
+                </div>
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                             <div className="lg:col-span-1 p-6 flex flex-col items-center justify-start bg-gray-100">
-                                <div className="relative w-48 h-48 mb-4 rounded-full overflow-hidden">
+                                <div className="relative w-80 h-100 mb-4 rounded-3xl overflow-hidden">
                                     <Image
                                         src="/images/James Fatimiro.jpg"
                                         alt="James Fatimiro"
@@ -64,9 +73,6 @@ const Page = () => {
                                 <h3 className="text-xl font-bold text-[#1e3a5f] text-center mb-2">
                                     James Fatimiro
                                 </h3>
-                                <p className="text-gray-600 text-center text-sm">
-                                    MBA, FCA
-                                </p>
                             </div>
                             <div className="lg:col-span-2 p-6 space-y-4 text-gray-700">
                                 <p className="leading-relaxed">
@@ -76,10 +82,10 @@ const Page = () => {
                                     Renowned for his institutional leadership and integrity, James has made significant contributions to Nigeria&apos;s financial system stability, banking sector reforms, and regulatory capacity building. His core expertise spans investment strategy, financial inclusion, risk governance, corporate regulation, and macroeconomic management.
                                 </p>
                                 <p className="leading-relaxed">
-                                    He has been deeply involved in high-level policy formulation, inter-agency collaboration, and international financial cooperation—representing Nigeria at several global forums. His strategic insights have consistently enhanced operational efficiency, institutional resilience, and long-term sustainability in both public and private financial institutions.
+                                    He has been deeply involved in high-level policy formulation, inter-agency collaboration, and international financial cooperation representing Nigeria at several global forums. His strategic insights have consistently enhanced operational efficiency, institutional resilience, and long-term sustainability in both public and private financial institutions.
                                 </p>
                                 <p className="leading-relaxed">
-                                    James&apos; experience also extends to executive management roles in the manufacturing, transportation, and consultancy sectors, including at FCMGC.
+                                    James’ experience also extends to executive management roles in the manufacturing, transportation, and consultancy sectors, including at FCMGC.
                                 </p>
                                 <p className="leading-relaxed">
                                     He holds an Advanced Diploma in Accountancy from the Federal Polytechnic, Idah, and an MBA in Finance and Accounts from Ambrose Alli University. He also earned a Certificate in Microfinance from Ateneo de Manila University in the Philippines, and holds certifications as a Bank Examiner from the Federal Deposit Insurance Corporation (FDIC) in the USA, in Risk-Based Supervision from the Central Bank of Nigeria, and in Financial Policy Management also from the Central Bank of Nigeria.
