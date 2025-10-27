@@ -73,7 +73,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         localStorage.setItem('user', JSON.stringify(user));
       }
       setUser(user);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('AuthContext login error:', error);
       // Ensure we're throwing the error object with proper message
       throw error;

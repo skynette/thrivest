@@ -19,7 +19,11 @@
       "Bash(mkdir:*)",
       "Bash(curl:*)",
       "Bash(npx ts-node src/server.ts)",
-      "Bash(npx ts-node:*)"
+      "Bash(npx ts-node:*)",
+      "Bash(npm run db:generate:*)",
+      "Bash(npm run seed:admin:*)",
+      "Read(//mnt/c/Users/DELL/Desktop/work/**)",
+      "Bash(npx next lint:*)"
     ],
     "deny": []
   }

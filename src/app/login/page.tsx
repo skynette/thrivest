@@ -17,27 +17,43 @@ const LoginPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     setError('');
 
     try {
+      console.log('Attempting login...');
       await loginMutation.mutateAsync(formData);
+      console.log('Login successful, redirecting...');
       router.push('/dashboard');
-    } catch (err: any) {
+    } catch (err: unknown) {
       // Handle API error response - check if it's the raw error object from API
       let errorMessage = 'Login failed. Please try again.';
 
       console.error('Login error:', err);
 
+      // Type guard for error objects
+      const isErrorWithCode = (error: unknown): error is { code: string; message?: string } => {
+        return typeof error === 'object' && error !== null && 'code' in error;
+      };
+
+      const isErrorWithMessage = (error: unknown): error is { message: string; error?: string } => {
+        return typeof error === 'object' && error !== null && 'message' in error;
+      };
+
+      const isErrorWithErrorField = (error: unknown): error is { error: string } => {
+        return typeof error === 'object' && error !== null && 'error' in error;
+      };
+
       // Check for network errors first
-      if (err?.code === 'ERR_NETWORK' || err?.message?.includes('Network Error')) {
-        errorMessage = 'Cannot connect to server. Please make sure the backend is running.';
+      if (isErrorWithCode(err) && (err.code === 'ERR_NETWORK' || err.message?.includes('Network Error'))) {
+        errorMessage = 'Cannot connect to server. Please make sure the backend is running on port 5000.';
       }
       // If err is the direct API response object with an error field
-      else if (typeof err === 'object' && err?.error) {
+      else if (isErrorWithErrorField(err)) {
         errorMessage = err.error;
       }
       // If err is wrapped by React Query or has a message
-      else if (typeof err === 'object' && err?.message) {
+      else if (isErrorWithMessage(err)) {
         errorMessage = err.message;
       }
       // If err is a string
@@ -46,6 +62,7 @@ const LoginPage = () => {
       }
 
       setError(errorMessage);
+      console.error('Set error message:', errorMessage);
     }
   };
 
@@ -123,6 +140,13 @@ const LoginPage = () => {
             <button
               type="submit"
               disabled={loginMutation.isPending}
+              onClick={(e) => {
+                // Ensure form submission is handled properly
+                if (loginMutation.isPending) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                }
+              }}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#1e3a5f] hover:bg-[#2d5a8f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1e3a5f] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loginMutation.isPending ? 'Signing in...' : 'Sign in'}
