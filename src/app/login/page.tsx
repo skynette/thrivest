@@ -22,25 +22,29 @@ const LoginPage = () => {
     try {
       await loginMutation.mutateAsync(formData);
       router.push('/dashboard');
-    } catch (err) {
+    } catch (err: any) {
       // Handle API error response - check if it's the raw error object from API
       let errorMessage = 'Login failed. Please try again.';
-      
-      const error = err as { error?: string; message?: string } | string;
-      
+
+      console.error('Login error:', err);
+
+      // Check for network errors first
+      if (err?.code === 'ERR_NETWORK' || err?.message?.includes('Network Error')) {
+        errorMessage = 'Cannot connect to server. Please make sure the backend is running.';
+      }
       // If err is the direct API response object with an error field
-      if (typeof error === 'object' && error?.error) {
-        errorMessage = error.error;
-      } 
+      else if (typeof err === 'object' && err?.error) {
+        errorMessage = err.error;
+      }
       // If err is wrapped by React Query or has a message
-      else if (typeof error === 'object' && error?.message) {
-        errorMessage = error.message;
+      else if (typeof err === 'object' && err?.message) {
+        errorMessage = err.message;
       }
       // If err is a string
-      else if (typeof error === 'string') {
-        errorMessage = error;
+      else if (typeof err === 'string') {
+        errorMessage = err;
       }
-      
+
       setError(errorMessage);
     }
   };

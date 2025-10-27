@@ -67,13 +67,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const response = await authApi.login({ email, password });
       const { user, token } = response;
-      
+
       if (typeof window !== 'undefined') {
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
       }
       setUser(user);
-    } catch (error) {
+    } catch (error: any) {
+      console.error('AuthContext login error:', error);
       // Ensure we're throwing the error object with proper message
       throw error;
     }
